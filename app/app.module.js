@@ -14,8 +14,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 // features
-var project_summary_component_1 = require('./project-summary.component');
-var stakeholder_component_1 = require('./stakeholder.component');
+var projects_module_1 = require('./projects/projects.module');
+var stakeholder_module_1 = require('./stakeholder/stakeholder.module');
 var navbar_module_1 = require('./navbar/navbar.module');
 var AppModule = (function () {
     function AppModule() {
@@ -25,12 +25,12 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 navbar_module_1.NavbarModule,
-                app_routing_1.routing
+                app_routing_1.routing,
+                stakeholder_module_1.StakeholderModule,
+                projects_module_1.ProjectsModule
             ],
             declarations: [
-                app_component_1.AppComponent,
-                project_summary_component_1.ProjectSummaryComponent,
-                stakeholder_component_1.StakeholderManagementComponent
+                app_component_1.AppComponent
             ],
             providers: [
                 app_routing_1.appRoutingProviders

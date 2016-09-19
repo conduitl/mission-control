@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
 
 // features
-import { ProjectSummaryComponent } from './project-summary.component';
-import { StakeholderManagementComponent } from './stakeholder.component';
+import { ProjectsModule } from './projects/projects.module';
+import { StakeholderModule } from './stakeholder/stakeholder.module';
 
 import { NavbarModule } from './navbar/navbar.module';
 
@@ -15,12 +15,12 @@ import { NavbarModule } from './navbar/navbar.module';
     imports: [ 
         BrowserModule, 
         NavbarModule,
-        routing
+        routing,
+        StakeholderModule,
+        ProjectsModule
     ],
     declarations: [ 
-        AppComponent, 
-        ProjectSummaryComponent, 
-        StakeholderManagementComponent 
+        AppComponent
     ],
     providers: [
         appRoutingProviders

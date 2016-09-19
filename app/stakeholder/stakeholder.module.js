@@ -9,18 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Project Dashboard';
+var common_1 = require('@angular/common');
+var stakeholder_component_1 = require('./stakeholder.component');
+var stakeholder_routing_1 = require('./stakeholder.routing');
+var StakeholderModule = (function () {
+    function StakeholderModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n        <navbar></navbar>\n        <div class=\"container-fluid\">\n            <h1>{{title}}</h1>\n            <hr />\n            <router-outlet></router-outlet>\n        </div>\n    "
+    StakeholderModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                stakeholder_routing_1.stakeholderRouting
+            ],
+            declarations: [
+                stakeholder_component_1.StakeholderManagementComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], StakeholderModule);
+    return StakeholderModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.StakeholderModule = StakeholderModule;
+//# sourceMappingURL=stakeholder.module.js.map

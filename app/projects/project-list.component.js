@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ProjectSummaryComponent = (function () {
-    function ProjectSummaryComponent() {
+var ProjectListComponent = (function () {
+    function ProjectListComponent() {
     }
-    ProjectSummaryComponent = __decorate([
+    ProjectListComponent = __decorate([
         core_1.Component({
-            selector: 'project-summary',
-            template: '<h1>Project Summary</h1>'
+            selector: 'project-list',
+            template: '<h1>Projects</h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectSummaryComponent);
-    return ProjectSummaryComponent;
+    ], ProjectListComponent);
+    return ProjectListComponent;
 }());
-exports.ProjectSummaryComponent = ProjectSummaryComponent;
-//# sourceMappingURL=project-summary.component.js.map
+exports.ProjectListComponent = ProjectListComponent;
+//# sourceMappingURL=project-list.component.js.map

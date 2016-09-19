@@ -9,18 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Project Dashboard';
+var common_1 = require('@angular/common');
+var project_list_component_1 = require('./project-list.component');
+var projects_routing_1 = require('./projects.routing');
+var ProjectsModule = (function () {
+    function ProjectsModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n        <navbar></navbar>\n        <div class=\"container-fluid\">\n            <h1>{{title}}</h1>\n            <hr />\n            <router-outlet></router-outlet>\n        </div>\n    "
+    ProjectsModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                projects_routing_1.projectRouting
+            ],
+            declarations: [
+                project_list_component_1.ProjectListComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ProjectsModule);
+    return ProjectsModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ProjectsModule = ProjectsModule;
+//# sourceMappingURL=projects.module.js.map

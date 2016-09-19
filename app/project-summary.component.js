@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Project Dashboard';
+var ProjectSummaryComponent = (function () {
+    function ProjectSummaryComponent() {
     }
-    AppComponent = __decorate([
+    ProjectSummaryComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n        <navbar></navbar>\n        <h1>{{title}}</h1>\n        <project-summary></project-summary>\n        <stakeholder-management></stakeholder-management>\n    "
+            selector: 'project-summary',
+            template: '<h1>Project Summary</h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ProjectSummaryComponent);
+    return ProjectSummaryComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ProjectSummaryComponent = ProjectSummaryComponent;
+//# sourceMappingURL=project-summary.component.js.map

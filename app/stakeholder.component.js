@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Project Dashboard';
+var StakeholderManagementComponent = (function () {
+    function StakeholderManagementComponent() {
     }
-    AppComponent = __decorate([
+    StakeholderManagementComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n        <navbar></navbar>\n        <h1>{{title}}</h1>\n        <project-summary></project-summary>\n        <stakeholder-management></stakeholder-management>\n    "
+            selector: 'stakeholder-management',
+            template: '<h1>Stakeholder Management</h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], StakeholderManagementComponent);
+    return StakeholderManagementComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.StakeholderManagementComponent = StakeholderManagementComponent;
+//# sourceMappingURL=stakeholder.component.js.map

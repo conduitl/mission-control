@@ -15,7 +15,7 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         core_1.Component({
             selector: 'navbar',
-            template: "\n        <h2>Navbar goes here</h2>\n    "
+            templateUrl: 'app/navbar/navbar.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], NavbarComponent);

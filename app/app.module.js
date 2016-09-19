@@ -10,7 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+// root
 var app_component_1 = require('./app.component');
+var app_routing_1 = require('./app.routing');
+// features
 var project_summary_component_1 = require('./project-summary.component');
 var stakeholder_component_1 = require('./stakeholder.component');
 var navbar_module_1 = require('./navbar/navbar.module');
@@ -19,8 +22,19 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, navbar_module_1.NavbarModule],
-            declarations: [app_component_1.AppComponent, project_summary_component_1.ProjectSummaryComponent, stakeholder_component_1.StakeholderManagementComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                navbar_module_1.NavbarModule,
+                app_routing_1.routing
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                project_summary_component_1.ProjectSummaryComponent,
+                stakeholder_component_1.StakeholderManagementComponent
+            ],
+            providers: [
+                app_routing_1.appRoutingProviders
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var app_routing_1 = require('../app.routing');
 var navbar_component_1 = require('./navbar.component');
 var NavbarModule = (function () {
     function NavbarModule() {
@@ -17,7 +18,8 @@ var NavbarModule = (function () {
     NavbarModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule
+                common_1.CommonModule,
+                app_routing_1.routing
             ],
             declarations: [
                 navbar_component_1.NavbarComponent

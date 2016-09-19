@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
     template: `
         <navbar></navbar>
         <h1>{{title}}</h1>
-        <project-summary></project-summary>
-        <stakeholder-management></stakeholder-management>
+        <router-outlet></router-outlet>
     `
 })
 export class AppComponent {

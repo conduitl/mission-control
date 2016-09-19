@@ -20,6 +20,7 @@ Using Bootstrap 3. Sucked it up and installed jQuery so that I can use the Boots
 ##DevNotes
 
 ###Routing
+The `NavbarComponent` loads `app.routing.ts` from the `/app` root dir in order to gain access to `routerLink`. 
 
 How do I get the navbar module to handle root level navigation without making it the parent for everything else?
 

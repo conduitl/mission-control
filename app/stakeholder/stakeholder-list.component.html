@@ -1,10 +1,5 @@
 <h1>Stakeholders</h1>
-<div *ngIf="selectedPerson">
-<h2>{{selectedPerson.name}} details</h2>
-    <ul>
-        <li>Job: {{selectedPerson.job}}</li>
-    </ul>
-</div>
+<person-detail [person]="selectedPerson"></person-detail>
 <table class="table">
     <thead>
         <tr>

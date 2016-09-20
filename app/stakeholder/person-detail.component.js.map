@@ -1,0 +1,1 @@
+{"version":3,"file":"person-detail.component.js","sourceRoot":"","sources":["person-detail.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAiC,eAAe,CAAC,CAAA;AAEjD,uBAAuB,UAAU,CAAC,CAAA;AAMlC;IAAA;IAGC,CAAC;IAFE;QAAC,YAAK,EAAE;;yDAAA;IALZ;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,eAAe;YACzB,WAAW,EAAE,8CAA8C;SAC9D,CAAC;;6BAAA;IAID,4BAAC;AAAD,CAAC,AAHF,IAGE;AAHW,6BAAqB,wBAGhC,CAAA"}

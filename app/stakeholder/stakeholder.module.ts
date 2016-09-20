@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StakeholderListComponent } from './stakeholder-list.component';
+import { PersonDetailComponent } from './person-detail.component';
 
 import { stakeholderRouting } from './stakeholder.routing';
 
@@ -11,7 +12,8 @@ import { stakeholderRouting } from './stakeholder.routing';
         stakeholderRouting
     ],
     declarations: [
-        StakeholderListComponent
+        StakeholderListComponent,
+        PersonDetailComponent
     ]
 })
 export class StakeholderModule { }

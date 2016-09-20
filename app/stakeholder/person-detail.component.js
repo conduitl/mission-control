@@ -9,27 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var stakeholder_list_component_1 = require('./stakeholder-list.component');
-var person_detail_component_1 = require('./person-detail.component');
-var stakeholder_routing_1 = require('./stakeholder.routing');
-var StakeholderModule = (function () {
-    function StakeholderModule() {
+var person_1 = require('./person');
+var PersonDetailComponent = (function () {
+    function PersonDetailComponent() {
     }
-    StakeholderModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                stakeholder_routing_1.stakeholderRouting
-            ],
-            declarations: [
-                stakeholder_list_component_1.StakeholderListComponent,
-                person_detail_component_1.PersonDetailComponent
-            ]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', person_1.Person)
+    ], PersonDetailComponent.prototype, "person", void 0);
+    PersonDetailComponent = __decorate([
+        core_1.Component({
+            selector: 'person-detail',
+            templateUrl: 'app/stakeholder/person-detail.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], StakeholderModule);
-    return StakeholderModule;
+    ], PersonDetailComponent);
+    return PersonDetailComponent;
 }());
-exports.StakeholderModule = StakeholderModule;
-//# sourceMappingURL=stakeholder.module.js.map
+exports.PersonDetailComponent = PersonDetailComponent;
+//# sourceMappingURL=person-detail.component.js.map

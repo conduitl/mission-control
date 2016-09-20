@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectCenterComponent } from './project-center.component';
 import { ProjectListComponent } from './project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard.component';
+import { SummaryComponent } from './summary.component';
 
 const projectRoutes: Routes = [
     { 
@@ -13,7 +14,17 @@ const projectRoutes: Routes = [
         children: [
             {
                 path: '',
-                component: ProjectListComponent
+                component: ProjectListComponent,
+                children: [
+                    {
+                        path: ':id',
+                        component: ProjectDashboardComponent
+                    },
+                    {
+                        path: '',
+                        component: SummaryComponent
+                    }
+                ]
             }
         ]
     }

@@ -2,6 +2,8 @@
 var router_1 = require('@angular/router');
 var project_center_component_1 = require('./project-center.component');
 var project_list_component_1 = require('./project-list.component');
+var project_dashboard_component_1 = require('./project-dashboard.component');
+var summary_component_1 = require('./summary.component');
 var projectRoutes = [
     {
         path: 'projects',
@@ -9,7 +11,17 @@ var projectRoutes = [
         children: [
             {
                 path: '',
-                component: project_list_component_1.ProjectListComponent
+                component: project_list_component_1.ProjectListComponent,
+                children: [
+                    {
+                        path: ':id',
+                        component: project_dashboard_component_1.ProjectDashboardComponent
+                    },
+                    {
+                        path: '',
+                        component: summary_component_1.SummaryComponent
+                    }
+                ]
             }
         ]
     }

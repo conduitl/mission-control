@@ -9,15 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var project_service_1 = require('./project.service');
 var ProjectListComponent = (function () {
-    function ProjectListComponent() {
+    function ProjectListComponent(projectService) {
+        this.projectService = projectService;
     }
+    ProjectListComponent.prototype.ngOnInit = function () {
+        this.getProjects();
+    };
+    ProjectListComponent.prototype.getProjects = function () {
+        var _this = this;
+        this.projectService.getProjects()
+            .then(function (projects) {
+            _this.projects = projects;
+        });
+    };
     ProjectListComponent = __decorate([
         core_1.Component({
             selector: 'project-list',
-            template: "\n        <h1>Projects</h1>\n    "
+            template: "\n        <h2>Projects Overview</h2>\n        <p>Summary of projects here</p>\n        <router-outlet></router-outlet>\n        <h3>LIST OF PROJECTS</h3>\n        <p>Table listing all the projects</p>\n        <table class=\"table\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Date</th>\n                    <th>Astronauts</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let project of projects\">\n                    <td>{{project.name}}</td>\n                    <td>{{project.mission_date}}</td>\n                    <td>{{project.personnel[0]}}</td>\n                    <td>\n                    \n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [project_service_1.ProjectService])
     ], ProjectListComponent);
     return ProjectListComponent;
 }());

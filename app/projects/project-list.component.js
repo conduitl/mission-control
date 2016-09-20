@@ -15,7 +15,7 @@ var ProjectListComponent = (function () {
     ProjectListComponent = __decorate([
         core_1.Component({
             selector: 'project-list',
-            template: '<h1>Projects</h1>'
+            template: "\n        <h1>Projects</h1>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectListComponent);

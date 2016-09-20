@@ -9,27 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var project_dashboard_component_1 = require('./project-dashboard.component');
-var project_list_component_1 = require('./project-list.component');
-var projects_routing_1 = require('./projects.routing');
-var ProjectsModule = (function () {
-    function ProjectsModule() {
+var ProjectDashboardComponent = (function () {
+    function ProjectDashboardComponent() {
     }
-    ProjectsModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                projects_routing_1.projectRouting
-            ],
-            declarations: [
-                project_dashboard_component_1.ProjectDashboardComponent,
-                project_list_component_1.ProjectListComponent
-            ]
+    ProjectDashboardComponent = __decorate([
+        core_1.Component({
+            selector: 'project-dashboard',
+            template: "\n        <h1>Project Dashboard</h1>\n        <router-outlet></router-outlet>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectsModule);
-    return ProjectsModule;
+    ], ProjectDashboardComponent);
+    return ProjectDashboardComponent;
 }());
-exports.ProjectsModule = ProjectsModule;
-//# sourceMappingURL=projects.module.js.map
+exports.ProjectDashboardComponent = ProjectDashboardComponent;
+//# sourceMappingURL=project-dashboard.component.js.map

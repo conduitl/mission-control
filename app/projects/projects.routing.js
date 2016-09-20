@@ -1,8 +1,8 @@
 "use strict";
 var router_1 = require('@angular/router');
-var project_dashboard_component_1 = require('./project-dashboard.component');
+var project_center_component_1 = require('./project-center.component');
 var projectRoutes = [
-    { path: 'projects', component: project_dashboard_component_1.ProjectDashboardComponent }
+    { path: 'projects', component: project_center_component_1.ProjectCenterComponent }
 ];
 exports.projectRouting = router_1.RouterModule.forChild(projectRoutes);
 //# sourceMappingURL=projects.routing.js.map

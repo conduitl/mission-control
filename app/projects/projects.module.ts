@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProjectDashboardComponent } from './project-dashboard.component';
+import { ProjectCenterComponent } from './project-center.component';
 import { ProjectListComponent } from './project-list.component';
+import { ProjectDashboardComponent } from './project-dashboard.component';
+
 import { projectRouting } from './projects.routing';
 
 @NgModule({
@@ -11,8 +13,9 @@ import { projectRouting } from './projects.routing';
         projectRouting 
     ],
     declarations: [
+        ProjectCenterComponent,
+        ProjectListComponent,
         ProjectDashboardComponent,
-        ProjectListComponent
     ]
 })
 export class ProjectsModule { }

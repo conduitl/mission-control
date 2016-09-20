@@ -10,8 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var project_dashboard_component_1 = require('./project-dashboard.component');
+var project_center_component_1 = require('./project-center.component');
 var project_list_component_1 = require('./project-list.component');
+var project_dashboard_component_1 = require('./project-dashboard.component');
 var projects_routing_1 = require('./projects.routing');
 var ProjectsModule = (function () {
     function ProjectsModule() {
@@ -23,8 +24,9 @@ var ProjectsModule = (function () {
                 projects_routing_1.projectRouting
             ],
             declarations: [
+                project_center_component_1.ProjectCenterComponent,
+                project_list_component_1.ProjectListComponent,
                 project_dashboard_component_1.ProjectDashboardComponent,
-                project_list_component_1.ProjectListComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

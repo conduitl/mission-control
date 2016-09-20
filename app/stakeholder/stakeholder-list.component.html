@@ -1,1 +1,25 @@
 <h1>Stakeholders</h1>
+<div *ngIf="selectedPerson">
+<h2>{{selectedPerson.name}} details</h2>
+    <ul>
+        <li>Job: {{selectedPerson.job}}</li>
+    </ul>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Job</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of personnel" [class.selected]="person === selectedPerson">
+            <td>{{person.name}}</td>
+            <td>{{person.job}}</td>
+            <td>
+                <button class="btn btn-default" (click)="onViewDetails(person)">view details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

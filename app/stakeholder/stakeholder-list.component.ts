@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-export class Personnel {
+export class Person {
     name: string;
     job: string;
 }
 
-const personnel: Personnel[] = [
+const PERSONNEL: Person[] = [
     { name: 'Alan B. Shepard, Jr.', job: 'astronaut' },
     { name: 'Virgil I. Grissom', job: 'astronaut' },
     { name: 'John H. Glenn, Jr.', job: 'astronaut' },
@@ -23,6 +23,19 @@ const personnel: Personnel[] = [
 
 @Component({
     selector: 'stakeholder-list',
-    templateUrl: 'app/stakeholder/stakeholder-list.component.html'
+    templateUrl: 'app/stakeholder/stakeholder-list.component.html',
+    styles: [`
+        .selected {
+            background-color: #CFD8DC !important;
+            color: white;
+        }
+    `]
 })
-export class StakeholderListComponent { }
+export class StakeholderListComponent {
+    personnel = PERSONNEL;
+    selectedPerson: Person;
+
+    onViewDetails(person: Person): void {
+        this.selectedPerson = person;
+    }
+ }

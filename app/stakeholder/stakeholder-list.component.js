@@ -9,13 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Personnel = (function () {
-    function Personnel() {
+var Person = (function () {
+    function Person() {
     }
-    return Personnel;
+    return Person;
 }());
-exports.Personnel = Personnel;
-var personnel = [
+exports.Person = Person;
+var PERSONNEL = [
     { name: 'Alan B. Shepard, Jr.', job: 'astronaut' },
     { name: 'Virgil I. Grissom', job: 'astronaut' },
     { name: 'John H. Glenn, Jr.', job: 'astronaut' },
@@ -32,11 +32,16 @@ var personnel = [
 ];
 var StakeholderListComponent = (function () {
     function StakeholderListComponent() {
+        this.personnel = PERSONNEL;
     }
+    StakeholderListComponent.prototype.onViewDetails = function (person) {
+        this.selectedPerson = person;
+    };
     StakeholderListComponent = __decorate([
         core_1.Component({
             selector: 'stakeholder-list',
-            templateUrl: 'app/stakeholder/stakeholder-list.component.html'
+            templateUrl: 'app/stakeholder/stakeholder-list.component.html',
+            styles: ["\n        .selected {\n            background-color: #CFD8DC !important;\n            color: white;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], StakeholderListComponent);

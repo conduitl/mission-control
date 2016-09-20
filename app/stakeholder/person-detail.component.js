@@ -9,20 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var person_1 = require('./person');
+var router_1 = require('@angular/router');
+var personnel_service_1 = require('./personnel.service');
 var PersonDetailComponent = (function () {
-    function PersonDetailComponent() {
+    function PersonDetailComponent(personnelService, route) {
+        this.personnelService = personnelService;
+        this.route = route;
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', person_1.Person)
-    ], PersonDetailComponent.prototype, "person", void 0);
+    PersonDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            var id = +params['id'];
+            _this.personnelService.getPerson(id)
+                .then(function (person) { return _this.person = person; });
+        });
+    };
+    PersonDetailComponent.prototype.goBack = function () {
+        window.history.back();
+    };
     PersonDetailComponent = __decorate([
         core_1.Component({
             selector: 'person-detail',
             templateUrl: 'app/stakeholder/person-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [personnel_service_1.PersonnelService, router_1.ActivatedRoute])
     ], PersonDetailComponent);
     return PersonDetailComponent;
 }());

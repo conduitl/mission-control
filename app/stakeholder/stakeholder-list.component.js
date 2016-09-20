@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var personnel_service_1 = require('./personnel.service');
 var StakeholderListComponent = (function () {
-    function StakeholderListComponent(personnelService) {
+    function StakeholderListComponent(router, personnelService) {
+        this.router = router;
         this.personnelService = personnelService;
         //constructor
     }
@@ -22,17 +24,20 @@ var StakeholderListComponent = (function () {
         var _this = this;
         this.personnelService.getPersonnel().then(function (personnel) { return _this.personnel = personnel; });
     };
-    StakeholderListComponent.prototype.onViewDetails = function (person) {
+    StakeholderListComponent.prototype.onSelect = function (person) {
         this.selectedPerson = person;
+    };
+    StakeholderListComponent.prototype.gotoDetail = function (person) {
+        var link = ['/person', person.id];
+        this.router.navigate(link);
     };
     StakeholderListComponent = __decorate([
         core_1.Component({
             selector: 'stakeholder-list',
             templateUrl: 'app/stakeholder/stakeholder-list.component.html',
-            styles: ["\n        .selected {\n            background-color: #CFD8DC !important;\n            color: white;\n        }\n    "],
-            providers: [personnel_service_1.PersonnelService]
+            styles: ["\n        .selected {\n            background-color: #CFD8DC;\n            color: white;\n        }\n        tr.row-selectable {\n            cursor: pointer;\n        }\n        tr.row-selectable td span {\n            cursor: auto;\n        }\n\n    "]
         }), 
-        __metadata('design:paramtypes', [personnel_service_1.PersonnelService])
+        __metadata('design:paramtypes', [router_1.Router, personnel_service_1.PersonnelService])
     ], StakeholderListComponent);
     return StakeholderListComponent;
 }());

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var stakeholder_list_component_1 = require('./stakeholder-list.component');
 var person_detail_component_1 = require('./person-detail.component');
+var personnel_service_1 = require('./personnel.service');
 var stakeholder_routing_1 = require('./stakeholder.routing');
 var StakeholderModule = (function () {
     function StakeholderModule() {
@@ -25,6 +26,9 @@ var StakeholderModule = (function () {
             declarations: [
                 stakeholder_list_component_1.StakeholderListComponent,
                 person_detail_component_1.PersonDetailComponent
+            ],
+            providers: [
+                personnel_service_1.PersonnelService
             ]
         }), 
         __metadata('design:paramtypes', [])

@@ -1,5 +1,11 @@
 <h1>Stakeholders</h1>
-<person-detail [person]="selectedPerson"></person-detail>
+<div *ngIf="selectedPerson">
+    <h2>{{selectedPerson.name}}</h2>
+    <ul>
+        <li>Job: {{selectedPerson.job}}</li>
+    </ul>
+    <button (click)="gotoDetail(selectedPerson)">view details</button>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -9,11 +15,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let person of personnel" [class.selected]="person === selectedPerson">
-            <td>{{person.name}}</td>
-            <td>{{person.job}}</td>
+        <tr *ngFor="let person of personnel"
+            class="row-selectable" 
+            [class.selected]="person === selectedPerson"
+            (click)="onSelect(person)">
+            <td><span>{{person.name}}</span></td>
+            <td><span>{{person.job}}</span></td>
             <td>
-                <button class="btn btn-default" (click)="onViewDetails(person)">view details</button>
+                <button class="btn btn-default" (click)="gotoDetail(person)">view details</button>
             </td>
         </tr>
     </tbody>

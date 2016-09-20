@@ -16,6 +16,8 @@ var app_routing_1 = require('./app.routing');
 // features
 var projects_module_1 = require('./projects/projects.module');
 var stakeholder_module_1 = require('./stakeholder/stakeholder.module');
+var admin_module_1 = require('./admin/admin.module');
+var assets_module_1 = require('./assets/assets.module');
 var navbar_module_1 = require('./navbar/navbar.module');
 var AppModule = (function () {
     function AppModule() {
@@ -27,7 +29,9 @@ var AppModule = (function () {
                 navbar_module_1.NavbarModule,
                 app_routing_1.routing,
                 stakeholder_module_1.StakeholderModule,
-                projects_module_1.ProjectsModule
+                projects_module_1.ProjectsModule,
+                assets_module_1.AssetsModule,
+                admin_module_1.AdminModule
             ],
             declarations: [
                 app_component_1.AppComponent

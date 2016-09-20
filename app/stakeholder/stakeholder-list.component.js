@@ -9,25 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PERSONNEL = [
-    { name: 'Alan B. Shepard, Jr.', job: 'astronaut' },
-    { name: 'Virgil I. Grissom', job: 'astronaut' },
-    { name: 'John H. Glenn, Jr.', job: 'astronaut' },
-    { name: 'M. Scott Carpenter', job: 'astronaut' },
-    { name: 'Walter M. Schirra, Jr.', job: 'astronaut' },
-    { name: 'L. Gordon Cooper, Jr.', job: 'astronaut' },
-    { name: 'Walter M. Schirra, Jr.', job: 'astronaut' },
-    { name: 'Neil A. Armstrong', job: 'astronaut' },
-    { name: 'Frank Borman', job: 'astronaut' },
-    { name: 'Charles "Pete" Conrad', job: 'astronaut' },
-    { name: 'James A. Lovell', job: 'astronaut' },
-    { name: 'James A. McDivitt', job: 'astronaut' },
-    { name: 'Thomas P. Stafford', job: 'astronaut' }
-];
+var personnel_service_1 = require('./personnel.service');
 var StakeholderListComponent = (function () {
-    function StakeholderListComponent() {
-        this.personnel = PERSONNEL;
+    function StakeholderListComponent(personnelService) {
+        this.personnelService = personnelService;
+        //constructor
     }
+    StakeholderListComponent.prototype.ngOnInit = function () {
+        this.getPersonnel();
+    };
+    StakeholderListComponent.prototype.getPersonnel = function () {
+        this.personnel = this.personnelService.getPersonnel();
+    };
     StakeholderListComponent.prototype.onViewDetails = function (person) {
         this.selectedPerson = person;
     };
@@ -35,9 +28,10 @@ var StakeholderListComponent = (function () {
         core_1.Component({
             selector: 'stakeholder-list',
             templateUrl: 'app/stakeholder/stakeholder-list.component.html',
-            styles: ["\n        .selected {\n            background-color: #CFD8DC !important;\n            color: white;\n        }\n    "]
+            styles: ["\n        .selected {\n            background-color: #CFD8DC !important;\n            color: white;\n        }\n    "],
+            providers: [personnel_service_1.PersonnelService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [personnel_service_1.PersonnelService])
     ], StakeholderListComponent);
     return StakeholderListComponent;
 }());

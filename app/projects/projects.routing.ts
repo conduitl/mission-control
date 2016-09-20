@@ -7,7 +7,16 @@ import { ProjectListComponent } from './project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard.component';
 
 const projectRoutes: Routes = [
-    { path: 'projects', component: ProjectCenterComponent }
+    { 
+        path: 'projects', 
+        component: ProjectCenterComponent,
+        children: [
+            {
+                path: '',
+                component: ProjectListComponent
+            }
+        ]
+    }
 ];
 
 export const projectRouting: ModuleWithProviders = RouterModule.forChild(projectRoutes);

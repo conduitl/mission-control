@@ -15,7 +15,7 @@ var ProjectDashboardComponent = (function () {
     ProjectDashboardComponent = __decorate([
         core_1.Component({
             selector: 'project-dashboard',
-            template: "\n        <h1>Project Dashboard</h1>\n        <router-outlet></router-outlet>\n    "
+            template: "\n        <h1>Project Dashboard</h1>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectDashboardComponent);

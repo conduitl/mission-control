@@ -1,9 +1,11 @@
 "use strict";
 var router_1 = require('@angular/router');
+//Feature root
 var project_center_component_1 = require('./project-center.component');
 var project_list_component_1 = require('./project-list.component');
-var project_dashboard_component_1 = require('./project-dashboard.component');
+//Project List children
 var summary_component_1 = require('./summary.component');
+var project_detail_component_1 = require('./project-detail.component');
 var projectRoutes = [
     {
         path: 'projects',
@@ -15,7 +17,7 @@ var projectRoutes = [
                 children: [
                     {
                         path: ':id',
-                        component: project_dashboard_component_1.ProjectDashboardComponent
+                        component: project_detail_component_1.ProjectDetailComponent
                     },
                     {
                         path: '',

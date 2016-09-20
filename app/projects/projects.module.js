@@ -14,6 +14,7 @@ var project_center_component_1 = require('./project-center.component');
 var project_list_component_1 = require('./project-list.component');
 var project_dashboard_component_1 = require('./project-dashboard.component');
 var summary_component_1 = require('./summary.component');
+var project_detail_component_1 = require('./project-detail.component');
 var project_service_1 = require('./project.service');
 var projects_routing_1 = require('./projects.routing');
 var ProjectsModule = (function () {
@@ -29,7 +30,8 @@ var ProjectsModule = (function () {
                 project_center_component_1.ProjectCenterComponent,
                 project_list_component_1.ProjectListComponent,
                 project_dashboard_component_1.ProjectDashboardComponent,
-                summary_component_1.SummaryComponent
+                summary_component_1.SummaryComponent,
+                project_detail_component_1.ProjectDetailComponent
             ],
             providers: [
                 project_service_1.ProjectService

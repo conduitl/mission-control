@@ -1,11 +1,16 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
+//Feature root
 import { ProjectCenterComponent } from './project-center.component';
-import { ProjectListComponent } from './project-list.component';
+
+//Project Center children
 import { ProjectDashboardComponent } from './project-dashboard.component';
+import { ProjectListComponent } from './project-list.component';
+
+//Project List children
 import { SummaryComponent } from './summary.component';
+import { ProjectDetailComponent } from './project-detail.component';
 
 const projectRoutes: Routes = [
     { 
@@ -18,7 +23,7 @@ const projectRoutes: Routes = [
                 children: [
                     {
                         path: ':id',
-                        component: ProjectDashboardComponent
+                        component: ProjectDetailComponent
                     },
                     {
                         path: '',

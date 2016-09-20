@@ -5,6 +5,7 @@ import { ProjectCenterComponent } from './project-center.component';
 import { ProjectListComponent } from './project-list.component';
 import { ProjectDashboardComponent } from './project-dashboard.component';
 import { SummaryComponent } from './summary.component';
+import { ProjectDetailComponent } from './project-detail.component';
 
 import { ProjectService } from './project.service';
 
@@ -19,7 +20,8 @@ import { projectRouting } from './projects.routing';
         ProjectCenterComponent,
         ProjectListComponent,
         ProjectDashboardComponent,
-        SummaryComponent
+        SummaryComponent,
+        ProjectDetailComponent
     ],
     providers: [
         ProjectService

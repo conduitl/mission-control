@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var stakeholder_component_1 = require('./stakeholder.component');
+var stakeholder_list_component_1 = require('./stakeholder-list.component');
 var stakeholder_routing_1 = require('./stakeholder.routing');
 var StakeholderModule = (function () {
     function StakeholderModule() {
@@ -22,7 +22,7 @@ var StakeholderModule = (function () {
                 stakeholder_routing_1.stakeholderRouting
             ],
             declarations: [
-                stakeholder_component_1.StakeholderManagementComponent
+                stakeholder_list_component_1.StakeholderListComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

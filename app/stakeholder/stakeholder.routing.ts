@@ -1,10 +1,10 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StakeholderManagementComponent } from './stakeholder.component';
+import { StakeholderListComponent } from './stakeholder-list.component';
 
 const stakeholderRoutes: Routes = [
-    { path: 'stakeholders', component: StakeholderManagementComponent }
+    { path: 'stakeholders', component: StakeholderListComponent }
 ];
 
 export const stakeholderRouting: ModuleWithProviders = RouterModule.forChild(stakeholderRoutes);

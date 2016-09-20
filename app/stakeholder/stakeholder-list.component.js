@@ -12,20 +12,42 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var personnel_service_1 = require('./personnel.service');
 var StakeholderListComponent = (function () {
-    function StakeholderListComponent(router, personnelService) {
+    function StakeholderListComponent(route, router, personnelService) {
+        this.route = route;
         this.router = router;
         this.personnelService = personnelService;
         //constructor
     }
     StakeholderListComponent.prototype.ngOnInit = function () {
-        this.getPersonnel();
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            _this.selectedId = +params['id'];
+            _this.getPersonnel();
+        });
     };
     StakeholderListComponent.prototype.getPersonnel = function () {
         var _this = this;
-        this.personnelService.getPersonnel().then(function (personnel) { return _this.personnel = personnel; });
+        this.personnelService.getPersonnel()
+            .then(function (personnel) {
+            _this.personnel = personnel;
+            if (_this.selectedId) {
+                var id = _this.selectedId;
+                _this.selectPerson(id);
+            }
+        });
     };
     StakeholderListComponent.prototype.onSelect = function (person) {
-        this.selectedPerson = person;
+        var id = person.id;
+        this.selectedId = id;
+        this.selectPerson(id);
+    };
+    StakeholderListComponent.prototype.isSelected = function (person) {
+        return person.id === this.selectedId;
+    };
+    StakeholderListComponent.prototype.selectPerson = function (id) {
+        this.selectedPerson = this.personnel.find(function (person) {
+            return person.id === id;
+        });
     };
     StakeholderListComponent.prototype.gotoDetail = function (person) {
         var link = ['/person', person.id];
@@ -37,7 +59,7 @@ var StakeholderListComponent = (function () {
             templateUrl: 'app/stakeholder/stakeholder-list.component.html',
             styles: ["\n        .selected {\n            background-color: #CFD8DC;\n            color: white;\n        }\n        tr.row-selectable {\n            cursor: pointer;\n        }\n        tr.row-selectable td span {\n            cursor: auto;\n        }\n\n    "]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, personnel_service_1.PersonnelService])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, personnel_service_1.PersonnelService])
     ], StakeholderListComponent);
     return StakeholderListComponent;
 }());

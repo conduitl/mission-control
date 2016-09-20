@@ -17,7 +17,7 @@
     <tbody>
         <tr *ngFor="let person of personnel"
             class="row-selectable" 
-            [class.selected]="person === selectedPerson"
+            [class.selected]="isSelected(person)"
             (click)="onSelect(person)">
             <td><span>{{person.name}}</span></td>
             <td><span>{{person.job}}</span></td>

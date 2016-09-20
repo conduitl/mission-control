@@ -12,9 +12,10 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var personnel_service_1 = require('./personnel.service');
 var PersonDetailComponent = (function () {
-    function PersonDetailComponent(personnelService, route) {
-        this.personnelService = personnelService;
+    function PersonDetailComponent(route, router, personnelService) {
         this.route = route;
+        this.router = router;
+        this.personnelService = personnelService;
     }
     PersonDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -24,15 +25,16 @@ var PersonDetailComponent = (function () {
                 .then(function (person) { return _this.person = person; });
         });
     };
-    PersonDetailComponent.prototype.goBack = function () {
-        window.history.back();
+    PersonDetailComponent.prototype.gotoStakeholders = function () {
+        var personId = this.person ? this.person.id : null;
+        this.router.navigate(['/stakeholders', { id: personId }]);
     };
     PersonDetailComponent = __decorate([
         core_1.Component({
             selector: 'person-detail',
             templateUrl: 'app/stakeholder/person-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [personnel_service_1.PersonnelService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, personnel_service_1.PersonnelService])
     ], PersonDetailComponent);
     return PersonDetailComponent;
 }());

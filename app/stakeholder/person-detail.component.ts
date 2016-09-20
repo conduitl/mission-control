@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { PersonnelService } from './personnel.service';
 
@@ -13,8 +13,9 @@ export class PersonDetailComponent implements OnInit {
     person: Person;
 
     constructor(
-        private personnelService: PersonnelService,
-        private route: ActivatedRoute ) { }
+        private route: ActivatedRoute,
+        private router: Router,
+        private personnelService: PersonnelService) { }
 
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
@@ -23,7 +24,8 @@ export class PersonDetailComponent implements OnInit {
                 .then( (person) => this.person = person);
         });
     }
-    goBack(): void {
-        window.history.back();
+    gotoStakeholders(): void {
+        let personId = this.person ? this.person.id : null;
+        this.router.navigate(['/stakeholders', { id: personId }]);
     }
  }

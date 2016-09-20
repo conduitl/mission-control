@@ -25,7 +25,7 @@ export class StakeholderListComponent implements OnInit {
         this.getPersonnel();
     }
     getPersonnel(): void { 
-        this.personnel = this.personnelService.getPersonnel(); 
+        this.personnelService.getPersonnel().then( (personnel) => this.personnel = personnel); 
     }
     onViewDetails(person: Person): void {
         this.selectedPerson = person;

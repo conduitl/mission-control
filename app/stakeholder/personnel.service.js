@@ -14,7 +14,7 @@ var PersonnelService = (function () {
     function PersonnelService() {
     }
     PersonnelService.prototype.getPersonnel = function () {
-        return mock_personnel_1.PERSONNEL;
+        return Promise.resolve(mock_personnel_1.PERSONNEL);
     };
     PersonnelService = __decorate([
         core_1.Injectable(), 

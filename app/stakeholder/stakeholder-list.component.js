@@ -19,7 +19,8 @@ var StakeholderListComponent = (function () {
         this.getPersonnel();
     };
     StakeholderListComponent.prototype.getPersonnel = function () {
-        this.personnel = this.personnelService.getPersonnel();
+        var _this = this;
+        this.personnelService.getPersonnel().then(function (personnel) { return _this.personnel = personnel; });
     };
     StakeholderListComponent.prototype.onViewDetails = function (person) {
         this.selectedPerson = person;

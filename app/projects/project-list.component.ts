@@ -17,6 +17,7 @@ import { ProjectService } from './project.service';
                     <th>Name</th>
                     <th>Date</th>
                     <th>Astronauts</th>
+                    <th>...</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +26,7 @@ import { ProjectService } from './project.service';
                     <td>{{project.mission_date}}</td>
                     <td>{{project.personnel[0]}}</td>
                     <td>
-                    
+                        <button class="btn btn-default">view details</button>
                     </td>
                 </tr>
             </tbody>

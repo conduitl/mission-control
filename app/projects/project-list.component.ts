@@ -43,6 +43,9 @@ import { ProjectService } from './project.service';
     `]
 })
 export class ProjectListComponent implements OnInit { 
+    // Issues
+    // #initSelection
+    // * when ':id' route param navigated to via url, corresponding project should be highlighted in table oninit
     private selectedId: number;
     constructor(
         private route: ActivatedRoute,
@@ -50,7 +53,6 @@ export class ProjectListComponent implements OnInit {
         private projectService: ProjectService
     ) { }
     projects: Project[];
-    selectedProject: Project; //#initSelection | declaration related to problematic code
     ngOnInit(): void {
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
@@ -62,13 +64,6 @@ export class ProjectListComponent implements OnInit {
         this.projectService.getProjects()
             .then ( (projects) => {
                 this.projects = projects;
-                if (this.selectedId) { /* whole point of this is to select project
-                    on initialization if that project's id param is supplied to router 
-                    currently its not working #initSelection */
-                    let id = this.selectedId;
-                    this.selectProject(id);
-                }
-                // end of troubled block / #initSelection
             });
     }
     onSelect(project: Project): void {
@@ -77,10 +72,5 @@ export class ProjectListComponent implements OnInit {
     }
     isSelected(project: Project) {
         return project.id === this.selectedId;
-    }
-    selectProject(id: number) { // #initSelection | currently useless code
-        this.selectedProject = this.projects.find( (project) => {
-            return project.id === id;
-        });
     }
 }

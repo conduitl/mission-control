@@ -29,11 +29,6 @@ var ProjectListComponent = (function () {
         this.projectService.getProjects()
             .then(function (projects) {
             _this.projects = projects;
-            if (_this.selectedId) {
-                var id = _this.selectedId;
-                _this.selectProject(id);
-            }
-            // end of troubled block / #initSelection
         });
     };
     ProjectListComponent.prototype.onSelect = function (project) {
@@ -42,11 +37,6 @@ var ProjectListComponent = (function () {
     };
     ProjectListComponent.prototype.isSelected = function (project) {
         return project.id === this.selectedId;
-    };
-    ProjectListComponent.prototype.selectProject = function (id) {
-        this.selectedProject = this.projects.find(function (project) {
-            return project.id === id;
-        });
     };
     ProjectListComponent = __decorate([
         core_1.Component({

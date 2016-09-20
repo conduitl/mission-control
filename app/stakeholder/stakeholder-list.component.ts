@@ -23,6 +23,6 @@ const personnel: Personnel[] = [
 
 @Component({
     selector: 'stakeholder-list',
-    template: '<h1>Stakeholders</h1>'
+    templateUrl: 'app/stakeholder/stakeholder-list.component.html'
 })
 export class StakeholderListComponent { }

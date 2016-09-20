@@ -50,7 +50,7 @@ export class ProjectListComponent implements OnInit {
         private projectService: ProjectService
     ) { }
     projects: Project[];
-    selectedProject: Project;
+    selectedProject: Project; //#initSelection | declaration related to problematic code
     ngOnInit(): void {
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
@@ -62,20 +62,23 @@ export class ProjectListComponent implements OnInit {
         this.projectService.getProjects()
             .then ( (projects) => {
                 this.projects = projects;
-                if (this.selectedId) {
+                if (this.selectedId) { /* whole point of this is to select project
+                    on initialization if that project's id param is supplied to router 
+                    currently its not working #initSelection */
                     let id = this.selectedId;
                     this.selectProject(id);
                 }
+                // end of troubled block / #initSelection
             });
     }
     onSelect(project: Project): void {
         this.router.navigate(['/projects', project.id]);
-        this.selectedId = project.id;
+        this.selectedId = project.id; // successfully driving row highlights on click
     }
     isSelected(project: Project) {
         return project.id === this.selectedId;
     }
-    selectProject(id: number) {
+    selectProject(id: number) { // #initSelection | currently useless code
         this.selectedProject = this.projects.find( (project) => {
             return project.id === id;
         });

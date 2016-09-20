@@ -42,7 +42,7 @@ export class StakeholderListComponent implements OnInit {
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then( (personnel) => {
-                this.personnel = personnel
+                this.personnel = personnel;
                 if (this.selectedId) {
                     let id = this.selectedId;
                     this.selectPerson(id);

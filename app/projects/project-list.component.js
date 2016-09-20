@@ -33,11 +33,12 @@ var ProjectListComponent = (function () {
                 var id = _this.selectedId;
                 _this.selectProject(id);
             }
+            // end of troubled block / #initSelection
         });
     };
     ProjectListComponent.prototype.onSelect = function (project) {
         this.router.navigate(['/projects', project.id]);
-        this.selectedId = project.id;
+        this.selectedId = project.id; // successfully driving row highlights on click
     };
     ProjectListComponent.prototype.isSelected = function (project) {
         return project.id === this.selectedId;

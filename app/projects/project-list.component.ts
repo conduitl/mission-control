@@ -67,7 +67,9 @@ export class ProjectListComponent implements OnInit {
             });
     }
     onSelect(project: Project): void {
-        this.router.navigate(['/projects', project.id]);
+        // Navigate with relative link | see commented out code below showing alternative absolute path nav
+        this.router.navigate([project.id], { relativeTo: this.route });
+        //this.router.navigate(['/projects', project.id]);
         this.selectedId = project.id; // successfully driving row highlights on click
     }
     isSelected(project: Project) {

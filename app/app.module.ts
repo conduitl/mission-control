@@ -13,6 +13,9 @@ import { AssetsModule } from './assets/assets.module';
 
 import { NavbarModule } from './navbar/navbar.module';
 
+// authorization
+import { AuthGuard } from './auth-guard.service';
+
 @NgModule({
     imports: [ 
         BrowserModule, 
@@ -27,7 +30,8 @@ import { NavbarModule } from './navbar/navbar.module';
         AppComponent
     ],
     providers: [
-        appRoutingProviders
+        appRoutingProviders,
+        AuthGuard
     ],
     bootstrap: [ AppComponent ] 
 })

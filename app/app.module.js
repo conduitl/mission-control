@@ -19,6 +19,8 @@ var stakeholder_module_1 = require('./stakeholder/stakeholder.module');
 var admin_module_1 = require('./admin/admin.module');
 var assets_module_1 = require('./assets/assets.module');
 var navbar_module_1 = require('./navbar/navbar.module');
+// authorization
+var auth_guard_service_1 = require('./auth-guard.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,7 +39,8 @@ var AppModule = (function () {
                 app_component_1.AppComponent
             ],
             providers: [
-                app_routing_1.appRoutingProviders
+                app_routing_1.appRoutingProviders,
+                auth_guard_service_1.AuthGuard
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

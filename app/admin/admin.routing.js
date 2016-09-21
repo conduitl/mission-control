@@ -4,10 +4,12 @@ var admin_component_1 = require('./admin.component');
 var admin_dashboard_component_1 = require('./admin-dashboard.component');
 var manage_projects_component_1 = require('./manage-projects.component');
 var manage_personnel_component_1 = require('./manage-personnel.component');
+var auth_guard_service_1 = require('../auth-guard.service');
 var adminRoutes = [
     {
         path: 'admin',
         component: admin_component_1.AdminComponent,
+        canActivate: [auth_guard_service_1.AuthGuard],
         children: [
             {
                 path: '',

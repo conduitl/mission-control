@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SummaryComponent = (function () {
-    function SummaryComponent() {
+var AuthGuard = (function () {
+    function AuthGuard() {
     }
-    SummaryComponent = __decorate([
-        core_1.Component({
-            selector: 'summary',
-            templateUrl: 'app/projects/summary.component.html',
-            styles: ["\n        .chart { \n            height: 300px;\n        }\n    "]
-        }), 
+    AuthGuard.prototype.canActivate = function () {
+        console.log('AuthGuard#canActivate called');
+        return true;
+    };
+    AuthGuard = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], SummaryComponent);
-    return SummaryComponent;
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.SummaryComponent = SummaryComponent;
-//# sourceMappingURL=summary.component.js.map
+exports.AuthGuard = AuthGuard;
+//# sourceMappingURL=auth-guard.service.js.map

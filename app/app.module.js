@@ -20,7 +20,7 @@ var admin_module_1 = require('./admin/admin.module');
 var assets_module_1 = require('./assets/assets.module');
 var navbar_module_1 = require('./navbar/navbar.module');
 // authorization
-var auth_guard_service_1 = require('./auth-guard.service');
+var login_component_1 = require('./login.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,11 +36,11 @@ var AppModule = (function () {
                 admin_module_1.AdminModule
             ],
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                login_component_1.LoginComponent
             ],
             providers: [
-                app_routing_1.appRoutingProviders,
-                auth_guard_service_1.AuthGuard
+                app_routing_1.appRoutingProviders
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -16,7 +16,7 @@ var SummaryComponent = (function () {
         core_1.Component({
             selector: 'summary',
             templateUrl: 'app/projects/summary.component.html',
-            styles: ["\n        .chart { \n            height: 300px;\n        }\n    "]
+            styles: ["\n        .chart { \n            fill: blue;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], SummaryComponent);

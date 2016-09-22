@@ -7,11 +7,9 @@ import { ProjectService } from './project.service';
 @Component({
     selector: 'project-list',
     template: `
-        <h2>Projects Overview</h2>
-        <p>Summary of projects here</p>
         <router-outlet></router-outlet>
-        <h3>LIST OF PROJECTS</h3>
-        <p>Table listing all the projects</p>
+        <h3>All Projects</h3>
+        <hr />
         <table class="table">
             <thead>
                 <tr>

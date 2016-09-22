@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: 'app/projects/summary.component.html',
     styles: [`
         .chart { 
-            height: 300px;
+            fill: blue;
         }
     `]
 })

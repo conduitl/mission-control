@@ -34,6 +34,8 @@ export class StakeholderListComponent implements OnInit {
     personnel: Person[];
     selectedPerson: Person;
     ngOnInit(): void {
+        console.log('NgOnInit');
+        console.log('value of selectedId = ' + this.selectedId);
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
             this.getPersonnel();
@@ -42,9 +44,12 @@ export class StakeholderListComponent implements OnInit {
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then( (personnel) => {
-                this.personnel = personnel;
+                console.log('Promise => then');
+                console.log('value of selectedId = ' + this.selectedId);
+                this.personnel = personnel;11
                 if (this.selectedId) {
                     let id = this.selectedId;
+                    
                     this.selectPerson(id);
                 }
             }); 

@@ -1,29 +1,31 @@
 <h1>Stakeholders</h1>
-<div *ngIf="selectedPerson">
-    <h2>{{selectedPerson.name}}</h2>
-    <ul>
-        <li>Job: {{selectedPerson.job}}</li>
-    </ul>
-    <button (click)="gotoDetail(selectedPerson)">view details</button>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Job</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of personnel"
+                class="row-selectable" 
+                [class.selected]="isSelected(person)"
+                (click)="onSelect(person)">
+                <td><span>{{person.name}}</span></td>
+                <td><span>{{person.job}}</span></td>
+                <td>
+                    <button class="btn btn-default" (click)="gotoDetail(person)">view details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="selectedPerson">
+        <h2>{{selectedPerson.name}}</h2>
+        <ul>
+            <li>Job: {{selectedPerson.job}}</li>
+        </ul>
+        <button (click)="gotoDetail(selectedPerson)">view details</button>
+    </div>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let person of personnel"
-            class="row-selectable" 
-            [class.selected]="isSelected(person)"
-            (click)="onSelect(person)">
-            <td><span>{{person.name}}</span></td>
-            <td><span>{{person.job}}</span></td>
-            <td>
-                <button class="btn btn-default" (click)="gotoDetail(person)">view details</button>
-            </td>
-        </tr>
-    </tbody>
-</table>

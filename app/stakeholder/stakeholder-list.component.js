@@ -20,6 +20,8 @@ var StakeholderListComponent = (function () {
     }
     StakeholderListComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log('NgOnInit');
+        console.log('value of selectedId = ' + this.selectedId);
         this.route.params.forEach(function (params) {
             _this.selectedId = +params['id'];
             _this.getPersonnel();
@@ -29,7 +31,10 @@ var StakeholderListComponent = (function () {
         var _this = this;
         this.personnelService.getPersonnel()
             .then(function (personnel) {
+            console.log('Promise => then');
+            console.log('value of selectedId = ' + _this.selectedId);
             _this.personnel = personnel;
+            11;
             if (_this.selectedId) {
                 var id = _this.selectedId;
                 _this.selectPerson(id);

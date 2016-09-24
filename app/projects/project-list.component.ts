@@ -6,33 +6,7 @@ import { ProjectService } from './project.service';
 
 @Component({
     selector: 'project-list',
-    template: `
-        <router-outlet></router-outlet>
-        <h3>All Projects</h3>
-        <hr />
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Astronauts</th>
-                    <th>...</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let project of projects"
-                    [class.selected]="isSelected(project)"
-                    (click)="onSelect(project)">
-                    <td>{{project.name}}</td>
-                    <td>{{project.mission_date}}</td>
-                    <td>{{project.personnel[0]}}</td>
-                    <td>
-                        <button class="btn btn-default">view details</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    `,
+    templateUrl: 'app/projects/project-list.component.html',
     styles: [`
         .selected {
             background-color: #CFD8DC;
@@ -51,6 +25,7 @@ export class ProjectListComponent implements OnInit {
         private projectService: ProjectService
     ) { }
     projects: Project[];
+    programs; // Need to setup type w/ class model
     ngOnInit(): void {
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
@@ -58,9 +33,15 @@ export class ProjectListComponent implements OnInit {
         })
         
     }
+    getPrograms(): void {
+        this.projectService.getPrograms()
+            .then( (programs) => {
+                this.programs = programs;
+            });
+    }
     getProjects(): void {
         this.projectService.getProjects()
-            .then ( (projects) => {
+            .then( (projects) => {
                 this.projects = projects;
             });
     }

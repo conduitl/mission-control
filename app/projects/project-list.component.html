@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<h3>All Projects</h3>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Astronauts</th>
+            <th>...</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projects"
+            [class.selected]="isSelected(project)"
+            (click)="onSelect(project)">
+            <td>{{project.name}}</td>
+            <td>{{project.mission_date}}</td>
+            <td>{{project.personnel[0]}}</td>
+            <td>
+                <button class="btn btn-default">view details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

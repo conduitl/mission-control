@@ -5,7 +5,12 @@ import { loginRoutes,
          authProviders } from './login.routing';
 
 const appRoutes: Routes = [
-    ...loginRoutes
+    ...loginRoutes,
+    {
+        path: '',
+        redirectTo: 'projects',
+        pathMatch: 'full'
+    }
 ];
 
 // simplifies registration of router dependencies; will make use of later

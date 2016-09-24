@@ -2,7 +2,9 @@
 exports.PROJECTS = [
     { id: 1,
         name: 'Mercury-Redstone 3',
-        personnel: ['Alan Shepard'],
+        personnel: [
+            'Alan Shepard'
+        ],
         mission_date: 'May 5, 1961',
         assets: [
             {
@@ -90,5 +92,51 @@ exports.PROJECTS = [
             }
         ]
     },
+];
+exports.PROGRAMS = [
+    {
+        id: 1,
+        name: 'Mercury Program',
+        personnel: [
+            {
+                title: 'flight director',
+                name: 'Christopher Kraft',
+                wiki: 'https://en.wikipedia.org/wiki/Christopher_C._Kraft_Jr.#Mercury'
+            },
+            {
+                title: 'Ground Communicate Coordinator',
+                name: 'Andy Anderson'
+            },
+            {
+                title: 'Power and Sequential Engineering',
+                name: 'Charlie Mars'
+            },
+            {
+                title: 'Aerospace Technologist',
+                name: 'Don Phillips'
+            },
+            {
+                title: 'Director, Mission Control Center Requirements Branch',
+                name: 'Tecwyn Roberts',
+                wiki: 'https://en.wikipedia.org/wiki/Tecwyn_Roberts#cite_note-thoughts-17'
+            },
+            {
+                title: 'Flight Dynamics Officer',
+                name: 'Glynn S. Lunney',
+                wiki: 'https://en.wikipedia.org/wiki/Glynn_Lunney'
+            },
+            {
+                title: 'Deputy Flight Director',
+                name: 'John Hodge',
+                wiki: 'https://en.wikipedia.org/wiki/John_Hodge_(engineer)'
+            },
+            {
+                title: 'Assistant Flight Director',
+                name: 'Gene Kranz',
+                wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
+            }
+        ],
+        missions: exports.PROJECTS
+    }
 ];
 //# sourceMappingURL=mock-projects.js.map

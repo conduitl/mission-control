@@ -16,6 +16,9 @@ var ProjectService = (function () {
     ProjectService.prototype.getProjects = function () {
         return Promise.resolve(mock_projects_1.PROJECTS);
     };
+    ProjectService.prototype.getPrograms = function () {
+        return Promise.resolve(mock_projects_1.PROGRAMS);
+    };
     ProjectService.prototype.getProject = function (id) {
         return this.getProjects()
             .then(function (project) {

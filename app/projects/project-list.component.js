@@ -24,6 +24,13 @@ var ProjectListComponent = (function () {
             _this.getProjects();
         });
     };
+    ProjectListComponent.prototype.getPrograms = function () {
+        var _this = this;
+        this.projectService.getPrograms()
+            .then(function (programs) {
+            _this.programs = programs;
+        });
+    };
     ProjectListComponent.prototype.getProjects = function () {
         var _this = this;
         this.projectService.getProjects()
@@ -43,7 +50,7 @@ var ProjectListComponent = (function () {
     ProjectListComponent = __decorate([
         core_1.Component({
             selector: 'project-list',
-            template: "\n        <router-outlet></router-outlet>\n        <h3>All Projects</h3>\n        <hr />\n        <table class=\"table\">\n            <thead>\n                <tr>\n                    <th>Name</th>\n                    <th>Date</th>\n                    <th>Astronauts</th>\n                    <th>...</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let project of projects\"\n                    [class.selected]=\"isSelected(project)\"\n                    (click)=\"onSelect(project)\">\n                    <td>{{project.name}}</td>\n                    <td>{{project.mission_date}}</td>\n                    <td>{{project.personnel[0]}}</td>\n                    <td>\n                        <button class=\"btn btn-default\">view details</button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    ",
+            templateUrl: 'app/projects/project-list.component.html',
             styles: ["\n        .selected {\n            background-color: #CFD8DC;\n            color: white;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, project_service_1.ProjectService])

@@ -1,6 +1,14 @@
 "use strict";
+var MEMBERS = [
+    {
+        title: '',
+        name: '',
+        wiki: '',
+    }
+];
 exports.PROJECTS = [
-    { id: 1,
+    {
+        id: 1,
         name: 'Mercury-Redstone 3',
         personnel: [
             'Alan Shepard'
@@ -96,24 +104,27 @@ exports.PROJECTS = [
 exports.PROGRAMS = [
     {
         id: 1,
-        name: 'Mercury Program',
+        name: 'Mercury',
         personnel: [
             {
-                title: 'flight director',
+                title: 'Flight Director',
                 name: 'Christopher Kraft',
                 wiki: 'https://en.wikipedia.org/wiki/Christopher_C._Kraft_Jr.#Mercury'
             },
             {
-                title: 'Ground Communicate Coordinator',
-                name: 'Andy Anderson'
+                title: 'Ground Communication Coordinator',
+                name: 'Andy Anderson',
+                wiki: ''
             },
             {
                 title: 'Power and Sequential Engineering',
-                name: 'Charlie Mars'
+                name: 'Charlie Mars',
+                wiki: ''
             },
             {
                 title: 'Aerospace Technologist',
-                name: 'Don Phillips'
+                name: 'Don Phillips',
+                wiki: ''
             },
             {
                 title: 'Director, Mission Control Center Requirements Branch',
@@ -135,8 +146,17 @@ exports.PROGRAMS = [
                 name: 'Gene Kranz',
                 wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
             }
-        ],
-        missions: exports.PROJECTS
+        ]
+    },
+    {
+        id: 2,
+        name: 'Gemini',
+        personnel: [{}]
+    },
+    {
+        id: 3,
+        name: 'Apollo',
+        personnel: [{}]
     }
 ];
 //# sourceMappingURL=mock-projects.js.map

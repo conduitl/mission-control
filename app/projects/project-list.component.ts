@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
-import { Project } from './project';
+import { Project, Program } from './project';
 import { ProjectService } from './project.service';
 
 @Component({
@@ -25,11 +25,12 @@ export class ProjectListComponent implements OnInit {
         private projectService: ProjectService
     ) { }
     projects: Project[];
-    programs; // Need to setup type w/ class model
+    programs: Program[]; // Need to setup type w/ class model
     ngOnInit(): void {
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
             this.getProjects();
+            this.getPrograms();
         })
         
     }
@@ -37,6 +38,8 @@ export class ProjectListComponent implements OnInit {
         this.projectService.getPrograms()
             .then( (programs) => {
                 this.programs = programs;
+                console.log(this.programs);
+                console.log(this.programs[0].name);
             });
     }
     getProjects(): void {

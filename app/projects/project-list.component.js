@@ -22,6 +22,7 @@ var ProjectListComponent = (function () {
         this.route.params.forEach(function (params) {
             _this.selectedId = +params['id'];
             _this.getProjects();
+            _this.getPrograms();
         });
     };
     ProjectListComponent.prototype.getPrograms = function () {
@@ -29,6 +30,8 @@ var ProjectListComponent = (function () {
         this.projectService.getPrograms()
             .then(function (programs) {
             _this.programs = programs;
+            console.log(_this.programs);
+            console.log(_this.programs[0].name);
         });
     };
     ProjectListComponent.prototype.getProjects = function () {

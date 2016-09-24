@@ -1,5 +1,27 @@
 <router-outlet></router-outlet>
-<h3>All Projects</h3>
+<div *ngFor= "let program of programs">
+    <h3>{{program.name}}</h3>
+    <div *ngIf="program.personnel.length > 1">
+        <h4>Personnel: {{program.personnel.length}}</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Wiki</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of program.personnel">
+                    <td>{{person.name}}</td>
+                    <td>{{person.title}}</td>
+                    <td>{{person.wiki}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<h3>Mercury Missions</h3>
 <hr />
 <table class="table">
     <thead>

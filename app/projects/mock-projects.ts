@@ -146,13 +146,37 @@ export const PROGRAMS: Program[] = [
                 title: 'Assistant Flight Director',
                 name: 'Gene Kranz',
                 wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
-            }
+            },
+            { id: 151, name: 'Alan B. Shepard, Jr.', title: 'Astronaut' },
+            { id: 152, name: 'Virgil I. Grissom', title: 'Astronaut', wiki: 'https://en.wikipedia.org/wiki/Gus_Grissom' },
+            { id: 153, name: 'John H. Glenn, Jr.', title: 'Astronaut' },
+            { id: 154, name: 'M. Scott Carpenter', title: 'Astronaut' },
+            { id: 155, name: 'Walter M. Schirra, Jr.', title: 'Astronaut' },
+            { id: 156, name: 'L. Gordon Cooper, Jr.', title: 'Astronaut' },
+            { id: 157, name: 'Walter M. Schirra, Jr.', title: 'Astronaut' }
         ]
     },
     {
         id: 2,
         name: 'Gemini',
-        personnel: [{}]
+        personnel: [
+            { id: 156, name: 'L. Gordon Cooper, Jr.', title: 'Astronaut', group: 'Group 1' },
+            { id: 152, name: 'Virgil I. Grissom', title: 'Astronaut', group: 'Group 1' },
+            { id: 157, name: 'Walter M. Schirra, Jr.', title: 'Astronaut', group: 'Group 1' },
+            { id: 158, name: 'Neil A. Armstrong', title: 'Astronaut', group: 'Group 2' },
+            { id: 159, name: 'Frank Borman', title: 'Astronaut', group: 'Group 2', wiki:'https://en.wikipedia.org/wiki/Frank_Borman' },
+            { id: 160, name: 'Charles "Pete" Conrad', title: 'Astronaut', group: 'Group 2', wiki:'https://en.wikipedia.org/wiki/Pete_Conrad'},
+            { id: 161, name: 'James A. Lovell', title: 'Astronaut', group: 'Group 2', wiki: 'https://en.wikipedia.org/wiki/Jim_Lovell' },
+            { id: 162, name: 'James A. McDivitt', title: 'Astronaut', group: 'Group 2', wiki: 'https://en.wikipedia.org/wiki/James_McDivitt'},
+            { id: 163, name: 'Thomas P. Stafford', title: 'Astronaut', group: 'Group 2', wiki: 'https://en.wikipedia.org/wiki/Thomas_P._Stafford' },
+            { id: 164, name: 'Edward H. White', title: 'Astronaut', group: 'Group 2', wiki:'https://en.wikipedia.org/wiki/Edward_Higgins_White' },
+            { id: 165, name: 'John W. Young', title: 'Astronaut', group: 'Group 2', wiki: 'https://en.wikipedia.org/wiki/John_Young_(astronaut)' },
+            { id: 166, name: 'Edwin "Buzz" Aldrin', title: 'Astronaut', group: 'Group 3' },
+            { id: 167, name: 'Eugene A. Cernan', title: 'Astronaut', group: 'Group 3' },
+            { id: 168, name: 'Michael Collins', title: 'Astronaut', group: 'Group 3' },
+            { id: 169, name: 'Richard F. Gordon', title: 'Astronaut', group: 'Group 3' },
+            { id: 170, name: 'David R. Scott', title: 'Astronaut', group: 'Group 3' }
+        ]
     },
     {
         id: 3,

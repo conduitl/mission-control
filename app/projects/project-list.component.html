@@ -6,8 +6,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Title</th>
                     <th>Name</th>
+                    <th>Title</th>
                     <th>Wiki</th>
                 </tr>
             </thead>
@@ -15,7 +15,11 @@
                 <tr *ngFor="let person of program.personnel">
                     <td>{{person.name}}</td>
                     <td>{{person.title}}</td>
-                    <td>{{person.wiki}}</td>
+                    <td>
+                        <a *ngIf="person.wiki"
+                            href="{{person.wiki}}">wiki page</a>
+                        <span *ngIf="!person.wiki">not found</span>
+                    </td>
                 </tr>
             </tbody>
         </table>

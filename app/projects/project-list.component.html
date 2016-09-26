@@ -12,7 +12,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let person of program.personnel">
+                <tr *ngFor="let person of program.personnel" 
+                [rowHighlight]="'#efefef'">
                     <td>{{person.name}}</td>
                     <td>{{person.title}}</td>
                     <td>

@@ -7,6 +7,8 @@ import { ProjectDashboardComponent } from './project-dashboard.component';
 import { SummaryComponent } from './summary.component';
 import { ProjectDetailComponent } from './project-detail.component';
 
+import { TableHighlightDirective } from './table-highlight.directive';
+
 import { ProjectService } from './project.service';
 
 import { projectRouting } from './projects.routing';
@@ -21,7 +23,8 @@ import { projectRouting } from './projects.routing';
         ProjectListComponent,
         ProjectDashboardComponent,
         SummaryComponent,
-        ProjectDetailComponent
+        ProjectDetailComponent,
+        TableHighlightDirective
     ],
     providers: [
         ProjectService

@@ -21,7 +21,16 @@ export class TableHighlightDirective {
         this.highlight(null);
     }
 
+    @HostListener('click') onClick() {
+        this.highlight('green');
+    }
+
+    @HostListener('mousedown') onMouseDown() {
+        this.highlight('blue');
+    }
+
     private highlight(color: string) {
         this.renderer.setElementStyle(this.el.nativeElement, 'backgroundColor', color);
+        this.renderer.setElementStyle(this.el.nativeElement, 'cursor', 'pointer');
     }
 }

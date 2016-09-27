@@ -21,8 +21,15 @@ var TableHighlightDirective = (function () {
     TableHighlightDirective.prototype.onMouseLeave = function () {
         this.highlight(null);
     };
+    TableHighlightDirective.prototype.onClick = function () {
+        this.highlight('green');
+    };
+    TableHighlightDirective.prototype.onMouseDown = function () {
+        this.highlight('blue');
+    };
     TableHighlightDirective.prototype.highlight = function (color) {
         this.renderer.setElementStyle(this.el.nativeElement, 'backgroundColor', color);
+        this.renderer.setElementStyle(this.el.nativeElement, 'cursor', 'pointer');
     };
     __decorate([
         core_1.Input('rowHighlight'), 
@@ -40,6 +47,18 @@ var TableHighlightDirective = (function () {
         __metadata('design:paramtypes', []), 
         __metadata('design:returntype', void 0)
     ], TableHighlightDirective.prototype, "onMouseLeave", null);
+    __decorate([
+        core_1.HostListener('click'), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', []), 
+        __metadata('design:returntype', void 0)
+    ], TableHighlightDirective.prototype, "onClick", null);
+    __decorate([
+        core_1.HostListener('mousedown'), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', []), 
+        __metadata('design:returntype', void 0)
+    ], TableHighlightDirective.prototype, "onMouseDown", null);
     TableHighlightDirective = __decorate([
         core_1.Directive({
             selector: '[rowHighlight]'

@@ -58,6 +58,15 @@ var StakeholderListComponent = (function () {
         var link = ['/person', person.id];
         this.router.navigate(link);
     };
+    // Preview 
+    StakeholderListComponent.prototype.checkImg = function (person) {
+        if (person.img) {
+            return person.img;
+        }
+        else {
+            return 'http://placehold.it/300x300';
+        }
+    };
     // List operations for views
     StakeholderListComponent.prototype.makeCSList = function (arr) {
         return arr.reduce(function (pre, cur) {

@@ -1,7 +1,7 @@
 "use strict";
 exports.PERSONNEL = [
-    { id: 151, name: 'Alan B. Shepard, Jr.', job: 'Astronaut', joined: 1959, missions: ['MR-3', 'Apollo 7'] },
-    { id: 152, name: 'Virgil I. Grissom', job: 'Astronaut', joined: 1959, missions: ['MR-4', 'Apollo 1'] },
+    { id: 151, name: 'Alan B. Shepard, Jr.', job: 'Astronaut', joined: 1959, missions: ['MR-3', 'Apollo 7'], img: '../../img/300x300/shepard.jpg' },
+    { id: 152, name: 'Virgil I. Grissom', job: 'Astronaut', joined: 1959, missions: ['MR-4', 'Apollo 1'], img: '../../img/300x300/grissom.jpg' },
     { id: 153, name: 'John H. Glenn, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-6', 'STS-95'] },
     { id: 154, name: 'M. Scott Carpenter', job: 'Astronaut', joined: 1959, missions: ['MA-7'] },
     { id: 155, name: 'Walter M. Schirra, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-8', 'Gemini 6A', 'Apollo 7'] },

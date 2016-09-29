@@ -4,4 +4,5 @@ export class Person {
     job: string;
     joined?: number;
     missions?: [string];
+    img?: string;
 }

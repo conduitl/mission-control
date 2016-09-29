@@ -60,6 +60,14 @@ export class StakeholderListComponent implements OnInit {
         this.router.navigate(link);
     }
 
+    // Preview 
+    checkImg(person: Person) {
+        if (person.img) {
+            return person.img;
+        } else {
+            return 'http://placehold.it/300x300';
+        }
+    }
     // List operations for views
     makeCSList(arr: [string]) {
         return arr.reduce( (pre, cur) => {

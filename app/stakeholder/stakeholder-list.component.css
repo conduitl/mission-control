@@ -1,0 +1,23 @@
+ul {
+    padding-left: 16px;
+    margin-left: 0;
+}
+.selected {
+    background-color: #CFD8DC;
+    color: white;
+}
+tr.row-selectable {
+    cursor: pointer;
+}
+tr.row-selectable td span {
+    cursor: auto;
+}
+.feature-list {
+    padding: 24px;
+}
+.preview-controls {
+    text-align: center;
+}
+.caption h4 {
+    margin-bottom: 3px;
+}

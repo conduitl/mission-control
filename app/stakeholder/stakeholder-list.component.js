@@ -58,11 +58,17 @@ var StakeholderListComponent = (function () {
         var link = ['/person', person.id];
         this.router.navigate(link);
     };
+    // List operations for views
+    StakeholderListComponent.prototype.makeCSList = function (arr) {
+        return arr.reduce(function (pre, cur) {
+            return pre + ', ' + cur;
+        });
+    };
     StakeholderListComponent = __decorate([
         core_1.Component({
             selector: 'stakeholder-list',
             templateUrl: 'app/stakeholder/stakeholder-list.component.html',
-            styles: ["\n        .selected {\n            background-color: #CFD8DC;\n            color: white;\n        }\n        tr.row-selectable {\n            cursor: pointer;\n        }\n        tr.row-selectable td span {\n            cursor: auto;\n        }\n\n    "]
+            styleUrls: ['app/stakeholder/stakeholder-list.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, personnel_service_1.PersonnelService])
     ], StakeholderListComponent);

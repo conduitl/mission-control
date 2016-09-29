@@ -8,19 +8,7 @@ import { PersonnelService } from './personnel.service';
 @Component({
     selector: 'stakeholder-list',
     templateUrl: 'app/stakeholder/stakeholder-list.component.html',
-    styles: [`
-        .selected {
-            background-color: #CFD8DC;
-            color: white;
-        }
-        tr.row-selectable {
-            cursor: pointer;
-        }
-        tr.row-selectable td span {
-            cursor: auto;
-        }
-
-    `]
+    styleUrls: ['app/stakeholder/stakeholder-list.component.css']
 })
 export class StakeholderListComponent implements OnInit {
     private selectedId: number;
@@ -70,5 +58,12 @@ export class StakeholderListComponent implements OnInit {
     gotoDetail(person: Person): void { 
         let link = ['/person', person.id];
         this.router.navigate(link);
+    }
+
+    // List operations for views
+    makeCSList(arr: [string]) {
+        return arr.reduce( (pre, cur) => {
+            return pre + ', ' + cur;
+        });
     }
  }

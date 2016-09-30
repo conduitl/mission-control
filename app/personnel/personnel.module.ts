@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { PersonnelManagerComponent } from './personnel-manager.component';
 import { PersonnelListComponent } from './personnel-list.component';
 import { PersonDetailComponent } from './person-detail.component';
 
@@ -14,6 +15,7 @@ import { personnelRouting } from './personnel.routing';
         personnelRouting
     ],
     declarations: [
+        PersonnelManagerComponent,
         PersonnelListComponent,
         PersonDetailComponent
     ],

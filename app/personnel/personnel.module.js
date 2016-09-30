@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
 var person_detail_component_1 = require('./person-detail.component');
 var personnel_service_1 = require('./personnel.service');
@@ -24,6 +25,7 @@ var PersonnelModule = (function () {
                 personnel_routing_1.personnelRouting
             ],
             declarations: [
+                personnel_manager_component_1.PersonnelManagerComponent,
                 personnel_list_component_1.PersonnelListComponent,
                 person_detail_component_1.PersonDetailComponent
             ],

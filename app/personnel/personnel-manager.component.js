@@ -15,7 +15,7 @@ var PersonnelManagerComponent = (function () {
     PersonnelManagerComponent = __decorate([
         core_1.Component({
             selector: 'personnel-manager',
-            template: "\n        <div class=\"page-header\">\n            <h1>Personnel <small>| The people who make up our organization</small></h1>\n        </div>\n        <router-outlet></router-outlet>\n    "
+            templateUrl: 'app/personnel/personnel-manager.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], PersonnelManagerComponent);

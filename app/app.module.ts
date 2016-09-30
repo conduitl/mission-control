@@ -7,7 +7,7 @@ import { routing, appRoutingProviders } from './app.routing';
 
 // features
 import { ProjectsModule } from './projects/projects.module';
-import { StakeholderModule } from './stakeholder/stakeholder.module';
+import { StakeholderModule } from './personnel/stakeholder.module';
 import { AdminModule } from './admin/admin.module';
 import { AssetsModule } from './assets/assets.module';
 

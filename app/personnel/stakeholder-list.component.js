@@ -76,8 +76,8 @@ var StakeholderListComponent = (function () {
     StakeholderListComponent = __decorate([
         core_1.Component({
             selector: 'stakeholder-list',
-            templateUrl: 'app/stakeholder/stakeholder-list.component.html',
-            styleUrls: ['app/stakeholder/stakeholder-list.component.css']
+            templateUrl: 'app/personnel/stakeholder-list.component.html',
+            styleUrls: ['app/personnel/stakeholder-list.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, personnel_service_1.PersonnelService])
     ], StakeholderListComponent);

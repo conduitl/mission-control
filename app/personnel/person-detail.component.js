@@ -70,7 +70,7 @@ var PersonDetailComponent = (function () {
     PersonDetailComponent = __decorate([
         core_1.Component({
             selector: 'person-detail',
-            templateUrl: 'app/stakeholder/person-detail.component.html',
+            templateUrl: 'app/personnel/person-detail.component.html',
             animations: [
                 core_1.trigger('routeAnimation', [
                     core_1.state('*', core_1.style({

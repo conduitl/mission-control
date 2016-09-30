@@ -10,7 +10,7 @@ import { Person } from './person';
 
 @Component({
     selector: 'person-detail',
-    templateUrl: 'app/stakeholder/person-detail.component.html',
+    templateUrl: 'app/personnel/person-detail.component.html',
     animations: [
         trigger('routeAnimation', [
             state('*',

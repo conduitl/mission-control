@@ -7,8 +7,8 @@ import { PersonnelService } from './personnel.service';
 
 @Component({
     selector: 'stakeholder-list',
-    templateUrl: 'app/stakeholder/stakeholder-list.component.html',
-    styleUrls: ['app/stakeholder/stakeholder-list.component.css']
+    templateUrl: 'app/personnel/stakeholder-list.component.html',
+    styleUrls: ['app/personnel/stakeholder-list.component.css']
 })
 export class StakeholderListComponent implements OnInit {
     private selectedId: number;

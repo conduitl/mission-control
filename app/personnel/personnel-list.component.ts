@@ -6,11 +6,11 @@ import { Person } from './person';
 import { PersonnelService } from './personnel.service';
 
 @Component({
-    selector: 'stakeholder-list',
-    templateUrl: 'app/personnel/stakeholder-list.component.html',
-    styleUrls: ['app/personnel/stakeholder-list.component.css']
+    selector: 'personnel-list',
+    templateUrl: 'app/personnel/personnel-list.component.html',
+    styleUrls: ['app/personnel/personnel-list.component.css']
 })
-export class StakeholderListComponent implements OnInit {
+export class PersonnelListComponent implements OnInit {
     private selectedId: number;
 
     constructor(

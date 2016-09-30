@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var stakeholder_list_component_1 = require('./stakeholder-list.component');
+var personnel_list_component_1 = require('./personnel-list.component');
 var person_detail_component_1 = require('./person-detail.component');
 var personnel_service_1 = require('./personnel.service');
-var stakeholder_routing_1 = require('./stakeholder.routing');
+var personnel_routing_1 = require('./personnel.routing');
 var PersonnelModule = (function () {
     function PersonnelModule() {
     }
@@ -21,10 +21,10 @@ var PersonnelModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
-                stakeholder_routing_1.stakeholderRouting
+                personnel_routing_1.personnelRouting
             ],
             declarations: [
-                stakeholder_list_component_1.StakeholderListComponent,
+                personnel_list_component_1.PersonnelListComponent,
                 person_detail_component_1.PersonDetailComponent
             ],
             providers: [

@@ -11,14 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var personnel_service_1 = require('./personnel.service');
-var StakeholderListComponent = (function () {
-    function StakeholderListComponent(route, router, personnelService) {
+var PersonnelListComponent = (function () {
+    function PersonnelListComponent(route, router, personnelService) {
         this.route = route;
         this.router = router;
         this.personnelService = personnelService;
         //constructor
     }
-    StakeholderListComponent.prototype.ngOnInit = function () {
+    PersonnelListComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log('NgOnInit');
         console.log('value of selectedId = ' + this.selectedId);
@@ -27,7 +27,7 @@ var StakeholderListComponent = (function () {
             _this.getPersonnel();
         });
     };
-    StakeholderListComponent.prototype.getPersonnel = function () {
+    PersonnelListComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.getPersonnel()
             .then(function (personnel) {
@@ -41,25 +41,25 @@ var StakeholderListComponent = (function () {
             }
         });
     };
-    StakeholderListComponent.prototype.onSelect = function (person) {
+    PersonnelListComponent.prototype.onSelect = function (person) {
         var id = person.id;
         this.selectedId = id;
         this.selectPerson(id);
     };
-    StakeholderListComponent.prototype.isSelected = function (person) {
+    PersonnelListComponent.prototype.isSelected = function (person) {
         return person.id === this.selectedId;
     };
-    StakeholderListComponent.prototype.selectPerson = function (id) {
+    PersonnelListComponent.prototype.selectPerson = function (id) {
         this.selectedPerson = this.personnel.find(function (person) {
             return person.id === id;
         });
     };
-    StakeholderListComponent.prototype.gotoDetail = function (person) {
+    PersonnelListComponent.prototype.gotoDetail = function (person) {
         var link = ['/person', person.id];
         this.router.navigate(link);
     };
     // Preview 
-    StakeholderListComponent.prototype.checkImg = function (person) {
+    PersonnelListComponent.prototype.checkImg = function (person) {
         if (person.img) {
             return person.img;
         }
@@ -68,20 +68,20 @@ var StakeholderListComponent = (function () {
         }
     };
     // List operations for views
-    StakeholderListComponent.prototype.makeCSList = function (arr) {
+    PersonnelListComponent.prototype.makeCSList = function (arr) {
         return arr.reduce(function (pre, cur) {
             return pre + ', ' + cur;
         });
     };
-    StakeholderListComponent = __decorate([
+    PersonnelListComponent = __decorate([
         core_1.Component({
-            selector: 'stakeholder-list',
-            templateUrl: 'app/personnel/stakeholder-list.component.html',
-            styleUrls: ['app/personnel/stakeholder-list.component.css']
+            selector: 'personnel-list',
+            templateUrl: 'app/personnel/personnel-list.component.html',
+            styleUrls: ['app/personnel/personnel-list.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, personnel_service_1.PersonnelService])
-    ], StakeholderListComponent);
-    return StakeholderListComponent;
+    ], PersonnelListComponent);
+    return PersonnelListComponent;
 }());
-exports.StakeholderListComponent = StakeholderListComponent;
-//# sourceMappingURL=stakeholder-list.component.js.map
+exports.PersonnelListComponent = PersonnelListComponent;
+//# sourceMappingURL=personnel-list.component.js.map

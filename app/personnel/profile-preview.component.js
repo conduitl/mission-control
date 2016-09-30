@@ -16,7 +16,11 @@ var ProfilePreviewComponent = (function () {
         this.router = router;
     }
     ProfilePreviewComponent.prototype.gotoDetail = function (person) {
-        var link = ['/person', person.id];
+        var link = ['/personnel', person.id];
+        this.router.navigate(link);
+    };
+    ProfilePreviewComponent.prototype.closeDetail = function (person) {
+        var link = ['/personnel'];
         this.router.navigate(link);
     };
     // Preview 
@@ -32,6 +36,10 @@ var ProfilePreviewComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', person_1.Person)
     ], ProfilePreviewComponent.prototype, "person", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], ProfilePreviewComponent.prototype, "isDetail", void 0);
     ProfilePreviewComponent = __decorate([
         core_1.Component({
             selector: 'profile-preview',

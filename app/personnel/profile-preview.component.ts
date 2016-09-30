@@ -20,11 +20,16 @@ import { Person } from './person';
 })
 export class ProfilePreviewComponent { 
     @Input() person: Person;
+    @Input() isDetail: boolean;
 
     constructor(private router: Router) { }
 
     gotoDetail(person: Person): void { 
-        let link = ['/person', person.id];
+        let link = ['/personnel', person.id];
+        this.router.navigate(link);
+    }
+    closeDetail(person: Person): void {
+        let link = ['/personnel'];
         this.router.navigate(link);
     }
 

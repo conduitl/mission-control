@@ -6,3 +6,10 @@ export class Person {
     missions?: [string];
     img?: string;
 }
+
+export class Bio {
+    id: number;
+    name: string;
+    summary?: string;
+    career?: string;
+}

@@ -13,4 +13,16 @@ exports.PERSONNEL = [
     { id: 162, name: 'James A. McDivitt', job: 'Astronaut', joined: 1962, missions: ['Gemini 4', 'Apollo 9'] },
     { id: 163, name: 'Thomas P. Stafford', job: 'Astronaut', joined: 1962, missions: ['Gemini 6A', 'Gemini 9A', 'Apollo 10'] }
 ];
+exports.BIOS = [
+    {
+        id: 151,
+        name: 'Alan Shepard',
+        summary: "Rear Admiral Alan Bartlett \"Al\" Shepard Jr. (November 18, 1923 \u2013 July 21, 1998) was an American naval officer and aviator, test pilot, one of the original NASA Mercury Seven astronauts, and businessman, who in May 1961 made the first manned Mercury flight. Shepard's craft entered space, but did not achieve orbit. He became the second person, and the first American, to travel into space, and the first person to manually control the orientation of his spacecraft.\n\n \n        Ten years later, at age 47 and the oldest astronaut in the program, Shepard commanded the Apollo 14 mission (1971), piloting the lander Antares to the most accurate landing of the Apollo missions. He became the fifth and oldest person to walk on the Moon, and the only one of the Mercury Seven to do so. During the mission, he hit two golf balls on the lunar surface."
+    },
+    {
+        id: 152,
+        name: 'Virgil "Gus" Grissom',
+        summary: "Lieutenant Colonel Virgil Ivan \"Gus\" Grissom (April 3, 1926 \u2013 January 27, 1967) was one of the original NASA Project Mercury astronauts, a United States Air Force test pilot and a mechanical engineer. He was the second American to fly in space, and the first member of the NASA Astronaut Corps to fly in space twice.\n\n\n        Grissom was killed along with fellow astronauts Ed White and Roger Chaffee during a pre-launch test for the Apollo 1 mission at Cape Canaveral Air Force Station (then known as Cape Kennedy), Florida. He was the first of the Mercury Seven to die. He was also a recipient of the Distinguished Flying Cross and, posthumously, the Congressional Space Medal of Honor."
+    }
+];
 //# sourceMappingURL=mock-personnel.js.map

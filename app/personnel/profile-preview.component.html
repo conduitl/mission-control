@@ -14,8 +14,14 @@
         </div>
         
         <div class="preview-controls">
-            <button class="btn btn-primary"
+            <div *ngIf="!isDetail">
+                <button class="btn btn-primary"
                     (click)="gotoDetail(person)">view details</button>
+            </div>
+            <div *ngIf="isDetail">
+                <button class="btn btn-danger"
+                    (click)="closeDetail(person)">close details</button>
+            </div>
         </div>
     </div>
 </div>

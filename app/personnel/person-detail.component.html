@@ -1,7 +1,18 @@
+
 <div *ngIf="person">
-    <h2>{{person.name}} details</h2>
-    <ul>
-        <li>Job: {{person.job}}</li>
-    </ul>
-    <button (click)="gotoStakeholders()">Back</button>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div *ngIf="bio">
+                        <h2>{{bio.name}}</h2>
+                        <div>{{bio.summary}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <profile-preview [person]="person" [isDetail]="true"></profile-preview>
+        </div>
+    </div>
 </div>

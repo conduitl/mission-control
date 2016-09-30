@@ -20,6 +20,17 @@ var PersonnelService = (function () {
         return this.getPersonnel()
             .then(function (personnel) { return personnel.find(function (person) { return person.id === id; }); });
     };
+    PersonnelService.prototype.getBios = function () {
+        return Promise.resolve(mock_personnel_1.BIOS);
+    };
+    PersonnelService.prototype.getBio = function (id) {
+        return this.getBios()
+            .then(function (bios) {
+            return bios.find(function (bio) {
+                return bio.id === id;
+            });
+        });
+    };
     PersonnelService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

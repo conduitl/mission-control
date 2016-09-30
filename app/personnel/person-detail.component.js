@@ -17,81 +17,24 @@ var PersonDetailComponent = (function () {
         this.router = router;
         this.personnelService = personnelService;
     }
-    Object.defineProperty(PersonDetailComponent.prototype, "routeAnimation", {
-        /* Note from Dev Guide: Routing & Navigation --
-           it's preferred to animate routes based on route paths,
-           rather than adding route animations at the component level.
-           Docs promise more on this topic in a future update.
-        */
-        get: function () {
-            return true;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(PersonDetailComponent.prototype, "display", {
-        get: function () {
-            return 'block';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(PersonDetailComponent.prototype, "position", {
-        get: function () {
-            return 'absolute';
-        },
-        enumerable: true,
-        configurable: true
-    });
     PersonDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             var id = +params['id'];
             _this.personnelService.getPerson(id)
                 .then(function (person) { return _this.person = person; });
+            _this.personnelService.getBio(id)
+                .then(function (bio) { return _this.bio = bio; });
         });
     };
     PersonDetailComponent.prototype.gotoStakeholders = function () {
         var personId = this.person ? this.person.id : null;
         this.router.navigate(['/stakeholders', { id: personId }]);
     };
-    __decorate([
-        core_1.HostBinding('@routeAnimation'), 
-        __metadata('design:type', Object)
-    ], PersonDetailComponent.prototype, "routeAnimation", null);
-    __decorate([
-        core_1.HostBinding('style.display'), 
-        __metadata('design:type', Object)
-    ], PersonDetailComponent.prototype, "display", null);
-    __decorate([
-        core_1.HostBinding('style.position'), 
-        __metadata('design:type', Object)
-    ], PersonDetailComponent.prototype, "position", null);
     PersonDetailComponent = __decorate([
         core_1.Component({
             selector: 'person-detail',
-            templateUrl: 'app/personnel/person-detail.component.html',
-            animations: [
-                core_1.trigger('routeAnimation', [
-                    core_1.state('*', core_1.style({
-                        opacity: 1,
-                        transform: 'translateX(0)'
-                    })),
-                    core_1.transition('void => *', [
-                        core_1.style({
-                            opacity: 0,
-                            transform: 'translateX(-100%)'
-                        }),
-                        core_1.animate('0.2s ease-in')
-                    ]),
-                    core_1.transition('* => void', [
-                        core_1.animate('0.5s ease-out', core_1.style({
-                            opacity: 0,
-                            transfor: 'translateY(100%)'
-                        }))
-                    ])
-                ])
-            ]
+            templateUrl: 'app/personnel/person-detail.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, personnel_service_1.PersonnelService])
     ], PersonDetailComponent);

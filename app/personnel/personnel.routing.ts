@@ -10,6 +10,7 @@ const personnelRoutes: Routes = [
     { path: 'personnel', component: PersonnelManagerComponent, children: 
         [
             { path: '', component: PersonnelListComponent },
+            { path: ':id', component: PersonDetailComponent },
             { path: 'preview', component: ProfilePreviewComponent, outlet: "aux"}
         ]
     },

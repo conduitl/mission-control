@@ -1,7 +1,3 @@
-ul {
-    padding-left: 16px;
-    margin-left: 0;
-}
 .selected {
     background-color: #CFD8DC;
     color: white;
@@ -14,10 +10,4 @@ tr.row-selectable td span {
 }
 .feature-list {
     padding: 24px;
-}
-.preview-controls {
-    text-align: center;
-}
-.caption h4 {
-    margin-bottom: 3px;
 }

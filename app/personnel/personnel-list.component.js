@@ -54,19 +54,6 @@ var PersonnelListComponent = (function () {
             return person.id === id;
         });
     };
-    PersonnelListComponent.prototype.gotoDetail = function (person) {
-        var link = ['/person', person.id];
-        this.router.navigate(link);
-    };
-    // Preview 
-    PersonnelListComponent.prototype.checkImg = function (person) {
-        if (person.img) {
-            return person.img;
-        }
-        else {
-            return 'http://placehold.it/300x300';
-        }
-    };
     // List operations for views
     PersonnelListComponent.prototype.makeCSList = function (arr) {
         return arr.reduce(function (pre, cur) {

@@ -36,27 +36,7 @@
     </div>
     <div class="col-md-3">
         <div *ngIf="selectedPerson">
-            <div class="thumbnail">
-                <img class="img-responsive" src="{{ checkImg(selectedPerson) }}"> 
-                <div class="caption">
-                    <h4>{{selectedPerson.name}}</h4>
-                    <b>{{selectedPerson.job}}</b>
-                    <p>{{selectedPerson.joined}}</p>
-                    <div *ngIf="selectedPerson.missions">
-                        <b>Missions</b>
-                        <ul>
-                            <li *ngFor="let mission of selectedPerson.missions">
-                                {{ mission }}
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="preview-controls">
-                        <button class="btn btn-primary"
-                                (click)="gotoDetail(selectedPerson)">view details</button>
-                    </div>
-                </div>
-            </div>
+            <profile-preview [person]="selectedPerson"></profile-preview>
         </div>
     </div>
 </div>

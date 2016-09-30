@@ -55,19 +55,6 @@ export class PersonnelListComponent implements OnInit {
             return person.id === id;
         });
     }
-    gotoDetail(person: Person): void { 
-        let link = ['/person', person.id];
-        this.router.navigate(link);
-    }
-
-    // Preview 
-    checkImg(person: Person) {
-        if (person.img) {
-            return person.img;
-        } else {
-            return 'http://placehold.it/300x300';
-        }
-    }
     // List operations for views
     makeCSList(arr: [string]) {
         return arr.reduce( (pre, cur) => {

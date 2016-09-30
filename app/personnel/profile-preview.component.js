@@ -9,15 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var person_1 = require('./person');
 var ProfilePreviewComponent = (function () {
-    function ProfilePreviewComponent() {
+    function ProfilePreviewComponent(router) {
+        this.router = router;
     }
+    ProfilePreviewComponent.prototype.gotoDetail = function (person) {
+        var link = ['/person', person.id];
+        this.router.navigate(link);
+    };
+    // Preview 
+    ProfilePreviewComponent.prototype.checkImg = function (person) {
+        if (person.img) {
+            return person.img;
+        }
+        else {
+            return 'http://placehold.it/300x300';
+        }
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', person_1.Person)
+    ], ProfilePreviewComponent.prototype, "person", void 0);
     ProfilePreviewComponent = __decorate([
         core_1.Component({
             selector: 'profile-preview',
-            template: '<h2>Profile Preview</h2>'
+            templateUrl: 'app/personnel/profile-preview.component.html',
+            styles: ["\n        .preview-controls {\n            text-align: center;\n        }\n        .caption h4 {\n            margin-bottom: 3px;\n        }\n        ul {\n            padding-left: 16px;\n            margin-left: 0;\n        }\n    "]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], ProfilePreviewComponent);
     return ProfilePreviewComponent;
 }());

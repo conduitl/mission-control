@@ -1,0 +1,21 @@
+<div class="thumbnail">
+    <img class="img-responsive" src="{{ checkImg(person) }}"> 
+    <div class="caption">
+        <h4>{{person.name}}</h4>
+        <b>{{person.job}}</b>
+        <p>{{person.joined}}</p>
+        <div *ngIf="person.missions">
+            <b>Missions</b>
+            <ul>
+                <li *ngFor="let mission of person.missions">
+                    {{ mission }}
+                </li>
+            </ul>
+        </div>
+        
+        <div class="preview-controls">
+            <button class="btn btn-primary"
+                    (click)="gotoDetail(person)">view details</button>
+        </div>
+    </div>
+</div>

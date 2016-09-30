@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
+var profile_preview_component_1 = require('./profile-preview.component');
 var person_detail_component_1 = require('./person-detail.component');
 var personnel_service_1 = require('./personnel.service');
 var personnel_routing_1 = require('./personnel.routing');
@@ -27,6 +28,7 @@ var PersonnelModule = (function () {
             declarations: [
                 personnel_manager_component_1.PersonnelManagerComponent,
                 personnel_list_component_1.PersonnelListComponent,
+                profile_preview_component_1.ProfilePreviewComponent,
                 person_detail_component_1.PersonDetailComponent
             ],
             providers: [

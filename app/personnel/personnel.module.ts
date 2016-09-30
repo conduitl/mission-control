@@ -21,4 +21,4 @@ import { stakeholderRouting } from './stakeholder.routing';
         PersonnelService
     ]
 })
-export class StakeholderModule { }
+export class PersonnelModule { }

@@ -15,7 +15,7 @@ var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 // features
 var projects_module_1 = require('./projects/projects.module');
-var stakeholder_module_1 = require('./personnel/stakeholder.module');
+var personnel_module_1 = require('./personnel/personnel.module');
 var admin_module_1 = require('./admin/admin.module');
 var assets_module_1 = require('./assets/assets.module');
 var navbar_module_1 = require('./navbar/navbar.module');
@@ -30,7 +30,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 navbar_module_1.NavbarModule,
                 app_routing_1.routing,
-                stakeholder_module_1.StakeholderModule,
+                personnel_module_1.PersonnelModule,
                 projects_module_1.ProjectsModule,
                 assets_module_1.AssetsModule,
                 admin_module_1.AdminModule

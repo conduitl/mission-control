@@ -14,10 +14,10 @@ var stakeholder_list_component_1 = require('./stakeholder-list.component');
 var person_detail_component_1 = require('./person-detail.component');
 var personnel_service_1 = require('./personnel.service');
 var stakeholder_routing_1 = require('./stakeholder.routing');
-var StakeholderModule = (function () {
-    function StakeholderModule() {
+var PersonnelModule = (function () {
+    function PersonnelModule() {
     }
-    StakeholderModule = __decorate([
+    PersonnelModule = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
@@ -32,8 +32,8 @@ var StakeholderModule = (function () {
             ]
         }), 
         __metadata('design:paramtypes', [])
-    ], StakeholderModule);
-    return StakeholderModule;
+    ], PersonnelModule);
+    return PersonnelModule;
 }());
-exports.StakeholderModule = StakeholderModule;
-//# sourceMappingURL=stakeholder.module.js.map
+exports.PersonnelModule = PersonnelModule;
+//# sourceMappingURL=personnel.module.js.map

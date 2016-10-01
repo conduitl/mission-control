@@ -10,6 +10,6 @@ export class Person {
 export class Bio {
     id: number;
     name: string;
-    summary?: string;
+    summary?: [string];
     career?: string;
 }

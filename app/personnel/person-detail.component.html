@@ -6,7 +6,7 @@
                 <div class="panel-body">
                     <div *ngIf="bio">
                         <h2>{{bio.name}}</h2>
-                        <div>{{bio.summary}}</div>
+                        <p *ngFor="let paragraph of bio.summary">{{paragraph}}</p>
                     </div>
                 </div>
             </div>

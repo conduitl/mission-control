@@ -25,11 +25,11 @@ export class ProfilePreviewComponent {
     constructor(private router: Router) { }
 
     gotoDetail(person: Person): void { 
-        let link = ['/personnel', person.id];
+        let link = ['/personnel', person.id, 'details'];
         this.router.navigate(link);
     }
     closeDetail(person: Person): void {
-        let link = ['/personnel'];
+        let link = ['/personnel', person.id];
         this.router.navigate(link);
     }
 

@@ -16,11 +16,11 @@ var ProfilePreviewComponent = (function () {
         this.router = router;
     }
     ProfilePreviewComponent.prototype.gotoDetail = function (person) {
-        var link = ['/personnel', person.id];
+        var link = ['/personnel', person.id, 'details'];
         this.router.navigate(link);
     };
     ProfilePreviewComponent.prototype.closeDetail = function (person) {
-        var link = ['/personnel'];
+        var link = ['/personnel', person.id];
         this.router.navigate(link);
     };
     // Preview 

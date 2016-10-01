@@ -9,8 +9,9 @@ import { PersonDetailComponent } from './person-detail.component';
 const personnelRoutes: Routes = [
     { path: 'personnel', component: PersonnelManagerComponent, children: 
         [
+            { path: ':id', component: PersonnelListComponent },
+            { path: ':id/details', component: PersonDetailComponent },
             { path: '', component: PersonnelListComponent },
-            { path: ':id', component: PersonDetailComponent },
             { path: 'preview', component: ProfilePreviewComponent, outlet: "aux"}
         ]
     },

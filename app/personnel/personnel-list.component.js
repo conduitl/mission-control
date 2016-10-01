@@ -20,8 +20,6 @@ var PersonnelListComponent = (function () {
     }
     PersonnelListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('NgOnInit');
-        console.log('value of selectedId = ' + this.selectedId);
         this.route.params.forEach(function (params) {
             _this.selectedId = +params['id'];
             _this.getPersonnel();
@@ -31,8 +29,6 @@ var PersonnelListComponent = (function () {
         var _this = this;
         this.personnelService.getPersonnel()
             .then(function (personnel) {
-            console.log('Promise => then');
-            console.log('value of selectedId = ' + _this.selectedId);
             _this.personnel = personnel;
             11;
             if (_this.selectedId) {
@@ -43,8 +39,7 @@ var PersonnelListComponent = (function () {
     };
     PersonnelListComponent.prototype.onSelect = function (person) {
         var id = person.id;
-        this.selectedId = id;
-        this.selectPerson(id);
+        this.router.navigate(['/personnel', id]);
     };
     PersonnelListComponent.prototype.isSelected = function (person) {
         return person.id === this.selectedId;

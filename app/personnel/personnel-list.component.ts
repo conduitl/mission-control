@@ -22,8 +22,6 @@ export class PersonnelListComponent implements OnInit {
     personnel: Person[];
     selectedPerson: Person;
     ngOnInit(): void {
-        console.log('NgOnInit');
-        console.log('value of selectedId = ' + this.selectedId);
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
             this.getPersonnel();
@@ -32,20 +30,16 @@ export class PersonnelListComponent implements OnInit {
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then( (personnel) => {
-                console.log('Promise => then');
-                console.log('value of selectedId = ' + this.selectedId);
                 this.personnel = personnel;11
                 if (this.selectedId) {
                     let id = this.selectedId;
-                    
                     this.selectPerson(id);
                 }
             }); 
     }
     onSelect(person: Person): void {
         let id = person.id;
-        this.selectedId = id;
-        this.selectPerson(id);
+        this.router.navigate(['/personnel', id]);
     }
     isSelected(person: Person) {
         return person.id === this.selectedId;

@@ -12,7 +12,15 @@ export const PERSONNEL: Person[] = [
     { id: 160, name: 'Charles "Pete" Conrad', job: 'Astronaut', joined: 1962, missions: ['Gemini 5', 'Gemini 11', 'Apollo 12', 'Skylab 2'], img: '../../img/300x300/conrad.jpg' },
     { id: 161, name: 'James A. Lovell', job: 'Astronaut', joined: 1962, missions: ['Gemini 7', 'Gemini 12', 'Apollo 8', 'Apollo 13'], img: '../../img/300x300/lovell.jpg' },
     { id: 162, name: 'James A. McDivitt', job: 'Astronaut', joined: 1962, missions: ['Gemini 4', 'Apollo 9'] },
-    { id: 163, name: 'Thomas P. Stafford', job: 'Astronaut', joined: 1962, missions: ['Gemini 6A', 'Gemini 9A','Apollo 10'] }
+    { id: 163, name: 'Thomas P. Stafford', job: 'Astronaut', joined: 1962, missions: ['Gemini 6A', 'Gemini 9A','Apollo 10'] },
+    { id: 164, name: 'Edward H. White', job: 'Astronaut', joined: 1962, group: 'Group 2'},
+    { id: 165, name: 'John W. Young', job: 'Astronaut', joined: 1962, group: 'Group 2'},
+    { id: 166, name: 'Edwin "Buzz" Aldrin', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { id: 167, name: 'Eugene A. Cernan', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { id: 168, name: 'Michael Collins', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { id: 169, name: 'Richard F. Gordon', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { id: 170, name: 'David R. Scott', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { id: 171, name: 'Donald Slayton', job: 'Astronaut', joined: 1959 }
 ];
 
 export const BIOS: Bio[] = [
@@ -27,6 +35,7 @@ export const BIOS: Bio[] = [
         name: 'Virgil "Gus" Grissom',
         summary: [`Lieutenant Colonel Virgil Ivan "Gus" Grissom (April 3, 1926 – January 27, 1967) was one of the original NASA Project Mercury astronauts, a United States Air Force test pilot and a mechanical engineer. He was the second American to fly in space, and the first member of the NASA Astronaut Corps to fly in space twice.`,
         `Grissom was killed along with fellow astronauts Ed White and Roger Chaffee during a pre-launch test for the Apollo 1 mission at Cape Canaveral Air Force Station (then known as Cape Kennedy), Florida. He was the first of the Mercury Seven to die. He was also a recipient of the Distinguished Flying Cross and, posthumously, the Congressional Space Medal of Honor.`]
-    }
-    
+    },
+    { id: 164, name: 'Edward H. White', wiki:'https://en.wikipedia.org/wiki/Edward_Higgins_White' },
+    { id: 165, name: 'John W. Young', wiki: 'https://en.wikipedia.org/wiki/John_Young_(astronaut)' }
 ];

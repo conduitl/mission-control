@@ -5,6 +5,7 @@ export class Person {
     joined?: number;
     missions?: [string];
     img?: string;
+    group?: string;
 }
 
 export class Bio {
@@ -12,4 +13,5 @@ export class Bio {
     name: string;
     summary?: [string];
     career?: string;
+    wiki?: string;
 }

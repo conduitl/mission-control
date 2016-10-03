@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-9">
         <div class="panel panel-default">
-            <div class="panel-body table-responsive feature-list">
+            <div class="panel-body feature-list">
                 <div class="row">
                     <div class="col-md-6">
                         <span class="input-group">
@@ -22,45 +22,20 @@
                     </div>
                     <div class="col-md-2">
                         <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default">
-                                <span class="glyphicon glyphicon-list-alt"></span>
+                            <button type="button" class="btn btn-default"
+                                    title="Table view">
+                                <span class="glyphicon glyphicon-list-alt">
+                                </span>
                             </button>
-                            <button type="button" class="btn btn-default">
+                            <button type="button" class="btn btn-default"
+                                    title="Thumbnail view">
                                 <span class="glyphicon glyphicon-th"></span>
                             </button>
                         </div>
                     </div>
                 </div>
                 <hr />
-                <table class="table table-condensed table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Job type</th>
-                            <th>Year joined</th>
-                            <th>Missions</th>
-                            <!--<th></th>-->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let person of personnel"
-                            class="row-selectable" 
-                            [class.selected]="isSelected(person)"
-                            (click)="onSelect(person)">
-                            <td><span>{{person.name}}</span></td>
-                            <td><span>{{person.job}}</span></td>
-                            <td><span>{{person.joined}}</span></td>
-                            <td>
-                                <span *ngIf="person.missions">
-                                    {{ makeCSList(person.missions) }}
-                                </span>
-                            </td>
-                            <!--<td>
-                                <button class="btn btn-default btn-sm pull-right" (click)="gotoDetail(person)">view details</button>
-                            </td>-->
-                        </tr>
-                    </tbody>
-                </table>
+                <list-layout [personnel]="personnel" [selectedId]="selectedId"></list-layout>
             </div>
         </div>
     </div>

@@ -1,0 +1,10 @@
+.selected {
+    background-color: #CFD8DC;
+    color: white;
+}
+tr.row-selectable {
+    cursor: pointer;
+}
+tr.row-selectable td span {
+    cursor: auto;
+}

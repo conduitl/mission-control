@@ -11,7 +11,7 @@ import { PersonnelService } from './personnel.service';
     styleUrls: ['app/personnel/personnel-list.component.css']
 })
 export class PersonnelListComponent implements OnInit {
-    private selectedId: number;
+    selectedId: number;
 
     constructor(
         private route: ActivatedRoute,
@@ -37,22 +37,11 @@ export class PersonnelListComponent implements OnInit {
                 }
             }); 
     }
-    onSelect(person: Person): void {
-        let id = person.id;
-        this.router.navigate(['/personnel', id]);
-    }
-    isSelected(person: Person) {
-        return person.id === this.selectedId;
-    }
+
     selectPerson(id: number) {
         this.selectedPerson = this.personnel.find( (person) => {
             return person.id === id;
         });
     }
-    // List operations for views
-    makeCSList(arr: [string]) {
-        return arr.reduce( (pre, cur) => {
-            return pre + ', ' + cur;
-        });
-    }
+
  }

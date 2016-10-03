@@ -37,22 +37,9 @@ var PersonnelListComponent = (function () {
             }
         });
     };
-    PersonnelListComponent.prototype.onSelect = function (person) {
-        var id = person.id;
-        this.router.navigate(['/personnel', id]);
-    };
-    PersonnelListComponent.prototype.isSelected = function (person) {
-        return person.id === this.selectedId;
-    };
     PersonnelListComponent.prototype.selectPerson = function (id) {
         this.selectedPerson = this.personnel.find(function (person) {
             return person.id === id;
-        });
-    };
-    // List operations for views
-    PersonnelListComponent.prototype.makeCSList = function (arr) {
-        return arr.reduce(function (pre, cur) {
-            return pre + ', ' + cur;
         });
     };
     PersonnelListComponent = __decorate([

@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Job type</th>
+                <th>Year joined</th>
+                <th>Missions</th>
+                <!--<th></th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of personnel"
+                class="row-selectable" 
+                [class.selected]="isSelected(person)"
+                (click)="onSelect(person)">
+                <td><span>{{person.name}}</span></td>
+                <td><span>{{person.job}}</span></td>
+                <td><span>{{person.joined}}</span></td>
+                <td>
+                    <span *ngIf="person.missions">
+                        {{ makeCSList(person.missions) }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

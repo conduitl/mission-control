@@ -6,6 +6,8 @@ import { PersonnelListComponent } from './personnel-list.component';
 import { ProfilePreviewComponent } from './profile-preview.component';
 import { PersonDetailComponent } from './person-detail.component';
 
+import { ListLayoutComponent } from './list-layout.component';
+
 import { PersonnelService } from './personnel.service';
 
 import { personnelRouting } from './personnel.routing';
@@ -19,7 +21,8 @@ import { personnelRouting } from './personnel.routing';
         PersonnelManagerComponent,
         PersonnelListComponent,
         ProfilePreviewComponent,
-        PersonDetailComponent
+        PersonDetailComponent,
+        ListLayoutComponent
     ],
     providers: [
         PersonnelService

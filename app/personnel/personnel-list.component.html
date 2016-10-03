@@ -23,12 +23,14 @@
                     <div class="col-md-2">
                         <div class="btn-group" role="group" aria-label="...">
                             <button type="button" class="btn btn-default"
+                                    [class.selected]="isLayoutSelected('list')"
                                     (click)="selectLayout('list')"
                                     title="Table view">
                                 <span class="glyphicon glyphicon-list-alt">
                                 </span>
                             </button>
                             <button type="button" class="btn btn-default"
+                                    [class.selected]="isLayoutSelected('grid')"
                                     (click)="selectLayout('grid')"
                                     title="Thumbnail view">
                                 <span class="glyphicon glyphicon-th"></span>

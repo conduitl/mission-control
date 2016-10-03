@@ -58,7 +58,7 @@ export class GridLayoutComponent implements OnInit {
         if (person.img) {
             return person.img;
         } else{
-            return 'http://placehold.it/150x150';
+            return 'http://placehold.it/300x300';
         }
     }
 }

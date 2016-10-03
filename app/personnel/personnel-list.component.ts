@@ -40,6 +40,9 @@ export class PersonnelListComponent implements OnInit {
                 }
             }); 
     }
+    isLayoutSelected(layout: string) {
+        return layout === this.layout;
+    }
     selectLayout(layout: string): void {
         let link = ['/personnel', this.selectedId, { layout: layout }];
         this.router.navigate(link);

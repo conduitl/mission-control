@@ -52,7 +52,7 @@ var GridLayoutComponent = (function () {
             return person.img;
         }
         else {
-            return 'http://placehold.it/150x150';
+            return 'http://placehold.it/300x300';
         }
     };
     __decorate([

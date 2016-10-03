@@ -38,6 +38,9 @@ var PersonnelListComponent = (function () {
             }
         });
     };
+    PersonnelListComponent.prototype.isLayoutSelected = function (layout) {
+        return layout === this.layout;
+    };
     PersonnelListComponent.prototype.selectLayout = function (layout) {
         var link = ['/personnel', this.selectedId, { layout: layout }];
         this.router.navigate(link);

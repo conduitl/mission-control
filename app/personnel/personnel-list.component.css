@@ -4,3 +4,7 @@
 .glyphicon {
     font-size: 20px;
 }
+.selected {
+    background-color: #333;
+    color: #eee;
+}

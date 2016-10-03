@@ -1,7 +1,8 @@
-.selected {
-    background-color: #CFD8DC;
-    color: white;
+.selected, .selected:hover {
+    background-color: #333;
+    color: #eee;
 }
+
 tr.row-selectable {
     cursor: pointer;
 }

@@ -15,6 +15,7 @@ var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');
 var person_detail_component_1 = require('./person-detail.component');
 var list_layout_component_1 = require('./list-layout.component');
+var grid_layout_component_1 = require('./grid-layout.component');
 var personnel_service_1 = require('./personnel.service');
 var personnel_routing_1 = require('./personnel.routing');
 var PersonnelModule = (function () {
@@ -31,7 +32,8 @@ var PersonnelModule = (function () {
                 personnel_list_component_1.PersonnelListComponent,
                 profile_preview_component_1.ProfilePreviewComponent,
                 person_detail_component_1.PersonDetailComponent,
-                list_layout_component_1.ListLayoutComponent
+                list_layout_component_1.ListLayoutComponent,
+                grid_layout_component_1.GridLayoutComponent
             ],
             providers: [
                 personnel_service_1.PersonnelService

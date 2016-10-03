@@ -59,7 +59,63 @@ export const PERSONNEL: Person[] = [
     },
     {
         id: 178, name: 'Alan L. Bean', job: 'Astronaut'
-    }
+    },
+    {
+        id: 179,
+        job: 'Mission Control',
+        title: 'Flight Director',
+        name: 'Christopher Kraft',
+        wiki: 'https://en.wikipedia.org/wiki/Christopher_C._Kraft_Jr.#Mercury'
+    },
+    {
+        id: 180,
+        job: 'Mission Control',
+        title: 'Ground Communication Coordinator',
+        name: 'Andy Anderson',
+        wiki: ''
+    },
+    {
+        id: 181,
+        job: 'Mission Control',
+        title: 'Power and Sequential Engineering',
+        name: 'Charlie Mars',
+        wiki: ''
+    },
+    {
+        id: 182,
+        job: 'Engineering',
+        title:'Aerospace Technologist',
+        name: 'Don Phillips',
+        wiki: ''
+    },
+    {
+        id: 183,
+        job: 'Mission Control',
+        title: 'Director, Mission Control Center Requirements Branch',
+        name: 'Tecwyn Roberts',
+        wiki: 'https://en.wikipedia.org/wiki/Tecwyn_Roberts#cite_note-thoughts-17'
+    },
+    {
+        id: 184,
+        job: 'Mission Control',
+        title: 'Flight Dynamics Officer',
+        name: 'Glynn S. Lunney',
+        wiki: 'https://en.wikipedia.org/wiki/Glynn_Lunney'
+    },
+    {
+        id: 185,
+        job: 'Mission Control',
+        title: 'Deputy Flight Director',
+        name: 'John Hodge',
+        wiki: 'https://en.wikipedia.org/wiki/John_Hodge_(engineer)'
+    },
+    {
+        id: 186,
+        job: 'Mission Control',
+        title: 'Assistant Flight Director',
+        name: 'Gene Kranz',
+        wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
+    },
 
 ];
 

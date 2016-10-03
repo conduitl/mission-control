@@ -6,6 +6,8 @@ export class Person {
     missions?: [string];
     img?: string;
     group?: string;
+    wiki?: string;
+    title?: string;
 }
 
 export class Bio {

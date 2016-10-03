@@ -1,0 +1,10 @@
+<div>
+    <div class="row">
+        <div class="col-md-2">
+            <span *ngFor="let person of personnel"
+                class="thumbnail">
+                <img class="img-responsive" [src]="checkImg(person)">
+            </span>
+        </div>
+    </div>
+</div>

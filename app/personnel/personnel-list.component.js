@@ -37,6 +37,9 @@ var PersonnelListComponent = (function () {
             }
         });
     };
+    PersonnelListComponent.prototype.selectLayout = function (layout) {
+        this.layout = layout;
+    };
     PersonnelListComponent.prototype.selectPerson = function (id) {
         this.selectedPerson = this.personnel.find(function (person) {
             return person.id === id;

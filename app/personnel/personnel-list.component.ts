@@ -12,6 +12,9 @@ import { PersonnelService } from './personnel.service';
 })
 export class PersonnelListComponent implements OnInit {
     selectedId: number;
+    personnel: Person[];
+    selectedPerson: Person;
+    layout: string;
 
     constructor(
         private route: ActivatedRoute,
@@ -19,8 +22,7 @@ export class PersonnelListComponent implements OnInit {
         private personnelService: PersonnelService ) { 
         //constructor
     }
-    personnel: Person[];
-    selectedPerson: Person;
+    
     ngOnInit(): void {
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
@@ -37,7 +39,9 @@ export class PersonnelListComponent implements OnInit {
                 }
             }); 
     }
-
+    selectLayout(layout: string): void {
+        this.layout = layout;
+    }
     selectPerson(id: number) {
         this.selectedPerson = this.personnel.find( (person) => {
             return person.id === id;

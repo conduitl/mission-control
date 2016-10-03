@@ -23,11 +23,13 @@
                     <div class="col-md-2">
                         <div class="btn-group" role="group" aria-label="...">
                             <button type="button" class="btn btn-default"
+                                    (click)="selectLayout('list')"
                                     title="Table view">
                                 <span class="glyphicon glyphicon-list-alt">
                                 </span>
                             </button>
                             <button type="button" class="btn btn-default"
+                                    (click)="selectLayout('grid')"
                                     title="Thumbnail view">
                                 <span class="glyphicon glyphicon-th"></span>
                             </button>
@@ -35,9 +37,11 @@
                     </div>
                 </div>
                 <hr />
-                <!--<list-layout [personnel]="personnel" [selectedId]="selectedId"></list-layout>-->
                 <div *ngIf="personnel">
-                    <grid-layout [personnel]="personnel" [selectedId]="selectedId"></grid-layout>
+                    <div [ngSwitch]="layout">
+                        <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [selectedId]="selectedId"></grid-layout>
+                        <list-layout *ngSwitchDefault [personnel]="personnel" [selectedId]="selectedId"></list-layout>
+                    </div>
                 </div>
             </div>
         </div>

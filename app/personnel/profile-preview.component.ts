@@ -20,16 +20,24 @@ import { Person } from './person';
 })
 export class ProfilePreviewComponent { 
     @Input() person: Person;
-    @Input() isDetail: boolean;
+    @Input() isDetail: boolean; // Necessary? Input isn't bound in PersonnelListCmp
 
-    constructor(private router: Router) { }
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router ) { }
 
-    gotoDetail(person: Person): void { 
-        let link = ['/personnel', person.id, 'details'];
+    preserveLayout() {
+        return this.route.snapshot.params['layout'];
+    }
+
+    gotoDetail(person: Person): void {
+        let layout = this.preserveLayout();
+        let link = ['/personnel', person.id, 'details', { layout: layout }];
         this.router.navigate(link);
     }
     closeDetail(person: Person): void {
-        let link = ['/personnel', person.id];
+        let layout = this.preserveLayout();
+        let link = ['/personnel', person.id, {layout: layout}];
         this.router.navigate(link);
     }
 

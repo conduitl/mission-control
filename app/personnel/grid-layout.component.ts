@@ -11,6 +11,7 @@ import { Person } from './person';
 export class GridLayoutComponent implements OnInit {
     @Input() personnel: Person[];
     @Input() selectedId: number;
+    layout: string = 'grid';
 
     public rows;
 
@@ -41,7 +42,7 @@ export class GridLayoutComponent implements OnInit {
     // Following methods duplicated in ListLayoutComponent
     onSelect(person: Person): void {
         let id = person.id;
-        this.router.navigate(['/personnel', id]);
+        this.router.navigate(['/personnel', id, { layout: this.layout }]);
     }
     isSelected(person: Person) {
         return person.id === this.selectedId;

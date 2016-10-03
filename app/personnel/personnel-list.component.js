@@ -22,6 +22,7 @@ var PersonnelListComponent = (function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             _this.selectedId = +params['id'];
+            _this.layout = params['layout'];
             _this.getPersonnel();
         });
     };
@@ -38,7 +39,8 @@ var PersonnelListComponent = (function () {
         });
     };
     PersonnelListComponent.prototype.selectLayout = function (layout) {
-        this.layout = layout;
+        var link = ['/personnel', this.selectedId, { layout: layout }];
+        this.router.navigate(link);
     };
     PersonnelListComponent.prototype.selectPerson = function (id) {
         this.selectedPerson = this.personnel.find(function (person) {

@@ -26,6 +26,7 @@ export class PersonnelListComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.forEach( (params: Params) => {
             this.selectedId = +params['id'];
+            this.layout = params['layout'];
             this.getPersonnel();
         });
     }
@@ -40,7 +41,8 @@ export class PersonnelListComponent implements OnInit {
             }); 
     }
     selectLayout(layout: string): void {
-        this.layout = layout;
+        let link = ['/personnel', this.selectedId, { layout: layout }];
+        this.router.navigate(link);
     }
     selectPerson(id: number) {
         this.selectedPerson = this.personnel.find( (person) => {

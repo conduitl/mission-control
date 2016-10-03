@@ -13,10 +13,11 @@ var router_1 = require('@angular/router');
 var ListLayoutComponent = (function () {
     function ListLayoutComponent(router) {
         this.router = router;
+        this.layout = 'list';
     }
     ListLayoutComponent.prototype.onSelect = function (person) {
         var id = person.id;
-        this.router.navigate(['/personnel', id]);
+        this.router.navigate(['/personnel', id, { layout: this.layout }]);
     };
     ListLayoutComponent.prototype.isSelected = function (person) {
         return person.id === this.selectedId;

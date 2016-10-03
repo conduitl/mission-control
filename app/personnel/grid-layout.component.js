@@ -13,6 +13,7 @@ var router_1 = require('@angular/router');
 var GridLayoutComponent = (function () {
     function GridLayoutComponent(router) {
         this.router = router;
+        this.layout = 'grid';
     }
     GridLayoutComponent.prototype.ngOnInit = function () {
         this.rows = this.makeRows(this.personnel, 4);
@@ -35,7 +36,7 @@ var GridLayoutComponent = (function () {
     // Following methods duplicated in ListLayoutComponent
     GridLayoutComponent.prototype.onSelect = function (person) {
         var id = person.id;
-        this.router.navigate(['/personnel', id]);
+        this.router.navigate(['/personnel', id, { layout: this.layout }]);
     };
     GridLayoutComponent.prototype.isSelected = function (person) {
         return person.id === this.selectedId;

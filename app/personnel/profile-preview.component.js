@@ -12,15 +12,21 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var person_1 = require('./person');
 var ProfilePreviewComponent = (function () {
-    function ProfilePreviewComponent(router) {
+    function ProfilePreviewComponent(route, router) {
+        this.route = route;
         this.router = router;
     }
+    ProfilePreviewComponent.prototype.preserveLayout = function () {
+        return this.route.snapshot.params['layout'];
+    };
     ProfilePreviewComponent.prototype.gotoDetail = function (person) {
-        var link = ['/personnel', person.id, 'details'];
+        var layout = this.preserveLayout();
+        var link = ['/personnel', person.id, 'details', { layout: layout }];
         this.router.navigate(link);
     };
     ProfilePreviewComponent.prototype.closeDetail = function (person) {
-        var link = ['/personnel', person.id];
+        var layout = this.preserveLayout();
+        var link = ['/personnel', person.id, { layout: layout }];
         this.router.navigate(link);
     };
     // Preview 
@@ -46,7 +52,7 @@ var ProfilePreviewComponent = (function () {
             templateUrl: 'app/personnel/profile-preview.component.html',
             styles: ["\n        .preview-controls {\n            text-align: center;\n        }\n        .caption h4 {\n            margin-bottom: 3px;\n        }\n        ul {\n            padding-left: 16px;\n            margin-left: 0;\n        }\n    "]
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
     ], ProfilePreviewComponent);
     return ProfilePreviewComponent;
 }());

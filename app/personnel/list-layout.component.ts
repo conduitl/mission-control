@@ -11,13 +11,14 @@ import { Person } from './person';
 export class ListLayoutComponent {
     @Input() personnel: Person[];
     @Input() selectedId: number;
+    layout: string = 'list';
     constructor(
         private router: Router
     ) { }
     
     onSelect(person: Person): void {
         let id = person.id;
-        this.router.navigate(['/personnel', id]);
+        this.router.navigate(['/personnel', id, {layout: this.layout}]);
     }
     isSelected(person: Person) {
         return person.id === this.selectedId;

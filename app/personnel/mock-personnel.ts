@@ -13,14 +13,54 @@ export const PERSONNEL: Person[] = [
     { id: 161, name: 'James A. Lovell', job: 'Astronaut', joined: 1962, missions: ['Gemini 7', 'Gemini 12', 'Apollo 8', 'Apollo 13'], img: '../../img/300x300/lovell.jpg' },
     { id: 162, name: 'James A. McDivitt', job: 'Astronaut', joined: 1962, missions: ['Gemini 4', 'Apollo 9'] },
     { id: 163, name: 'Thomas P. Stafford', job: 'Astronaut', joined: 1962, missions: ['Gemini 6A', 'Gemini 9A','Apollo 10'] },
-    { id: 164, name: 'Edward H. White', job: 'Astronaut', joined: 1962, group: 'Group 2'},
-    { id: 165, name: 'John W. Young', job: 'Astronaut', joined: 1962, group: 'Group 2'},
-    { id: 166, name: 'Edwin "Buzz" Aldrin', job: 'Astronaut', joined: 1963, group: 'Group 3' },
-    { id: 167, name: 'Eugene A. Cernan', job: 'Astronaut', joined: 1963, group: 'Group 3' },
-    { id: 168, name: 'Michael Collins', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { 
+        id: 164, name: 'Edward H. White', job: 'Astronaut', joined: 1962, group: 'Group 2',
+        missions: ['Gemini 4', 'Apollo 1']
+    },
+    { 
+        id: 165, name: 'John W. Young', job: 'Astronaut', joined: 1962, group: 'Group 2',
+        missions: ['Gemini 3', 'Gemini 10', 'Apollo 10', 'Apollo 16', 'STS-1', 'STS-9']
+    },
+    { 
+        id: 166, name: 'Edwin "Buzz" Aldrin', job: 'Astronaut', joined: 1963, group: 'Group 3',
+        missions: ['Gemini 12', 'Apollo 11']    
+    },
+    { 
+        id: 167, name: 'Eugene A. Cernan', job: 'Astronaut', joined: 1963, group: 'Group 3',
+        missions: ['Gemini 9A', 'Apollo 10', 'Apollo 17'] 
+    },
+    { 
+        id: 168, name: 'Michael Collins', job: 'Astronaut', joined: 1963, group: 'Group 3',
+        missions: ['Gemini 10', 'Apollo 11']
+    },
     { id: 169, name: 'Richard F. Gordon', job: 'Astronaut', joined: 1963, group: 'Group 3' },
     { id: 170, name: 'David R. Scott', job: 'Astronaut', joined: 1963, group: 'Group 3' },
-    { id: 171, name: 'Donald Slayton', job: 'Astronaut', joined: 1959 }
+    { 
+        id: 171, name: 'Donald Slayton', job: 'Astronaut', joined: 1959,
+        missions: ['Apollo-Soyuz Test Project']
+    },
+    {
+        id: 172, name: 'Eliot M. See, Jr', job: 'Astronaut', joined: 1962 
+    },
+    {
+        id: 173, name: 'Roger B. Chaffee', job: 'Astronaut'
+    },
+    {
+        id: 174, name: 'Donn F. Eisele', job: 'Astronaut'
+    },
+    {
+        id: 175, name: 'R. Walter Cunningham', job: 'Astronaut'
+    },
+    {
+        id: 176, name: 'Russell L. Schweickart', job: 'Astronaut'
+    },
+    {
+        id: 177, name: 'William A. Anders', job: 'Astronaut'
+    },
+    {
+        id: 178, name: 'Alan L. Bean', job: 'Astronaut'
+    }
+
 ];
 
 export const BIOS: Bio[] = [

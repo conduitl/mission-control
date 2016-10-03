@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-md-9">
+        <!-- Feature panel -->
         <div class="panel panel-default">
             <div class="panel-body feature-list">
+                <!-- Filtering, grouping and layout selection controls -->
                 <div class="row">
                     <div class="col-md-6">
                         <span class="input-group">
@@ -39,6 +41,9 @@
                     </div>
                 </div>
                 <hr />
+                <!-- Sorting, results per page controls -->
+
+                <!-- List view display-->
                 <div *ngIf="personnel">
                     <div [ngSwitch]="layout">
                         <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [selectedId]="selectedId"></grid-layout>
@@ -48,6 +53,7 @@
             </div>
         </div>
     </div>
+    <!-- Selection preview panel -->
     <div class="col-md-3">
         <div *ngIf="selectedPerson">
             <profile-preview [person]="selectedPerson"></profile-preview>

@@ -14,14 +14,23 @@ var GridLayoutComponent = (function () {
     function GridLayoutComponent(router) {
         this.router = router;
     }
-    // Group into rows of 6
+    GridLayoutComponent.prototype.ngOnInit = function () {
+        this.rows = this.makeRows(this.personnel, 4);
+    };
+    // Group into rows of 4
     GridLayoutComponent.prototype.makeRows = function (arr, len) {
         var rows = [];
-        for (var i = 0; i < arr.length; i += len) {
-            var row = arr.slice(i, i + len);
-            rows.push(row);
+        if (arr) {
+            for (var i = 0; i < arr.length; i += len) {
+                var row = arr.slice(i, i + len);
+                rows.push(row);
+            }
         }
         return rows;
+    };
+    GridLayoutComponent.prototype.logPersonnel = function () {
+        console.log('Log personnel');
+        console.log(this.personnel);
     };
     // Following methods duplicated in ListLayoutComponent
     GridLayoutComponent.prototype.onSelect = function (person) {

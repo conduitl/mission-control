@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Person } from './person';
@@ -8,21 +8,34 @@ import { Person } from './person';
     templateUrl: 'app/personnel/grid-layout.component.html',
     styleUrls: ['app/personnel/grid-layout.component.css']
 })
-export class GridLayoutComponent {
+export class GridLayoutComponent implements OnInit {
     @Input() personnel: Person[];
     @Input() selectedId: number;
+
+    public rows;
+
     constructor(
         private router: Router
     ) { }
 
-    // Group into rows of 6
-    makeRows(arr: [any], len: number) {
+    ngOnInit(): void {
+        this.rows = this.makeRows(this.personnel, 4);
+    }
+
+    // Group into rows of 4
+    makeRows(arr: any[], len: number) {
         let rows = [];
-        for (let i = 0; i < arr.length; i += len) {
-            let row = arr.slice(i, i + len);
-            rows.push(row);
+        if (arr) {
+            for (let i = 0; i < arr.length; i += len) {
+                let row = arr.slice(i, i + len);
+                rows.push(row);
+            }
         }
         return rows;
+    }
+    logPersonnel(): void {
+        console.log('Log personnel');
+        console.log(this.personnel);
     }
 
     // Following methods duplicated in ListLayoutComponent

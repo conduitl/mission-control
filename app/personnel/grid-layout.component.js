@@ -29,10 +29,6 @@ var GridLayoutComponent = (function () {
         }
         return rows;
     };
-    GridLayoutComponent.prototype.logPersonnel = function () {
-        console.log('Log personnel');
-        console.log(this.personnel);
-    };
     // Following methods duplicated in ListLayoutComponent
     GridLayoutComponent.prototype.onSelect = function (person) {
         var id = person.id;

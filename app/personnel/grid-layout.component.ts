@@ -34,11 +34,7 @@ export class GridLayoutComponent implements OnInit {
         }
         return rows;
     }
-    logPersonnel(): void {
-        console.log('Log personnel');
-        console.log(this.personnel);
-    }
-
+    
     // Following methods duplicated in ListLayoutComponent
     onSelect(person: Person): void {
         let id = person.id;

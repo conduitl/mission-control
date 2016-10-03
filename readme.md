@@ -1,15 +1,14 @@
 ## Modules in progress
 * Feature
-  * Stakeholder Management
-  * Project Team
-  * Talent Pool
-  * Organizational Units
-  * External Organizations
-* Core
-  * Navbar
+  * Personnel
 
 ##Modules for future
 * Feature
+  * Projects
+    * Available Talent
+    * Organizational Units
+    * Vendors
+    * External Organizations
   * Estimation
   * Requirements
   * Business Analysis

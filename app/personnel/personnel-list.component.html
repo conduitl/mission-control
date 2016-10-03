@@ -23,7 +23,7 @@
                         </span>
                     </div>
                     <div class="col-md-2">
-                        <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group pull-right" role="group" aria-label="...">
                             <button type="button" class="btn btn-default"
                                     [class.selected]="isLayoutSelected('list')"
                                     (click)="selectLayout('list')"
@@ -42,7 +42,20 @@
                 </div>
                 <hr />
                 <!-- Sorting, results per page controls -->
-
+                <div class="row">
+                    <div class="col-md-offset-9 sorting-toolbar">
+                        <div class="form-inline pull-right">
+                            <label for="num-results">Results per page:</label>
+                            <select class="form-control" name="num-results">
+                                <option>All</option>
+                                <option>100</option>
+                                <option>48</option>
+                                <option>16</option>
+                                <option>8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <!-- List view display-->
                 <div *ngIf="personnel">
                     <div [ngSwitch]="layout">

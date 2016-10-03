@@ -11,11 +11,9 @@ const personnelRoutes: Routes = [
         [
             { path: ':id', component: PersonnelListComponent },
             { path: ':id/details', component: PersonDetailComponent },
-            { path: '', component: PersonnelListComponent },
-            { path: 'preview', component: ProfilePreviewComponent, outlet: "aux"}
+            { path: '', component: PersonnelListComponent }
         ]
-    },
-    { path: 'person/:id', component: PersonDetailComponent }
+    }
 ];
 
 export const personnelRouting: ModuleWithProviders = RouterModule.forChild(personnelRoutes);

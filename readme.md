@@ -1,3 +1,6 @@
+#Space PM
+An application that maps people to missions, innovations, and project objectives. Inspired by actual enterprise applications and their shortcomings from my experience as a management consultant. Built with Angular 2 and TypeScript. Uses sample data from NASA and other space agencies. Content sourced from Wikipedia. 
+
 ## Modules in progress
 * Feature
   * Personnel

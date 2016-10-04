@@ -114,7 +114,7 @@ exports.PERSONNEL = [
         title: 'Assistant Flight Director',
         name: 'Gene Kranz',
         wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
-    },
+    }
 ];
 exports.BIOS = [
     {

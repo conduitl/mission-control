@@ -115,7 +115,7 @@ export const PERSONNEL: Person[] = [
         title: 'Assistant Flight Director',
         name: 'Gene Kranz',
         wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
-    },
+    }
 
 ];
 

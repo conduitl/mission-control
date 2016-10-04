@@ -9,3 +9,10 @@ tr.row-selectable {
 tr.row-selectable td span {
     cursor: auto;
 }
+.sort-control {
+    cursor: pointer;
+}
+.glyphicon {
+    margin-left: 6px;
+    font-size: 14px;
+}

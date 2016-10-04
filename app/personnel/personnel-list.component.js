@@ -31,7 +31,6 @@ var PersonnelListComponent = (function () {
         this.personnelService.getPersonnel()
             .then(function (personnel) {
             _this.personnel = personnel;
-            11;
             if (_this.selectedId) {
                 var id = _this.selectedId;
                 _this.selectPerson(id);
@@ -48,6 +47,16 @@ var PersonnelListComponent = (function () {
     PersonnelListComponent.prototype.selectPerson = function (id) {
         this.selectedPerson = this.personnel.find(function (person) {
             return person.id === id;
+        });
+    };
+    // Filter results
+    PersonnelListComponent.prototype.onKey = function (term) {
+        this.filterResults(term);
+    };
+    PersonnelListComponent.prototype.filterResults = function (query) {
+        var _this = this;
+        this.personnelService.filterResults(query).then(function (personnel) {
+            return _this.personnel = personnel;
         });
     };
     PersonnelListComponent = __decorate([

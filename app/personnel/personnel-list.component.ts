@@ -33,7 +33,7 @@ export class PersonnelListComponent implements OnInit {
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then( (personnel) => {
-                this.personnel = personnel;11
+                this.personnel = personnel;
                 if (this.selectedId) {
                     let id = this.selectedId;
                     this.selectPerson(id);
@@ -50,6 +50,15 @@ export class PersonnelListComponent implements OnInit {
     selectPerson(id: number) {
         this.selectedPerson = this.personnel.find( (person) => {
             return person.id === id;
+        });
+    }
+    // Filter results
+    onKey(term: string){
+        this.filterResults(term);
+    }
+    filterResults(query: string) {
+        this.personnelService.filterResults(query).then(personnel => {
+            return this.personnel = personnel;
         });
     }
 

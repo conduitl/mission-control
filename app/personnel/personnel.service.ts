@@ -23,4 +23,39 @@ export class PersonnelService {
                 });
             });
     }
+
+    filterResults(query: string) {
+        // TODO: Check for bad queries with invalid chars
+        // ISSUE: Query does not return missions when matched
+        //        works when if (person.missions) is the only if block
+        let rx = new RegExp(query, 'i');
+        return this.getPersonnel()
+            .then(personnel => {
+                if (query == '') {
+                    return personnel;
+                } 
+                return personnel.filter(person => {
+                    
+                    // TODO: Need to replace brute force if else statements
+                    if (rx.test(person.name)) {
+                        return true;
+                    } 
+                    if (rx.test(person.job)) {
+                        return true;
+                    } 
+                    if (person.joined) {
+                        return rx.test(person.joined.toString());
+                    }
+                    if (person.missions) {
+                        let missions = person.missions;
+                        for (let i = 0; i < missions.length; i++) {
+                            if (rx.test(missions[i])) {
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+                });
+            });
+    }
 }

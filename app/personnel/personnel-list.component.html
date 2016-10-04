@@ -8,7 +8,8 @@
                     <div class="col-md-6">
                         <span class="input-group">
                             <span class="input-group-addon">Filter by: </span>
-                            <input type="text" class="form-control" placeholder="Input text to filter the list" name="filter">
+                            <input #search type="text" class="form-control" placeholder="Input text to filter the list"
+                            (keyup)="onKey(search.value)" name="filter">
                         </span>
                     </div>
                     <div class="col-md-4">

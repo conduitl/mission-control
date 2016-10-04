@@ -31,6 +31,39 @@ var PersonnelService = (function () {
             });
         });
     };
+    PersonnelService.prototype.filterResults = function (query) {
+        // TODO: Check for bad queries with invalid chars
+        // ISSUE: Query does not return missions when matched
+        //        works when if (person.missions) is the only if block
+        var rx = new RegExp(query, 'i');
+        return this.getPersonnel()
+            .then(function (personnel) {
+            if (query == '') {
+                return personnel;
+            }
+            return personnel.filter(function (person) {
+                // TODO: Need to replace brute force if else statements
+                if (rx.test(person.name)) {
+                    return true;
+                }
+                if (rx.test(person.job)) {
+                    return true;
+                }
+                if (person.joined) {
+                    return rx.test(person.joined.toString());
+                }
+                if (person.missions) {
+                    var missions = person.missions;
+                    for (var i = 0; i < missions.length; i++) {
+                        if (rx.test(missions[i])) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            });
+        });
+    };
     PersonnelService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

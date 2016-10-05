@@ -34,28 +34,33 @@ export class PersonnelService {
                 if (query == '') {
                     return personnel;
                 } 
-                return personnel.filter(person => {
-                    
-                    // TODO: Need to replace brute force if else statements
-                    if (rx.test(person.name)) {
+                return this.search(query, personnel);
+            });
+    }
+    search(query, data) {
+        let rx = new RegExp(query, 'i');
+            return data.filter( element => {
+                if ( rx.test(element.name) ) {
+                    return true;
+                }
+                if ( rx.test(element.job) ) {
+                    return true;
+                }
+                if (element.joined) { // Joined column is optional, unlike previous col tests
+                    let year = element.joined.toString();
+                    if ( rx.test(year) ) {
                         return true;
-                    } 
-                    if (rx.test(person.job)) {
-                        return true;
-                    } 
-                    if (person.joined) {
-                        return rx.test(person.joined.toString());
                     }
-                    if (person.missions) {
-                        let missions = person.missions;
-                        for (let i = 0; i < missions.length; i++) {
-                            if (rx.test(missions[i])) {
-                                return true;
-                            }
+                }
+                if (element.missions) {
+                    let missions = element.missions;
+                    for (let i = 0; i < missions.length; i++) {
+                        if (rx.test(missions[i])) {
+                            return true;
                         }
                     }
-                    return false;
-                });
+                }
+                return false;
             });
     }
 }

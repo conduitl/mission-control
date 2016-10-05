@@ -32,6 +32,7 @@ var PersonnelService = (function () {
         });
     };
     PersonnelService.prototype.filterResults = function (query) {
+        var _this = this;
         // TODO: Check for bad queries with invalid chars
         // ISSUE: Query does not return missions when matched
         //        works when if (person.missions) is the only if block
@@ -41,27 +42,33 @@ var PersonnelService = (function () {
             if (query == '') {
                 return personnel;
             }
-            return personnel.filter(function (person) {
-                // TODO: Need to replace brute force if else statements
-                if (rx.test(person.name)) {
+            return _this.search(query, personnel);
+        });
+    };
+    PersonnelService.prototype.search = function (query, data) {
+        var rx = new RegExp(query, 'i');
+        return data.filter(function (element) {
+            if (rx.test(element.name)) {
+                return true;
+            }
+            if (rx.test(element.job)) {
+                return true;
+            }
+            if (element.joined) {
+                var year = element.joined.toString();
+                if (rx.test(year)) {
                     return true;
                 }
-                if (rx.test(person.job)) {
-                    return true;
-                }
-                if (person.joined) {
-                    return rx.test(person.joined.toString());
-                }
-                if (person.missions) {
-                    var missions = person.missions;
-                    for (var i = 0; i < missions.length; i++) {
-                        if (rx.test(missions[i])) {
-                            return true;
-                        }
+            }
+            if (element.missions) {
+                var missions = element.missions;
+                for (var i = 0; i < missions.length; i++) {
+                    if (rx.test(missions[i])) {
+                        return true;
                     }
                 }
-                return false;
-            });
+            }
+            return false;
         });
     };
     PersonnelService = __decorate([

@@ -11,26 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var ListLayoutComponent = (function () {
-    function ListLayoutComponent(route, router) {
-        this.route = route;
+    function ListLayoutComponent(router) {
         this.router = router;
     }
-    ListLayoutComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.forEach(function (params) {
-            _this.selectedId = +params['id'];
-            _this.optParams = {
-                layout: params['layout'],
-                query: params['query']
-            };
-        });
-    };
     ListLayoutComponent.prototype.onSelect = function (person) {
         var id = person.id;
-        this.router.navigate(['/personnel', id, this.optParams]);
+        this.router.navigate(['/personnel', id, {
+                query: this.listParams.query,
+                layout: this.listParams.layout
+            }]);
     };
     ListLayoutComponent.prototype.isSelected = function (person) {
-        return person.id === this.selectedId;
+        return person.id === this.listParams.id;
     };
     // List operations for views
     ListLayoutComponent.prototype.makeCSList = function (arr) {
@@ -44,15 +36,15 @@ var ListLayoutComponent = (function () {
     ], ListLayoutComponent.prototype, "personnel", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Number)
-    ], ListLayoutComponent.prototype, "selectedId", void 0);
+        __metadata('design:type', Object)
+    ], ListLayoutComponent.prototype, "listParams", void 0);
     ListLayoutComponent = __decorate([
         core_1.Component({
             selector: 'list-layout',
             templateUrl: 'app/personnel/list-layout.component.html',
             styleUrls: ['app/personnel/list-layout.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router])
     ], ListLayoutComponent);
     return ListLayoutComponent;
 }());

@@ -60,8 +60,8 @@
                 <!-- List view display-->
                 <div *ngIf="personnel">
                     <div [ngSwitch]="listParams.layout">
-                        <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [selectedId]="selectedId"></grid-layout>
-                        <list-layout *ngSwitchDefault [personnel]="personnel" [selectedId]="selectedId"></list-layout>
+                        <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [listParams]="listParams"></grid-layout>
+                        <list-layout *ngSwitchDefault [personnel]="personnel" [listParams]="listParams"></list-layout>
                     </div>
                 </div>
             </div>

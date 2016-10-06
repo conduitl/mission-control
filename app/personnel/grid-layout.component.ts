@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Person } from './person';
@@ -8,14 +8,12 @@ import { Person } from './person';
     templateUrl: 'app/personnel/grid-layout.component.html',
     styleUrls: ['app/personnel/grid-layout.component.css']
 })
-export class GridLayoutComponent implements OnInit {
+export class GridLayoutComponent implements OnChanges {
     @Input() personnel: Person[];
-    @Input() selectedId: number;
-
-    // track state of optional router params
-    optParams: {
-        layout: string,
-        query: string
+    @Input() listParams: {
+        id: number,
+        query: string,
+        layout: string
     };
 
     public rows;
@@ -25,15 +23,8 @@ export class GridLayoutComponent implements OnInit {
         private router: Router
     ) { }
 
-    ngOnInit(): void {
-        this.route.params.forEach( (params: Params) => {
-            this.selectedId = +params['id'];
-            this.optParams = {
-                layout:  params['layout'],
-                query: params['query']
-            };            
-            this.rows = this.makeRows(this.personnel, 4); // this is a problem
-        });
+    ngOnChanges(): void {
+        this.rows = this.makeRows(this.personnel, 4);
     }
 
     // Group into rows of 4
@@ -51,10 +42,13 @@ export class GridLayoutComponent implements OnInit {
     // Following methods duplicated in ListLayoutComponent
     onSelect(person: Person): void {
         let id = person.id;
-        this.router.navigate(['/personnel', id, this.optParams]);
+        this.router.navigate(['/personnel', id , {
+            query: this.listParams.query,
+            layout: this.listParams.layout
+        }]);
     }
     isSelected(person: Person) {
-        return person.id === this.selectedId;
+        return person.id === this.listParams.id;
     }
     makeCSList(arr: [string]) {
         return arr.reduce( (pre, cur) => {

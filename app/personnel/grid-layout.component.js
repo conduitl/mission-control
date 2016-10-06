@@ -15,16 +15,8 @@ var GridLayoutComponent = (function () {
         this.route = route;
         this.router = router;
     }
-    GridLayoutComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.forEach(function (params) {
-            _this.selectedId = +params['id'];
-            _this.optParams = {
-                layout: params['layout'],
-                query: params['query']
-            };
-            _this.rows = _this.makeRows(_this.personnel, 4); // this is a problem
-        });
+    GridLayoutComponent.prototype.ngOnChanges = function () {
+        this.rows = this.makeRows(this.personnel, 4);
     };
     // Group into rows of 4
     GridLayoutComponent.prototype.makeRows = function (arr, len) {
@@ -40,10 +32,13 @@ var GridLayoutComponent = (function () {
     // Following methods duplicated in ListLayoutComponent
     GridLayoutComponent.prototype.onSelect = function (person) {
         var id = person.id;
-        this.router.navigate(['/personnel', id, this.optParams]);
+        this.router.navigate(['/personnel', id, {
+                query: this.listParams.query,
+                layout: this.listParams.layout
+            }]);
     };
     GridLayoutComponent.prototype.isSelected = function (person) {
-        return person.id === this.selectedId;
+        return person.id === this.listParams.id;
     };
     GridLayoutComponent.prototype.makeCSList = function (arr) {
         return arr.reduce(function (pre, cur) {
@@ -65,8 +60,8 @@ var GridLayoutComponent = (function () {
     ], GridLayoutComponent.prototype, "personnel", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Number)
-    ], GridLayoutComponent.prototype, "selectedId", void 0);
+        __metadata('design:type', Object)
+    ], GridLayoutComponent.prototype, "listParams", void 0);
     GridLayoutComponent = __decorate([
         core_1.Component({
             selector: 'grid-layout',

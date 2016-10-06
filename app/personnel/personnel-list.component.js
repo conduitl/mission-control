@@ -38,6 +38,12 @@ var PersonnelListComponent = (function () {
         if (this.listParams.id) {
             this.selectPerson(this.listParams.id);
         }
+        if (this.listParams.query == undefined) {
+            this.listParams.query = '';
+        }
+        if (this.listParams.layout == undefined) {
+            this.listParams.layout = 'list';
+        }
         if (this.listParams.query) {
             this.filterResults(this.listParams.query);
         }

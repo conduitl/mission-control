@@ -9,7 +9,7 @@
                         <span class="input-group">
                             <span class="input-group-addon">Filter by: </span>
                             <input #search type="text" class="form-control" placeholder="Input text to filter the list"
-                            (keyup)="setQuery(search.value)" name="filter">
+                            [value]="listParams.query" (keyup)="setQuery(search.value)" name="filter">
                         </span>
                     </div>
                     <div class="col-md-4">

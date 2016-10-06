@@ -26,12 +26,10 @@ export class PersonnelService {
 
     filterResults(query: string) {
         // TODO: Check for bad queries with invalid chars
-        // ISSUE: Query does not return missions when matched
-        //        works when if (person.missions) is the only if block
         let rx = new RegExp(query, 'i');
         return this.getPersonnel()
             .then(personnel => {
-                if (query == '') {
+                if (query === '' || query === 'undefined') {
                     return personnel;
                 } 
                 return this.search(query, personnel);
@@ -46,7 +44,7 @@ export class PersonnelService {
                 if ( rx.test(element.job) ) {
                     return true;
                 }
-                if (element.joined) { // Joined column is optional, unlike previous col tests
+                if (element.joined) { // Joined column is optional, unlike previous tests
                     let year = element.joined.toString();
                     if ( rx.test(year) ) {
                         return true;

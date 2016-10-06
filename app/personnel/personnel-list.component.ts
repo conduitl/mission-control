@@ -11,10 +11,15 @@ import { PersonnelService } from './personnel.service';
     styleUrls: ['app/personnel/personnel-list.component.css']
 })
 export class PersonnelListComponent implements OnInit {
-    selectedId: number;
     personnel: Person[];
     selectedPerson: Person;
-    layout: string;
+
+    // track state of optional router params
+    listParams: {
+        id: number,
+        layout: string,
+        query: string
+    };
 
     constructor(
         private route: ActivatedRoute,
@@ -24,37 +29,63 @@ export class PersonnelListComponent implements OnInit {
     }
     
     ngOnInit(): void {
+        console.log('Personnel List - Initialized');
+        this.extractRouteParams();
+    }
+    extractRouteParams() {
         this.route.params.forEach( (params: Params) => {
-            this.selectedId = +params['id'];
-            this.layout = params['layout'];
-            this.getPersonnel();
+            this.listParams = {
+                id: +params['id'],
+                layout:  params['layout'],
+                query: params['query']
+            };
+            this.evalParams();
         });
+    }
+    evalParams() {
+        console.log('Params evaluated');
+        if (this.listParams.id) {
+            this.selectPerson(this.listParams.id);
+        }
+        if (this.listParams.query) {
+            this.filterResults(this.listParams.query);
+        } else {
+            this.getPersonnel();
+        }
     }
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then( (personnel) => {
                 this.personnel = personnel;
-                if (this.selectedId) {
-                    let id = this.selectedId;
-                    this.selectPerson(id);
-                }
             }); 
     }
     isLayoutSelected(layout: string) {
-        return layout === this.layout;
+        return layout === this.listParams.layout;
     }
     selectLayout(layout: string): void {
-        let link = ['/personnel', this.selectedId, { layout: layout }];
+        this.listParams.layout = layout;
+        let link = ['/personnel', this.listParams.id, {
+            query: this.listParams.query,
+            layout: this.listParams.layout
+        }];
         this.router.navigate(link);
     }
     selectPerson(id: number) {
-        this.selectedPerson = this.personnel.find( (person) => {
-            return person.id === id;
-        });
+        this.personnelService.getPerson(id)
+            .then( (person) => {
+                this.selectedPerson = person;
+                console.log(this.selectedPerson);
+            });
     }
     // Filter results
-    onKey(term: string){
-        this.filterResults(term);
+    setQuery(query: string) {
+        let link: [any];
+        this.listParams.query = query;
+        link = ['/personnel', this.listParams.id, {
+            query: this.listParams.query,
+            layout: this.listParams.layout
+        }];
+        this.router.navigate(link);
     }
     filterResults(query: string) {
         this.personnelService.filterResults(query).then(personnel => {

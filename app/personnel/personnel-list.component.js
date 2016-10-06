@@ -19,39 +19,67 @@ var PersonnelListComponent = (function () {
         //constructor
     }
     PersonnelListComponent.prototype.ngOnInit = function () {
+        console.log('Personnel List - Initialized');
+        this.extractRouteParams();
+    };
+    PersonnelListComponent.prototype.extractRouteParams = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            _this.selectedId = +params['id'];
-            _this.layout = params['layout'];
-            _this.getPersonnel();
+            _this.listParams = {
+                id: +params['id'],
+                layout: params['layout'],
+                query: params['query']
+            };
+            _this.evalParams();
         });
+    };
+    PersonnelListComponent.prototype.evalParams = function () {
+        console.log('Params evaluated');
+        if (this.listParams.id) {
+            this.selectPerson(this.listParams.id);
+        }
+        if (this.listParams.query) {
+            this.filterResults(this.listParams.query);
+        }
+        else {
+            this.getPersonnel();
+        }
     };
     PersonnelListComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.getPersonnel()
             .then(function (personnel) {
             _this.personnel = personnel;
-            if (_this.selectedId) {
-                var id = _this.selectedId;
-                _this.selectPerson(id);
-            }
         });
     };
     PersonnelListComponent.prototype.isLayoutSelected = function (layout) {
-        return layout === this.layout;
+        return layout === this.listParams.layout;
     };
     PersonnelListComponent.prototype.selectLayout = function (layout) {
-        var link = ['/personnel', this.selectedId, { layout: layout }];
+        this.listParams.layout = layout;
+        var link = ['/personnel', this.listParams.id, {
+                query: this.listParams.query,
+                layout: this.listParams.layout
+            }];
         this.router.navigate(link);
     };
     PersonnelListComponent.prototype.selectPerson = function (id) {
-        this.selectedPerson = this.personnel.find(function (person) {
-            return person.id === id;
+        var _this = this;
+        this.personnelService.getPerson(id)
+            .then(function (person) {
+            _this.selectedPerson = person;
+            console.log(_this.selectedPerson);
         });
     };
     // Filter results
-    PersonnelListComponent.prototype.onKey = function (term) {
-        this.filterResults(term);
+    PersonnelListComponent.prototype.setQuery = function (query) {
+        var link;
+        this.listParams.query = query;
+        link = ['/personnel', this.listParams.id, {
+                query: this.listParams.query,
+                layout: this.listParams.layout
+            }];
+        this.router.navigate(link);
     };
     PersonnelListComponent.prototype.filterResults = function (query) {
         var _this = this;

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Person } from './person';
 
@@ -11,16 +11,29 @@ import { Person } from './person';
 export class GridLayoutComponent implements OnInit {
     @Input() personnel: Person[];
     @Input() selectedId: number;
-    layout: string = 'grid';
+
+    // track state of optional router params
+    optParams: {
+        layout: string,
+        query: string
+    };
 
     public rows;
 
     constructor(
+        private route: ActivatedRoute,
         private router: Router
     ) { }
 
     ngOnInit(): void {
-        this.rows = this.makeRows(this.personnel, 4);
+        this.route.params.forEach( (params: Params) => {
+            this.selectedId = +params['id'];
+            this.optParams = {
+                layout:  params['layout'],
+                query: params['query']
+            };            
+            this.rows = this.makeRows(this.personnel, 4); // this is a problem
+        });
     }
 
     // Group into rows of 4
@@ -38,7 +51,7 @@ export class GridLayoutComponent implements OnInit {
     // Following methods duplicated in ListLayoutComponent
     onSelect(person: Person): void {
         let id = person.id;
-        this.router.navigate(['/personnel', id, { layout: this.layout }]);
+        this.router.navigate(['/personnel', id, this.optParams]);
     }
     isSelected(person: Person) {
         return person.id === this.selectedId;

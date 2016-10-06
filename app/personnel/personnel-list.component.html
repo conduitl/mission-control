@@ -9,7 +9,7 @@
                         <span class="input-group">
                             <span class="input-group-addon">Filter by: </span>
                             <input #search type="text" class="form-control" placeholder="Input text to filter the list"
-                            (keyup)="onKey(search.value)" name="filter">
+                            (keyup)="setQuery(search.value)" name="filter">
                         </span>
                     </div>
                     <div class="col-md-4">
@@ -59,7 +59,7 @@
                 </div>
                 <!-- List view display-->
                 <div *ngIf="personnel">
-                    <div [ngSwitch]="layout">
+                    <div [ngSwitch]="listParams.layout">
                         <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [selectedId]="selectedId"></grid-layout>
                         <list-layout *ngSwitchDefault [personnel]="personnel" [selectedId]="selectedId"></list-layout>
                     </div>

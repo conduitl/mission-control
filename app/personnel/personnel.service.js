@@ -34,12 +34,10 @@ var PersonnelService = (function () {
     PersonnelService.prototype.filterResults = function (query) {
         var _this = this;
         // TODO: Check for bad queries with invalid chars
-        // ISSUE: Query does not return missions when matched
-        //        works when if (person.missions) is the only if block
         var rx = new RegExp(query, 'i');
         return this.getPersonnel()
             .then(function (personnel) {
-            if (query == '') {
+            if (query === '' || query === 'undefined') {
                 return personnel;
             }
             return _this.search(query, personnel);

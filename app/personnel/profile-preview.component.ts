@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { Person } from './person';
 
 @Component({
@@ -20,25 +20,30 @@ import { Person } from './person';
 })
 export class ProfilePreviewComponent { 
     @Input() person: Person;
-    @Input() isDetail: boolean; // Necessary? Input isn't bound in PersonnelListCmp
+    @Input() listParams: {
+        id: number,
+        query: string,
+        layout: string
+    }
+    @Input() isDetail: boolean;
 
     constructor(
-        private route: ActivatedRoute,
         private router: Router ) { }
 
-    preserveLayout() {
-        return this.route.snapshot.params['layout'];
-    }
-
     gotoDetail(person: Person): void {
-        let layout = this.preserveLayout();
-        let link = ['/personnel', person.id, 'details', { layout: layout }];
+        let link = ['/personnel', person.id, 'details', { 
+            query: this.listParams.query,
+            layout: this.listParams.layout
+         }];
         this.router.navigate(link);
     }
     closeDetail(person: Person): void {
-        let layout = this.preserveLayout();
-        let link = ['/personnel', person.id, {layout: layout}];
+        let link = ['/personnel', person.id, {
+            query: this.listParams.query,
+            layout: this.listParams.layout
+        }];
         this.router.navigate(link);
+        this.isDetail = false;
     }
 
     // Preview 

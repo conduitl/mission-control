@@ -13,6 +13,11 @@ import { Person, Bio } from './person';
 export class PersonDetailComponent implements OnInit {
     person: Person;
     bio: Bio;
+    listParams: {
+        id: number,
+        query: string,
+        layout: string
+    }
 
     constructor(
         private route: ActivatedRoute,
@@ -21,15 +26,15 @@ export class PersonDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
-            let id = +params['id'];
-            this.personnelService.getPerson(id)
+            this.listParams = {
+                id: +params['id'],
+                query: params['query'],
+                layout: params['layout']
+            }
+            this.personnelService.getPerson( this.listParams.id )
                 .then( (person) => this.person = person);
-            this.personnelService.getBio(id)
+            this.personnelService.getBio( this.listParams.id )
                 .then( (bio) => this.bio = bio );
         });
-    }
-    gotoStakeholders(): void {
-        let personId = this.person ? this.person.id : null;
-        this.router.navigate(['/stakeholders', { id: personId }]);
     }
  }

@@ -70,7 +70,7 @@
     <!-- Selection preview panel -->
     <div class="col-md-3">
         <div *ngIf="selectedPerson">
-            <profile-preview [person]="selectedPerson"></profile-preview>
+            <profile-preview [person]="selectedPerson" [listParams]="listParams"></profile-preview>
         </div>
     </div>
 </div>

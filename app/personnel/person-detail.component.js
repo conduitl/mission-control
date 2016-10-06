@@ -20,16 +20,16 @@ var PersonDetailComponent = (function () {
     PersonDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            var id = +params['id'];
-            _this.personnelService.getPerson(id)
+            _this.listParams = {
+                id: +params['id'],
+                query: params['query'],
+                layout: params['layout']
+            };
+            _this.personnelService.getPerson(_this.listParams.id)
                 .then(function (person) { return _this.person = person; });
-            _this.personnelService.getBio(id)
+            _this.personnelService.getBio(_this.listParams.id)
                 .then(function (bio) { return _this.bio = bio; });
         });
-    };
-    PersonDetailComponent.prototype.gotoStakeholders = function () {
-        var personId = this.person ? this.person.id : null;
-        this.router.navigate(['/stakeholders', { id: personId }]);
     };
     PersonDetailComponent = __decorate([
         core_1.Component({

@@ -8,3 +8,6 @@
 .tile-selectable:hover {
     background-color: #dedede;
 }
+.grid-container {
+    margin-top: 12px;
+}

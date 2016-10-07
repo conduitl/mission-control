@@ -44,7 +44,13 @@
                 <hr />
                 <!-- Sorting, results per page controls -->
                 <div class="row">
-                    <div class="col-md-offset-9 sorting-toolbar">
+                    <div class="col-md-9">
+                        <div *ngIf="personnel">
+                            <b>Personnel:</b>
+                            <span class="label label-default">{{ personnel.length }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 sorting-toolbar">
                         <div class="form-inline pull-right">
                             <label for="num-results">Results per page:</label>
                             <select class="form-control" name="num-results">

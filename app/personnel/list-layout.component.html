@@ -2,17 +2,19 @@
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
-                <th class="sort-control">Name
-                    <span class="glyphicon glyphicon-arrow-down"></span>
+                <th class="sort-control" (click)="sort(personnel, 'name')">Name
+                    <span *ngIf="sortMap.name" class="glyphicon glyphicon-arrow-down"></span>
+                    <span *ngIf="!sortMap.name" class="glyphicon glyphicon-arrow-up"></span>
                 </th>
-                <th class="sort-control">Job type
-                    <span class="glyphicon glyphicon-arrow-down"></span>
+                <th class="sort-control" (click)="sort(personnel, 'job')">Job type
+                    <span *ngIf="sortMap.job" class="glyphicon glyphicon-arrow-down"></span>
+                    <span *ngIf="!sortMap.job" class="glyphicon glyphicon-arrow-up"></span>
                 </th>
-                <th class="sort-control">Year joined
-                    <span class="glyphicon glyphicon-arrow-down"></span>
+                <th class="sort-control" (click)="sort(personnel, 'joined')">Year joined
+                    <span *ngIf="sortMap.joined" class="glyphicon glyphicon-arrow-down"></span>
+                    <span *ngIf="!sortMap.joined" class="glyphicon glyphicon-arrow-up"></span>
                 </th>
-                <th class="sort-control">Missions
-                    <span class="glyphicon glyphicon-arrow-down"></span>
+                <th>Missions
                 </th>
                 <!--<th></th>-->
             </tr>

@@ -13,6 +13,11 @@ var router_1 = require('@angular/router');
 var ListLayoutComponent = (function () {
     function ListLayoutComponent(router) {
         this.router = router;
+        this.sortMap = {
+            name: false,
+            joined: false,
+            year: false
+        };
     }
     ListLayoutComponent.prototype.onSelect = function (person) {
         var id = person.id;
@@ -28,6 +33,46 @@ var ListLayoutComponent = (function () {
     ListLayoutComponent.prototype.makeCSList = function (arr) {
         return arr.reduce(function (pre, cur) {
             return pre + ', ' + cur;
+        });
+    };
+    // Sorting methods
+    ListLayoutComponent.prototype.switch = function (obj, key) {
+        if (obj[key]) {
+            obj[key] = false;
+            return false;
+        }
+        obj[key] = true;
+        return true;
+    };
+    ListLayoutComponent.prototype.sort = function (personnel, column) {
+        var ascend = this.switch(this.sortMap, column);
+        if (ascend) {
+            this.sortAscending(personnel, column);
+        }
+        else {
+            this.sortDescending(personnel, column);
+        }
+    };
+    ListLayoutComponent.prototype.sortAscending = function (personnel, column) {
+        return personnel.sort(function (a, b) {
+            if (a[column] > b[column]) {
+                return 1;
+            }
+            if (a[column] < b[column]) {
+                return -1;
+            }
+            return 0;
+        });
+    };
+    ListLayoutComponent.prototype.sortDescending = function (personnel, column) {
+        return personnel.sort(function (a, b) {
+            if (b[column] > a[column]) {
+                return 1;
+            }
+            if (b[column] < a[column]) {
+                return -1;
+            }
+            return 0;
         });
     };
     __decorate([

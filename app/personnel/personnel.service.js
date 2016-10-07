@@ -31,6 +31,7 @@ var PersonnelService = (function () {
             });
         });
     };
+    // Filtering methods
     PersonnelService.prototype.filterResults = function (query) {
         var _this = this;
         // TODO: Check for bad queries with invalid chars

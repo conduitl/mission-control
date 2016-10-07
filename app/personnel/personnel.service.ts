@@ -24,6 +24,7 @@ export class PersonnelService {
             });
     }
 
+    // Filtering methods
     filterResults(query: string) {
         // TODO: Check for bad queries with invalid chars
         let rx = new RegExp(query, 'i');

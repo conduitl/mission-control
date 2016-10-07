@@ -98,5 +98,4 @@ export class PersonnelListComponent implements OnInit {
             return this.personnel = personnel;
         });
     }
-
  }

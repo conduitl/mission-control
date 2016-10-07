@@ -137,7 +137,10 @@ export class PersonnelListComponent implements OnInit {
     }
 
     // Group results
+    // TODO: Method is pretty ugly, needs clean up refactoring
+    //       especially for handling nested arrays
     groupBy(col: string, personnel: Person[]) {
+        // Refactor - Create object pairing the select option values to keys on Person class
         if (col === '(none)') {
             this.groups = undefined;
             return;
@@ -148,17 +151,36 @@ export class PersonnelListComponent implements OnInit {
         if (col === 'Job type') {
             col = 'job';
         }
+        if (col === 'Missions') {
+            col = 'missions';
+        }
+        // Refactor - Better, scalable handing of keys referencing Arrays
         let groups: {} = {};
         personnel.forEach((person: Person, idx: number, arr: Person[]) => {
-            if (!groups[ person[col] ]) { // if no group for col value, initialize it
-                groups[ person[col] ] = [];
+            if ( Array.isArray(person[col])) { // If the Person property contains an array e.g. 'missions'
+                person[col].forEach( (mission: string, idx: number, arr: [string]) => {
+                    group(person, groups, col, idx);
+                });
+            } else { 
+                group(person, groups, col, null);
             }
-            // Push person to the appropriate group based on supplied column
-            // e.g. Job type
-            groups[ person[col] ].push(person);
         });
-        console.log(col);
-        console.log(groups);
+        function group(person: Person, groups, column, nested_idx) {
+            if (nested_idx === null) {
+                if (!groups[ person[column] ]) { // if no group for col value, initialize it
+                    groups[ person[column] ] = [];
+                }
+                // Push person to the appropriate group based on supplied column
+                // e.g. Job type
+                groups[ person[column] ].push(person);
+            } else {
+                console.log('Mission: ' + person[column]);
+                if (!groups[ person[column][nested_idx] ]) {
+                    groups[ person[column][nested_idx] ] = [];
+                }
+                groups[ person[column][nested_idx] ].push(person);
+            }
+        }
         this.grouping = col;
         this.groups = groups;
         this.keys = Object.keys(groups);

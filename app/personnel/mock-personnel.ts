@@ -33,32 +33,35 @@ export const PERSONNEL: Person[] = [
         id: 168, name: 'Michael Collins', job: 'Astronaut', joined: 1963, group: 'Group 3',
         missions: ['Gemini 10', 'Apollo 11']
     },
-    { id: 169, name: 'Richard F. Gordon', job: 'Astronaut', joined: 1963, group: 'Group 3' },
-    { id: 170, name: 'David R. Scott', job: 'Astronaut', joined: 1963, group: 'Group 3' },
+    { id: 169, name: 'Richard F. Gordon', job: 'Astronaut', joined: 1963, group: 'Group 3',
+      missions: ['Gemini 11', 'Apollo 12']
+     },
+    { id: 170, name: 'David R. Scott', job: 'Astronaut', joined: 1963, group: 'Group 3',
+      missions: ['Gemini 8', 'Apollo 9', 'Apollo 15'] },
     { 
         id: 171, name: 'Donald Slayton', job: 'Astronaut', joined: 1959,
         missions: ['Apollo-Soyuz Test Project']
     },
     {
-        id: 172, name: 'Eliot M. See, Jr', job: 'Astronaut', joined: 1962 
+        id: 172, name: 'Elliot M. See, Jr', job: 'Astronaut', joined: 1962
     },
     {
-        id: 173, name: 'Roger B. Chaffee', job: 'Astronaut'
+        id: 173, name: 'Roger B. Chaffee', job: 'Astronaut', joined: 1963, missions: ['Apollo 1'] 
     },
     {
-        id: 174, name: 'Donn F. Eisele', job: 'Astronaut'
+        id: 174, name: 'Donn F. Eisele', job: 'Astronaut', joined: 1963, missions: ['Apollo 7']
     },
     {
-        id: 175, name: 'R. Walter Cunningham', job: 'Astronaut'
+        id: 175, name: 'R. Walter Cunningham', job: 'Astronaut', joined: 1963, missions: ['Apollo 7']
     },
     {
-        id: 176, name: 'Russell L. Schweickart', job: 'Astronaut'
+        id: 176, name: 'Russell L. Schweickart', job: 'Astronaut', joined: 1963, missions: ['Apollo 9']
     },
     {
-        id: 177, name: 'William A. Anders', job: 'Astronaut'
+        id: 177, name: 'William A. Anders', job: 'Astronaut', joined: 1963, missions: ['Apollo 8']
     },
     {
-        id: 178, name: 'Alan L. Bean', job: 'Astronaut'
+        id: 178, name: 'Alan L. Bean', job: 'Astronaut', joined: 1963, missions: ['Apollo 12', 'Skylab 3']
     },
     {
         id: 179,
@@ -230,6 +233,55 @@ export const PERSONNEL: Person[] = [
         name: 'Bill Bucholtz',
         programs: ['Gemini'],
         source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 203,
+        job: 'Astronaut',
+        name: 'Sally Ride',
+        missions: ['STS-7', 'STS-41-G']
+    },
+    {
+        id: 204,
+        job: 'Astronaut',
+        name: 'Judith Resnick',
+        missions: ['STS-41-D', 'ST-51-L']
+    },
+    {
+        id: 205,
+        job: 'Astronaut',
+        name: 'Kathryn D. Sullivan',
+        missions: ['STS-41-G', 'STS-31', 'STS-45']
+    },
+    {
+        id: 206,
+        job: 'Astronaut',
+        name: 'Anna Lee Fisher',
+        missions: ['STS-51-A']
+    },
+    {
+        id: 207,
+        job: 'Astronaut',
+        name: 'Margaret Rhea Sheldon',
+        missions: ['STS-51-D', 'STS-40', 'STS-58']
+
+    },
+    {
+        id: 208,
+        job: 'Astronaut',
+        name: 'Shannon Lucid',
+        missions: ['STS-51-G', 'STS-34', 'STS-43', 'STS-58', 'STS-76/79']
+    },
+    {
+        id: 209,
+        job: 'Astronaut',
+        name: 'Bonnie J. Dunbar',
+        missions: ['STS-61-A', 'STS-32', 'STS-50', 'STS-71', 'STS-89']
+    },
+    {
+        id: 210,
+        job: 'Astronaut',
+        name: 'Mary L. Cleave',
+        missions: ['STS-61-B', 'STS-30']
     }
 
 ];

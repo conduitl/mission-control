@@ -118,7 +118,10 @@ var PersonnelListComponent = (function () {
         });
     };
     // Group results
+    // TODO: Method is pretty ugly, needs clean up refactoring
+    //       especially for handling nested arrays
     PersonnelListComponent.prototype.groupBy = function (col, personnel) {
+        // Refactor - Create object pairing the select option values to keys on Person class
         if (col === '(none)') {
             this.groups = undefined;
             return;
@@ -129,17 +132,38 @@ var PersonnelListComponent = (function () {
         if (col === 'Job type') {
             col = 'job';
         }
+        if (col === 'Missions') {
+            col = 'missions';
+        }
+        // Refactor - Better, scalable handing of keys referencing Arrays
         var groups = {};
         personnel.forEach(function (person, idx, arr) {
-            if (!groups[person[col]]) {
-                groups[person[col]] = [];
+            if (Array.isArray(person[col])) {
+                person[col].forEach(function (mission, idx, arr) {
+                    group(person, groups, col, idx);
+                });
             }
-            // Push person to the appropriate group based on supplied column
-            // e.g. Job type
-            groups[person[col]].push(person);
+            else {
+                group(person, groups, col, null);
+            }
         });
-        console.log(col);
-        console.log(groups);
+        function group(person, groups, column, nested_idx) {
+            if (nested_idx === null) {
+                if (!groups[person[column]]) {
+                    groups[person[column]] = [];
+                }
+                // Push person to the appropriate group based on supplied column
+                // e.g. Job type
+                groups[person[column]].push(person);
+            }
+            else {
+                console.log('Mission: ' + person[column]);
+                if (!groups[person[column][nested_idx]]) {
+                    groups[person[column][nested_idx]] = [];
+                }
+                groups[person[column][nested_idx]].push(person);
+            }
+        }
         this.grouping = col;
         this.groups = groups;
         this.keys = Object.keys(groups);

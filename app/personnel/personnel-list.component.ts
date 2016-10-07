@@ -32,6 +32,7 @@ export class PersonnelListComponent implements OnInit {
     // store groupings of personnel
     groups;
     keys;
+    grouping;
 
     constructor(
         private route: ActivatedRoute,
@@ -128,7 +129,10 @@ export class PersonnelListComponent implements OnInit {
     }
     filterResults(query: string) {
         this.personnelService.filterResults(query).then(personnel => {
-            return this.personnel = personnel;
+            if (this.grouping) {
+                this.groupBy(this.grouping, personnel);
+            }
+            this.personnel = personnel;
         });
     }
 
@@ -155,6 +159,7 @@ export class PersonnelListComponent implements OnInit {
         });
         console.log(col);
         console.log(groups);
+        this.grouping = col;
         this.groups = groups;
         this.keys = Object.keys(groups);
     }

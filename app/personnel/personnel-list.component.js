@@ -111,7 +111,10 @@ var PersonnelListComponent = (function () {
     PersonnelListComponent.prototype.filterResults = function (query) {
         var _this = this;
         this.personnelService.filterResults(query).then(function (personnel) {
-            return _this.personnel = personnel;
+            if (_this.grouping) {
+                _this.groupBy(_this.grouping, personnel);
+            }
+            _this.personnel = personnel;
         });
     };
     // Group results
@@ -137,6 +140,7 @@ var PersonnelListComponent = (function () {
         });
         console.log(col);
         console.log(groups);
+        this.grouping = col;
         this.groups = groups;
         this.keys = Object.keys(groups);
     };

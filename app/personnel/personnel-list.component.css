@@ -2,7 +2,9 @@
     padding: 24px;
 }
 .glyphicon {
-    font-size: 20px;
+    font-size: 16px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 .selected {
     background-color: #333;
@@ -14,4 +16,7 @@
 }
 .label {
     font-size: 14px;
+}
+.well h3 { 
+    margin-top: 6px;
 }

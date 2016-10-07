@@ -16,12 +16,18 @@ var PersonnelListComponent = (function () {
         this.route = route;
         this.router = router;
         this.personnelService = personnelService;
+        // state of view mode
+        this.modeMap = {
+            add: false,
+            edit: false
+        };
         //constructor
     }
     PersonnelListComponent.prototype.ngOnInit = function () {
         console.log('Personnel List - Initialized');
         this.extractRouteParams();
     };
+    // Extract and evaluate the route parameters
     PersonnelListComponent.prototype.extractRouteParams = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
@@ -38,12 +44,14 @@ var PersonnelListComponent = (function () {
         if (this.listParams.id) {
             this.selectPerson(this.listParams.id);
         }
+        // Set defaults if no matching params found
         if (this.listParams.query == undefined) {
             this.listParams.query = '';
         }
         if (this.listParams.layout == undefined) {
             this.listParams.layout = 'list';
         }
+        // Apply filter if query; otherwise return entire data array
         if (this.listParams.query) {
             this.filterResults(this.listParams.query);
         }
@@ -51,6 +59,7 @@ var PersonnelListComponent = (function () {
             this.getPersonnel();
         }
     };
+    // Retrieve data via service 
     PersonnelListComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.getPersonnel()
@@ -58,6 +67,17 @@ var PersonnelListComponent = (function () {
             _this.personnel = personnel;
         });
     };
+    // Toggle add, edit or other modes
+    PersonnelListComponent.prototype.toggleMode = function (mode) {
+        this.modeMap[mode] = this.toggle(this.modeMap[mode]);
+    };
+    PersonnelListComponent.prototype.toggle = function (bool) {
+        if (bool) {
+            return false;
+        }
+        return true;
+    };
+    // Determine layout
     PersonnelListComponent.prototype.isLayoutSelected = function (layout) {
         return layout === this.listParams.layout;
     };
@@ -69,6 +89,7 @@ var PersonnelListComponent = (function () {
             }];
         this.router.navigate(link);
     };
+    // Select person clicked on in layout; called by evalParams()
     PersonnelListComponent.prototype.selectPerson = function (id) {
         var _this = this;
         this.personnelService.getPerson(id)

@@ -20,6 +20,14 @@ export class PersonnelListComponent implements OnInit {
         layout: string,
         query: string
     };
+    // state of view mode
+    modeMap: {
+        add: boolean,
+        edit: boolean
+    } = {
+        add: false,
+        edit: false
+    };
 
     constructor(
         private route: ActivatedRoute,
@@ -32,6 +40,8 @@ export class PersonnelListComponent implements OnInit {
         console.log('Personnel List - Initialized');
         this.extractRouteParams();
     }
+
+    // Extract and evaluate the route parameters
     extractRouteParams() {
         this.route.params.forEach( (params: Params) => {
             this.listParams = {
@@ -47,24 +57,42 @@ export class PersonnelListComponent implements OnInit {
         if (this.listParams.id) {
             this.selectPerson(this.listParams.id);
         }
+
+        // Set defaults if no matching params found
         if (this.listParams.query == undefined) {
             this.listParams.query = '';
         }
         if (this.listParams.layout == undefined) {
             this.listParams.layout = 'list';
         }
+
+        // Apply filter if query; otherwise return entire data array
         if (this.listParams.query) {
             this.filterResults(this.listParams.query);
         } else {
             this.getPersonnel();
         }
     }
+
+    // Retrieve data via service 
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then( (personnel) => {
                 this.personnel = personnel;
             }); 
     }
+    // Toggle add, edit or other modes
+    toggleMode(mode: string) {
+        this.modeMap[mode] = this.toggle(this.modeMap[mode]);
+    }
+    toggle(bool: boolean): boolean {
+        if (bool) {
+            return false;
+        }
+        return true;    
+    }
+
+    // Determine layout
     isLayoutSelected(layout: string) {
         return layout === this.listParams.layout;
     }
@@ -76,6 +104,7 @@ export class PersonnelListComponent implements OnInit {
         }];
         this.router.navigate(link);
     }
+    // Select person clicked on in layout; called by evalParams()
     selectPerson(id: number) {
         this.personnelService.getPerson(id)
             .then( (person) => {

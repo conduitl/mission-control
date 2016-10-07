@@ -20,3 +20,6 @@
 .well h3 { 
     margin-top: 6px;
 }
+.page-control {
+    width: 240px;
+}

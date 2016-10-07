@@ -4,10 +4,13 @@ export class Person {
     job: string;
     joined?: number;
     missions?: [string];
+    programs?: [string];
     img?: string;
     group?: string;
     wiki?: string;
     title?: string;
+    source?: string;
+    company?: string;
 }
 
 export class Bio {

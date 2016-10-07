@@ -64,6 +64,7 @@ exports.PERSONNEL = [
         job: 'Mission Control',
         title: 'Flight Director',
         name: 'Christopher Kraft',
+        missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
         wiki: 'https://en.wikipedia.org/wiki/Christopher_C._Kraft_Jr.#Mercury'
     },
     {
@@ -75,7 +76,7 @@ exports.PERSONNEL = [
     },
     {
         id: 181,
-        job: 'Mission Control',
+        job: 'Engineering',
         title: 'Power and Sequential Engineering',
         name: 'Charlie Mars',
         wiki: ''
@@ -92,6 +93,7 @@ exports.PERSONNEL = [
         job: 'Mission Control',
         title: 'Director, Mission Control Center Requirements Branch',
         name: 'Tecwyn Roberts',
+        missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
         wiki: 'https://en.wikipedia.org/wiki/Tecwyn_Roberts#cite_note-thoughts-17'
     },
     {
@@ -99,6 +101,7 @@ exports.PERSONNEL = [
         job: 'Mission Control',
         title: 'Flight Dynamics Officer',
         name: 'Glynn S. Lunney',
+        missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
         wiki: 'https://en.wikipedia.org/wiki/Glynn_Lunney'
     },
     {
@@ -106,6 +109,7 @@ exports.PERSONNEL = [
         job: 'Mission Control',
         title: 'Deputy Flight Director',
         name: 'John Hodge',
+        missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
         wiki: 'https://en.wikipedia.org/wiki/John_Hodge_(engineer)'
     },
     {
@@ -113,7 +117,118 @@ exports.PERSONNEL = [
         job: 'Mission Control',
         title: 'Assistant Flight Director',
         name: 'Gene Kranz',
+        missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
         wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
+    },
+    {
+        id: 187,
+        job: 'Mission Control',
+        name: 'John Aaron'
+    },
+    {
+        id: 188,
+        job: 'Mission Control',
+        name: 'Steve Bales'
+    },
+    {
+        id: 189,
+        job: 'Mission Control',
+        name: 'Jay Greene'
+    },
+    {
+        id: 190,
+        job: 'Mission Control',
+        name: 'Sy Liebergot'
+    },
+    {
+        id: 191,
+        job: 'Mission Control',
+        name: 'Ted White',
+        missions: ['MA-9'],
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 192,
+        job: 'Mission Control',
+        name: 'Chuck Lewis',
+        missions: ['MA-9'],
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 193,
+        job: 'Simulation',
+        name: 'Mel Brooks',
+        title: 'Simulation Supervisor',
+        missions: ['MA-9'],
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 194,
+        job: 'Contractor',
+        name: 'Paul Johnson',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option',
+        company: 'Western Electric'
+    },
+    {
+        id: 195,
+        job: 'Mission Control',
+        name: 'Carl Huss',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 196,
+        job: 'Mission Control',
+        name: 'John Llewellyn',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 197,
+        job: 'Mission Control',
+        name: 'Arnold Aldrich',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 198,
+        job: 'Computing',
+        name: 'Mary Shep Burton',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 199,
+        job: 'Computing',
+        name: 'Cathy Osgood',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 200,
+        job: 'Computing',
+        name: 'Shirley Hunt',
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 201,
+        job: 'Mission Control',
+        title: 'Flight Surgeon',
+        name: 'Warren Prescott',
+        programs: ['Gemini'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 202,
+        job: 'Mission Control',
+        name: 'Bill Bucholtz',
+        programs: ['Gemini'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     }
 ];
 exports.BIOS = [

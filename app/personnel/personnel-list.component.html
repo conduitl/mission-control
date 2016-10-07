@@ -15,7 +15,9 @@
                     <div class="col-md-4 form-inline">
                         <div class="form-group">
                             <label for="group-by">Group by:</label>
-                            <select name="group-by" class="form-control">
+                            <select #grouping name="group-by" class="form-control"
+                                [ngModel]="grouping.value"
+                                (ngModelChange)="groupBy(grouping.value, personnel)">
                                 <option>(none)</option>
                                 <option>Job type</option>
                                 <option>Year joined</option>
@@ -111,10 +113,21 @@
                     </div>
                 </div>
                 <!-- List view display-->
-                <div *ngIf="personnel">
-                    <div [ngSwitch]="listParams.layout">
-                        <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [listParams]="listParams"></grid-layout>
-                        <list-layout *ngSwitchDefault [personnel]="personnel" [listParams]="listParams"></list-layout>
+                <div *ngIf="groups">
+                    <div *ngFor="let key of keys">
+                        <h3>{{ key }}</h3>
+                        <div [ngSwitch]="listParams.layout">
+                            <grid-layout *ngSwitchCase="'grid'" [personnel]="groups[key]" [listParams]="listParams"></grid-layout>
+                            <list-layout *ngSwitchDefault [personnel]="groups[key]" [listParams]="listParams"></list-layout>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!groups">
+                    <div *ngIf="personnel">
+                        <div [ngSwitch]="listParams.layout">
+                            <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [listParams]="listParams"></grid-layout>
+                            <list-layout *ngSwitchDefault [personnel]="personnel" [listParams]="listParams"></list-layout>
+                        </div>
                     </div>
                 </div>
             </div>

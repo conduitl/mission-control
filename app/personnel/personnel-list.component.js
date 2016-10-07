@@ -114,6 +114,32 @@ var PersonnelListComponent = (function () {
             return _this.personnel = personnel;
         });
     };
+    // Group results
+    PersonnelListComponent.prototype.groupBy = function (col, personnel) {
+        if (col === '(none)') {
+            this.groups = undefined;
+            return;
+        }
+        if (col === 'Year joined') {
+            col = 'joined';
+        }
+        if (col === 'Job type') {
+            col = 'job';
+        }
+        var groups = {};
+        personnel.forEach(function (person, idx, arr) {
+            if (!groups[person[col]]) {
+                groups[person[col]] = [];
+            }
+            // Push person to the appropriate group based on supplied column
+            // e.g. Job type
+            groups[person[col]].push(person);
+        });
+        console.log(col);
+        console.log(groups);
+        this.groups = groups;
+        this.keys = Object.keys(groups);
+    };
     PersonnelListComponent = __decorate([
         core_1.Component({
             selector: 'personnel-list',

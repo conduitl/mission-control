@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { PersonnelManagerComponent } from './personnel-manager.component';
@@ -16,6 +17,7 @@ import { personnelRouting } from './personnel.routing';
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
         personnelRouting
     ],
     declarations: [

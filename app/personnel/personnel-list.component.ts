@@ -29,6 +29,10 @@ export class PersonnelListComponent implements OnInit {
         edit: false
     };
 
+    // store groupings of personnel
+    groups;
+    keys;
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -126,5 +130,32 @@ export class PersonnelListComponent implements OnInit {
         this.personnelService.filterResults(query).then(personnel => {
             return this.personnel = personnel;
         });
+    }
+
+    // Group results
+    groupBy(col: string, personnel: Person[]) {
+        if (col === '(none)') {
+            this.groups = undefined;
+            return;
+        }
+        if (col === 'Year joined') {
+            col = 'joined';
+        }
+        if (col === 'Job type') {
+            col = 'job';
+        }
+        let groups: {} = {};
+        personnel.forEach((person: Person, idx: number, arr: Person[]) => {
+            if (!groups[ person[col] ]) { // if no group for col value, initialize it
+                groups[ person[col] ] = [];
+            }
+            // Push person to the appropriate group based on supplied column
+            // e.g. Job type
+            groups[ person[col] ].push(person);
+        });
+        console.log(col);
+        console.log(groups);
+        this.groups = groups;
+        this.keys = Object.keys(groups);
     }
  }

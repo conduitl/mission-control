@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');

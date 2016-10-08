@@ -1,18 +1,25 @@
 <div class="well">
     <h3>Add person to list</h3>
     <hr />
+    {{ diagnostic }}
     <div class="row">
         <div class="form-group col-md-5">
             <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+            <input type="text" class="form-control" id="inputName" placeholder="Name" 
+                   required
+                   [(ngModel)]="model.name" name="inputName" #spy>
+                   <br>TODO: remove this: {{ spy.className }}
         </div>
         <div class="form-group col-md-5">
             <label for="inputJobType">Job type</label>
-            <input type="text" class="form-control" id="inputJobType" placeholder="Job type" required>
+            <input type="text" class="form-control" id="inputJobType" placeholder="Job type" 
+                   required
+                   [(ngModel)]="model.job" name="inputJobType">
         </div>
         <div class="form-group col-md-2">
             <label for="inputYear">Year</label>
-            <input type="text" class="form-control" placeholder="Year">
+            <input type="text" class="form-control" placeholder="Year"
+                   [(ngModel)]="model.joined" name="inputYear">
         </div>
     </div>
     <div class="row">

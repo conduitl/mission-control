@@ -10,7 +10,8 @@ export class QuickAddComponent {
     model: Person = {
         id:  500,
         name: 'Thomas Rundle',
-        job: 'Developer'
+        job: 'Developer',
+        joined: undefined
     }
 
     submitted = false;

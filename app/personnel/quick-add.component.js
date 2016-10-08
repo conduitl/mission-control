@@ -14,7 +14,8 @@ var QuickAddComponent = (function () {
         this.model = {
             id: 500,
             name: 'Thomas Rundle',
-            job: 'Developer'
+            job: 'Developer',
+            joined: undefined
         };
         this.submitted = false;
     }

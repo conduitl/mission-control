@@ -11,6 +11,7 @@ import { PersonnelService } from './personnel.service';
     styleUrls: ['app/personnel/personnel-list.component.css']
 })
 export class PersonnelListComponent implements OnInit {
+    errorMessage: string;
     personnel: Person[];
     selectedPerson: Person;
 
@@ -82,9 +83,10 @@ export class PersonnelListComponent implements OnInit {
     // Retrieve data via service 
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
-            .then( (personnel) => {
-                this.personnel = personnel;
-            }); 
+            .subscribe(
+                personnel => this.personnel = personnel,
+                error => this.errorMessage = <any>error
+            );
     }
     // Toggle add, edit or other modes
     toggleMode(mode: string) {

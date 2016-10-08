@@ -1,13 +1,36 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
 
 import { Person, Bio } from './person';
 import { PERSONNEL, BIOS } from './mock-personnel';
 
 @Injectable()
-export class PersonnelService { 
-    getPersonnel(): Promise<Person[]> {
-        return Promise.resolve(PERSONNEL);
+export class PersonnelService {
+    private personnelUrl = 'app/personnel'; // URL to web api
+
+    constructor (private http: Http) {}
+    // Calls to server
+    getPersonnel(): Observable<Person[]> {
+        return this.http.get(this.personnelUrl)
+                   .map(this.extractData)
+                   .catch(this.handleError);
     }
+    // Utilities for server calls
+    private extractData(res: Response) {
+        let body = res.json();
+        return body.data || { };
+    }
+    private handleError(error: any) {
+        // TODO: Better error handling
+        let errMsg = (error.message) ? error.message : 
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        console.error(errMsg); // log error to console
+        return Observable.throw(errMsg);
+    }
+
+    // Rely on getPersonnel() method
     getPerson(id: number): Promise<Person> {
         return this.getPersonnel()
             .then( (personnel) => personnel.find( (person) => person.id === id));

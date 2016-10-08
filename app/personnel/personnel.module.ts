@@ -20,6 +20,8 @@ import { personnelRouting } from './personnel.routing';
     imports: [
         CommonModule,
         FormsModule,
+        HttpModule,
+        JsonpModule,
         personnelRouting
     ],
     declarations: [

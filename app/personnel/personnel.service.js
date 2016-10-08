@@ -9,13 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var Observable_1 = require('rxjs/Observable');
 var mock_personnel_1 = require('./mock-personnel');
 var PersonnelService = (function () {
-    function PersonnelService() {
+    function PersonnelService(http) {
+        this.http = http;
+        this.personnelUrl = 'app/personnel'; // URL to web api
     }
+    // Calls to server
     PersonnelService.prototype.getPersonnel = function () {
-        return Promise.resolve(mock_personnel_1.PERSONNEL);
+        return this.http.get(this.personnelUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     };
+    // Utilities for server calls
+    PersonnelService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body.data || {};
+    };
+    PersonnelService.prototype.handleError = function (error) {
+        // TODO: Better error handling
+        var errMsg = (error.message) ? error.message :
+            error.status ? error.status + " - " + error.statusText : 'Server error';
+        console.error(errMsg); // log error to console
+        return Observable_1.Observable.throw(errMsg);
+    };
+    // Rely on getPersonnel() method
     PersonnelService.prototype.getPerson = function (id) {
         return this.getPersonnel()
             .then(function (personnel) { return personnel.find(function (person) { return person.id === id; }); });
@@ -72,7 +92,7 @@ var PersonnelService = (function () {
     };
     PersonnelService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], PersonnelService);
     return PersonnelService;
 }());

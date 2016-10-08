@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');
@@ -27,6 +28,8 @@ var PersonnelModule = (function () {
             imports: [
                 common_1.CommonModule,
                 forms_1.FormsModule,
+                http_1.HttpModule,
+                http_1.JsonpModule,
                 personnel_routing_1.personnelRouting
             ],
             declarations: [

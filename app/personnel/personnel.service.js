@@ -37,7 +37,7 @@ var PersonnelService = (function () {
     };
     // Rely on getPersonnel() method
     PersonnelService.prototype.getPerson = function (id) {
-        return this.getPersonnel()
+        return this.getPersonnel().toPromise()
             .then(function (personnel) { return personnel.find(function (person) { return person.id === id; }); });
     };
     PersonnelService.prototype.getBios = function () {
@@ -56,7 +56,7 @@ var PersonnelService = (function () {
         var _this = this;
         // TODO: Check for bad queries with invalid chars
         var rx = new RegExp(query, 'i');
-        return this.getPersonnel()
+        return this.getPersonnel().toPromise()
             .then(function (personnel) {
             if (query === '' || query === 'undefined') {
                 return personnel;

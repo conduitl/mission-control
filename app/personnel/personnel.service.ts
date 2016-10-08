@@ -32,7 +32,7 @@ export class PersonnelService {
 
     // Rely on getPersonnel() method
     getPerson(id: number): Promise<Person> {
-        return this.getPersonnel()
+        return this.getPersonnel().toPromise()
             .then( (personnel) => personnel.find( (person) => person.id === id));
     }
     getBios(): Promise<Bio[]> {
@@ -51,7 +51,7 @@ export class PersonnelService {
     filterResults(query: string) {
         // TODO: Check for bad queries with invalid chars
         let rx = new RegExp(query, 'i');
-        return this.getPersonnel()
+        return this.getPersonnel().toPromise()
             .then(personnel => {
                 if (query === '' || query === 'undefined') {
                     return personnel;

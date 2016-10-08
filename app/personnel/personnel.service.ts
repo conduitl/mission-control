@@ -50,6 +50,7 @@ export class PersonnelService {
     // Filtering methods
     filterResults(query: string) {
         // TODO: Check for bad queries with invalid chars
+        // TODO: Subscribe to Observable rather than rely on Promise conversion
         let rx = new RegExp(query, 'i');
         return this.getPersonnel().toPromise()
             .then(personnel => {

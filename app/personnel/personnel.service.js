@@ -55,6 +55,7 @@ var PersonnelService = (function () {
     PersonnelService.prototype.filterResults = function (query) {
         var _this = this;
         // TODO: Check for bad queries with invalid chars
+        // TODO: Subscribe to Observable rather than rely on Promise conversion
         var rx = new RegExp(query, 'i');
         return this.getPersonnel().toPromise()
             .then(function (personnel) {

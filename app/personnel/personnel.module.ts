@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
-
 
 import { PersonnelManagerComponent } from './personnel-manager.component';
 import { PersonnelListComponent } from './personnel-list.component';
@@ -20,8 +18,6 @@ import { personnelRouting } from './personnel.routing';
     imports: [
         CommonModule,
         FormsModule,
-        HttpModule,
-        JsonpModule,
         personnelRouting
     ],
     declarations: [

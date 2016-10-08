@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 // root
 import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
+import { HttpModule, JsonpModule } from '@angular/http';
+
+// Add the RxJS Observable operators we need in this app.
+import './rxjs-operators';
 
 // features
 import { ProjectsModule } from './projects/projects.module';
@@ -18,7 +22,9 @@ import { LoginComponent } from './login.component';
 
 @NgModule({
     imports: [ 
-        BrowserModule, 
+        BrowserModule,
+        HttpModule,
+        JsonpModule, 
         NavbarModule,
         routing,
         PersonnelModule,

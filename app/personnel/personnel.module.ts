@@ -7,6 +7,8 @@ import { PersonnelListComponent } from './personnel-list.component';
 import { ProfilePreviewComponent } from './profile-preview.component';
 import { PersonDetailComponent } from './person-detail.component';
 
+import { QuickAddComponent } from './quick-add.component';
+
 import { ListLayoutComponent } from './list-layout.component';
 import { GridLayoutComponent } from './grid-layout.component';
 
@@ -25,6 +27,7 @@ import { personnelRouting } from './personnel.routing';
         PersonnelListComponent,
         ProfilePreviewComponent,
         PersonDetailComponent,
+        QuickAddComponent,
         ListLayoutComponent,
         GridLayoutComponent
     ],

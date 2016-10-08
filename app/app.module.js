@@ -12,18 +12,8 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 // root
 var app_component_1 = require('./app.component');
-var app_routing_1 = require('./app.routing');
-var http_1 = require('@angular/http');
 // Add the RxJS Observable operators we need in this app.
 require('./rxjs-operators');
-// features
-var projects_module_1 = require('./projects/projects.module');
-var personnel_module_1 = require('./personnel/personnel.module');
-var admin_module_1 = require('./admin/admin.module');
-var assets_module_1 = require('./assets/assets.module');
-var navbar_module_1 = require('./navbar/navbar.module');
-// authorization
-var login_component_1 = require('./login.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,22 +21,11 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                http_1.HttpModule,
-                http_1.JsonpModule,
-                navbar_module_1.NavbarModule,
-                app_routing_1.routing,
-                personnel_module_1.PersonnelModule,
-                projects_module_1.ProjectsModule,
-                assets_module_1.AssetsModule,
-                admin_module_1.AdminModule
             ],
             declarations: [
                 app_component_1.AppComponent,
-                login_component_1.LoginComponent
             ],
-            providers: [
-                app_routing_1.appRoutingProviders
-            ],
+            providers: [],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

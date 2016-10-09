@@ -4,6 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 // root
 import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
+import { HttpModule, JsonpModule } from '@angular/http';
+
+// Add the RxJS Observable operators we need in this app.
+import './rxjs-operators';
+
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 
 // features
 import { ProjectsModule } from './projects/projects.module';
@@ -18,13 +26,16 @@ import { LoginComponent } from './login.component';
 
 @NgModule({
     imports: [ 
-        BrowserModule, 
+        BrowserModule,
+        HttpModule,
+        JsonpModule, 
         NavbarModule,
-        routing,
         PersonnelModule,
         ProjectsModule,
         AssetsModule,
-        AdminModule
+        AdminModule,
+        routing,
+        InMemoryWebApiModule.forRoot(InMemoryDataService)
     ],
     declarations: [ 
         AppComponent,

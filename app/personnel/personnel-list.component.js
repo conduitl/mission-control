@@ -63,9 +63,7 @@ var PersonnelListComponent = (function () {
     PersonnelListComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.getPersonnel()
-            .then(function (personnel) {
-            _this.personnel = personnel;
-        });
+            .subscribe(function (personnel) { return _this.personnel = personnel; }, function (error) { return _this.errorMessage = error; });
     };
     // Toggle add, edit or other modes
     PersonnelListComponent.prototype.toggleMode = function (mode) {

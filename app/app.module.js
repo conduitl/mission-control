@@ -13,6 +13,12 @@ var platform_browser_1 = require('@angular/platform-browser');
 // root
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
+var http_1 = require('@angular/http');
+// Add the RxJS Observable operators we need in this app.
+require('./rxjs-operators');
+// Imports for loading & configuring the in-memory web api
+var angular2_in_memory_web_api_1 = require('angular2-in-memory-web-api');
+var in_memory_data_service_1 = require('./in-memory-data.service');
 // features
 var projects_module_1 = require('./projects/projects.module');
 var personnel_module_1 = require('./personnel/personnel.module');
@@ -28,12 +34,15 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                http_1.JsonpModule,
                 navbar_module_1.NavbarModule,
-                app_routing_1.routing,
                 personnel_module_1.PersonnelModule,
                 projects_module_1.ProjectsModule,
                 assets_module_1.AssetsModule,
-                admin_module_1.AdminModule
+                admin_module_1.AdminModule,
+                app_routing_1.routing,
+                angular2_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService)
             ],
             declarations: [
                 app_component_1.AppComponent,

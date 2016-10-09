@@ -41,14 +41,16 @@
                                 <span class="glyphicon glyphicon-th"></span>
                             </button>
                         </div>
-                        <button *ngIf="!modeMap.add" class="btn btn-primary pull-right" title="Add someone to the list"
+                        <!-- Quick add button -->
+                        <!--TODO: Implement functionality-->
+                        <!--<button *ngIf="!modeMap.add" class="btn btn-primary pull-right" title="Add someone to the list"
                                 (click)="toggleMode('add')">
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
                         <button *ngIf="modeMap.add" class="btn btn-danger pull-right" title="Add someone to the list"
                                 (click)="toggleMode('add')">
                             <span class="glyphicon glyphicon-remove"></span>
-                        </button>
+                        </button>-->
                     </div>
                 </div>
                 <hr />
@@ -59,12 +61,13 @@
                 <!-- Sorting, results per page controls -->
                 <div class="row">
                     <div class="col-md-9">
-                        <div *ngIf="personnel">
+                        <div *ngIf="personnel" class="summary-of-results">
                             <b>Personnel:</b>
                             <span class="label label-default">{{ personnel.length }}</span>
                         </div>
                     </div>
-                    <div class="col-md-3 sorting-toolbar">
+                    <!--TODO implement functionality-->
+                    <!--<div class="col-md-3 sorting-toolbar">
                         <div class="form-inline pull-right">
                             <label for="num-results">Results per page:</label>
                             <select class="form-control" name="num-results">
@@ -75,7 +78,7 @@
                                 <option>8</option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!-- List view display-->
                 <div *ngIf="groups">
@@ -99,7 +102,8 @@
                         </div>
                     </div>
                     <!-- Page controls -->
-                    <div class="row">
+                    <!-- TODO: Implement functionality -->
+                    <!--<div class="row">
                         <nav class="page-control center-block" aria-label="Page navigation">
                             <ul class="pagination">
                                 <li>
@@ -119,7 +123,7 @@
                                 </li>
                             </ul>
                         </nav>
-                    </div>
+                    </div>-->
                     <!-- End page controls -->
                 </div>
             </div>

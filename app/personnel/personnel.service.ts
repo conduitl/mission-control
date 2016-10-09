@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Person, Bio } from './person';
-import { PERSONNEL, BIOS } from './mock-personnel';
+import { BIOS } from './mock-personnel';
 
 @Injectable()
 export class PersonnelService {

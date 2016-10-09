@@ -1,42 +1,75 @@
-<div class="well">
-    <h3>Add person to list</h3>
-    <hr />
-    {{ diagnostic }}
-    <div class="row">
-        <div class="form-group col-md-5">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name" 
-                   required
-                   [(ngModel)]="model.name" name="inputName" #spy>
-                   <br>TODO: remove this: {{ spy.className }}
-        </div>
-        <div class="form-group col-md-5">
-            <label for="inputJobType">Job type</label>
-            <input type="text" class="form-control" id="inputJobType" placeholder="Job type" 
-                   required
-                   [(ngModel)]="model.job" name="inputJobType">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputYear">Year</label>
-            <input type="text" class="form-control" placeholder="Year"
-                   [(ngModel)]="model.joined" name="inputYear">
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label for="inputMissions">Missions</label>
-            <textarea type="text" class="form-control" placeholder="Missions" rows="5"></textarea>
-        </div>
-    </div> 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="pull-right">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <!--<button class="btn btn-default" (click)="toggleMode('add')">
-                    Cancel
-                </button>-->
+<!-- Form -->
+<div [hidden]="submitted">
+    <div class="well">
+        <h3>Add person to list</h3>
+        <hr />
+        {{ diagnostic }}
+        <form *ngIf="active" (ngSubmit)="onSubmit()" #quickAddForm="ngForm">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="inputName">Name</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Name" 
+                        required
+                        [(ngModel)]="model.name" name="inputName" 
+                        #inputName="ngModel">
+                    <div [hidden]="inputName.valid || inputName.pristine"
+                        class="alert alert-danger">
+                        Name is required
+                    </div>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="inputJobType">Job type</label>
+                    <input type="text" class="form-control" id="inputJobType" placeholder="Job type" 
+                        required
+                        [(ngModel)]="model.job" name="inputJobType"
+                        #inputJobType="ngModel">
+                    <div [hidden]="inputJobType.valid || inputJobType.pristine"
+                        class="alert alert-danger">
+                        Job type is required
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputYear">Year</label>
+                    <input type="text" class="form-control" placeholder="Year"
+                        [(ngModel)]="model.joined" name="inputYear">
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="inputMissions">Missions</label>
+                    <textarea type="text" class="form-control" placeholder="Missions" rows="5"></textarea>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-primary"
+                                [disabled]="!quickAddForm.form.valid">Save</button>
+                        <!--<button class="btn btn-default" (click)="toggleMode('add')">
+                            Cancel
+                        </button>-->
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
+    <hr />
 </div>
-<hr />
+<!-- Submission confirmation -->
+<div [hidden]="!submitted">
+    <div class="well">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9 pull-left">{{ model.name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Job</div>
+            <div class="col-xs-9 pull-left">{{ model.job }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Year joined</div>
+            <div class="col-xs-9 pull-left">{{ model.joined }}</div>
+    </div>
+    <hr />
+</div>

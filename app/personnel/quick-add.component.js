@@ -17,9 +17,23 @@ var QuickAddComponent = (function () {
             job: 'Developer',
             joined: undefined
         };
+        this.active = true;
         this.submitted = false;
     }
-    QuickAddComponent.prototype.onSubmit = function () { this.submitted = true; };
+    QuickAddComponent.prototype.newPerson = function () {
+        var _this = this;
+        this.model = {
+            id: 501,
+            name: '',
+            job: '',
+            joined: undefined
+        };
+        this.active = false;
+        setTimeout(function () { return _this.active = true; }, 0); // reset form after submission
+    };
+    QuickAddComponent.prototype.onSubmit = function () {
+        this.submitted = true;
+    };
     Object.defineProperty(QuickAddComponent.prototype, "diagnostic", {
         // TODO: Remove this when we're done
         get: function () { return JSON.stringify(this.model); },

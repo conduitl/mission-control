@@ -4,18 +4,16 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Person, Bio } from './person';
-import { BIOS } from './mock-personnel';
+import { PERSONNEL, BIOS } from './mock-personnel';
 
 @Injectable()
 export class PersonnelService {
-    private personnelUrl = 'app/personnel'; // URL to web api
+    private personnelUrl = '/personnel'; // URL to web api
 
     constructor (private http: Http) {}
     // Calls to server
-    getPersonnel(): Observable<Person[]> {
-        return this.http.get(this.personnelUrl)
-                   .map(this.extractData)
-                   .catch(this.handleError);
+    getPersonnel(): Promise<Person[]> {
+        return Promise.resolve(PERSONNEL);
     }
     // Utilities for server calls
     private extractData(res: Response) {
@@ -32,7 +30,7 @@ export class PersonnelService {
 
     // Rely on getPersonnel() method
     getPerson(id: number): Promise<Person> {
-        return this.getPersonnel().toPromise()
+        return this.getPersonnel()
             .then( (personnel) => personnel.find( (person) => person.id === id));
     }
     getBios(): Promise<Bio[]> {
@@ -52,7 +50,7 @@ export class PersonnelService {
         // TODO: Check for bad queries with invalid chars
         // TODO: Subscribe to Observable rather than rely on Promise conversion
         let rx = new RegExp(query, 'i');
-        return this.getPersonnel().toPromise()
+        return this.getPersonnel()
             .then(personnel => {
                 if (query === '' || query === 'undefined') {
                     return personnel;

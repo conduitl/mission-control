@@ -17,6 +17,6 @@ export class Bio {
     id: number;
     name: string;
     summary?: [string];
-    career?: string;
+    career?: any;
     wiki?: string;
 }

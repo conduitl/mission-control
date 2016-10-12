@@ -3,17 +3,15 @@
         <thead>
             <tr>
                 <th class="sort-control" (click)="sort(personnel, 'name')">Name
-                    <span *ngIf="sortMap.name" class="glyphicon glyphicon-arrow-down"></span>
-                    <span *ngIf="!sortMap.name" class="glyphicon glyphicon-arrow-up"></span>
+                    <span class="glyphicon glyphicon-sort"></span>
                 </th>
                 <th class="sort-control" (click)="sort(personnel, 'job')">Job type
-                    <span *ngIf="sortMap.job" class="glyphicon glyphicon-arrow-down"></span>
-                    <span *ngIf="!sortMap.job" class="glyphicon glyphicon-arrow-up"></span>
+                    <span class="glyphicon glyphicon-sort"></span>
                 </th>
                 <th class="sort-control" (click)="sort(personnel, 'joined')">Year joined
-                    <span *ngIf="sortMap.joined" class="glyphicon glyphicon-arrow-down"></span>
-                    <span *ngIf="!sortMap.joined" class="glyphicon glyphicon-arrow-up"></span>
+                    <span class="glyphicon glyphicon-sort"></span>
                 </th>
+                <th>Programs</th>
                 <th>Missions
                 </th>
                 <!--<th></th>-->
@@ -27,6 +25,11 @@
                 <td><span>{{person.name}}</span></td>
                 <td><span>{{person.job}}</span></td>
                 <td><span>{{person.joined}}</span></td>
+                <td>
+                    <span *ngIf="person.programs">
+                        {{ makeCSList(person.programs) }}
+                    </span>
+                </td>
                 <td>
                     <span *ngIf="person.missions">
                         {{ makeCSList(person.missions) }}

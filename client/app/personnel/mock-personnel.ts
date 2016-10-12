@@ -1,10 +1,42 @@
 import { Person, Bio } from './person';
 
 export const PERSONNEL: Person[] = [
-    { id: 151, name: 'Alan B. Shepard, Jr.', job: 'Astronaut', joined: 1959, missions: ['MR-3', 'Apollo 7'], img: '../../img/300x300/shepard.jpg' },
-    { id: 152, name: 'Virgil I. Grissom', job: 'Astronaut', joined: 1959, missions: ['MR-4', 'Apollo 1'], img: '../../img/300x300/grissom.jpg' },
-    { id: 153, name: 'John H. Glenn, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-6','STS-95'], img: '../../img/300x300/glenn.jpg'  },
-    { id: 154, name: 'M. Scott Carpenter', job: 'Astronaut', joined: 1959, missions: ['MA-7'], img: '../../img/300x300/carpenter.jpg'  },
+    { 
+        id: 151, 
+        name: 'Alan B. Shepard, Jr.', 
+        job: 'Astronaut', 
+        joined: 1959, 
+        programs: ['Mercury', 'Apollo'],
+        missions: ['MR-3', 'Apollo 7'], 
+        img: '../../img/300x300/shepard.jpg' 
+    },
+    { 
+        id: 152, 
+        name: 'Virgil I. Grissom', 
+        job: 'Astronaut', 
+        joined: 1959, 
+        programs: ['Mercury', 'Apollo'],
+        missions: ['MR-4', 'Apollo 1'], 
+        img: '../../img/300x300/grissom.jpg' 
+    },
+    { 
+        id: 153, 
+        name: 'John H. Glenn, Jr.', 
+        job: 'Astronaut', 
+        joined: 1959, 
+        programs: ['Mercury'],
+        missions: ['MA-6','STS-95'], 
+        img: '../../img/300x300/glenn.jpg'  
+    },
+    { 
+        id: 154, 
+        name: 'M. Scott Carpenter', 
+        job: 'Astronaut', 
+        joined: 1959, 
+        programs: ['Mercury'],
+        missions: ['MA-7'], 
+        img: '../../img/300x300/carpenter.jpg'  
+    },
     { id: 155, name: 'Walter M. Schirra, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-8', 'Gemini 6A', 'Apollo 7'], img: '../../img/300x300/schirra.jpg' },
     { id: 156, name: 'L. Gordon Cooper, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-9'], img: '../../img/300x300/cooper.jpg' },
     { id: 158, name: 'Neil A. Armstrong', job: 'Astronaut', joined: 1962, missions: ['Gemini 8', 'Apollo 11'], img: '../../img/300x300/armstrong.jpg' },
@@ -68,8 +100,11 @@ export const PERSONNEL: Person[] = [
         job: 'Mission Control',
         title: 'Flight Director',
         name: 'Christopher Kraft',
+        joined: 1958,
+        programs: ['Mercury', 'Gemini'],
         missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'], 
-        wiki: 'https://en.wikipedia.org/wiki/Christopher_C._Kraft_Jr.#Mercury'
+        wiki: 'https://en.wikipedia.org/wiki/Christopher_C._Kraft_Jr.#Mercury', 
+        img: '../../img/300x300/kraft.jpg'
     },
     {
         id: 180,
@@ -97,6 +132,8 @@ export const PERSONNEL: Person[] = [
         job: 'Mission Control',
         title: 'Director, Mission Control Center Requirements Branch',
         name: 'Tecwyn Roberts',
+        joined: 1959,
+        programs: ['Mercury'],
         missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
         wiki: 'https://en.wikipedia.org/wiki/Tecwyn_Roberts#cite_note-thoughts-17'
     },
@@ -105,29 +142,39 @@ export const PERSONNEL: Person[] = [
         job: 'Mission Control',
         title: 'Flight Dynamics Officer',
         name: 'Glynn S. Lunney',
+        programs: ['Mercury', 'Gemini', 'Apollo'],
         missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
-        wiki: 'https://en.wikipedia.org/wiki/Glynn_Lunney'
+        wiki: 'https://en.wikipedia.org/wiki/Glynn_Lunney',
+        img: '../../img/300x300/lunney.jpg'
     },
     {
         id: 185,
         job: 'Mission Control',
         title: 'Deputy Flight Director',
         name: 'John Hodge',
+        joined: 1959,
+        programs: ['Mercury', 'Gemini', 'Apollo'],
         missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
-        wiki: 'https://en.wikipedia.org/wiki/John_Hodge_(engineer)'
+        wiki: 'https://en.wikipedia.org/wiki/John_Hodge_(engineer)',
+        img: '../../img/300x300/hodge.jpg'
     },
     {
         id: 186,
         job: 'Mission Control',
         title: 'Assistant Flight Director',
         name: 'Gene Kranz',
+        joined: 1960,
+        programs: ['Mercury', 'Gemini', 'Apollo'],
         missions: ['MR-3', 'MR-4', 'MA-6', 'MA-7', 'MA-8', 'MA-9'],
-        wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz'
+        wiki: 'https://en.wikipedia.org/wiki/Gene_Kranz',
+        img: '../../img/300x300/kranz.jpg'
     },
     {
         id: 187,
         job: 'Mission Control',
-        name: 'John Aaron'
+        name: 'John Aaron',
+        programs: ['Apollo'],
+        img: '../../img/300x300/aaron.jpg'
     },
     {
         id: 188,

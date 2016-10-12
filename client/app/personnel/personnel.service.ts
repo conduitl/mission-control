@@ -73,6 +73,14 @@ export class PersonnelService {
                         return true;
                     }
                 }
+                if (element.programs) {
+                    let programs = element.programs;
+                    for (let i = 0; i < programs.length; i++) {
+                        if (rx.test(programs[i])) {
+                            return true;
+                        }
+                    }
+                }
                 if (element.missions) {
                     let missions = element.missions;
                     for (let i = 0; i < missions.length; i++) {

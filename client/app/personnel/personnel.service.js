@@ -78,6 +78,14 @@ var PersonnelService = (function () {
                     return true;
                 }
             }
+            if (element.programs) {
+                var programs = element.programs;
+                for (var i = 0; i < programs.length; i++) {
+                    if (rx.test(programs[i])) {
+                        return true;
+                    }
+                }
+            }
             if (element.missions) {
                 var missions = element.missions;
                 for (var i = 0; i < missions.length; i++) {

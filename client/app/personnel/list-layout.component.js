@@ -55,10 +55,15 @@ var ListLayoutComponent = (function () {
     };
     ListLayoutComponent.prototype.sortAscending = function (personnel, column) {
         return personnel.sort(function (a, b) {
-            if (a[column] > b[column]) {
+            var col_a = a[column], col_b = b[column];
+            if (col_a == undefined)
+                col_a = 9999;
+            if (col_b == undefined)
+                col_b = 9999;
+            if (col_a > col_b) {
                 return 1;
             }
-            if (a[column] < b[column]) {
+            if (col_a < col_b) {
                 return -1;
             }
             return 0;
@@ -66,10 +71,15 @@ var ListLayoutComponent = (function () {
     };
     ListLayoutComponent.prototype.sortDescending = function (personnel, column) {
         return personnel.sort(function (a, b) {
-            if (b[column] > a[column]) {
+            var col_a = a[column], col_b = b[column];
+            if (col_a == undefined)
+                col_a = -9999;
+            if (col_b == undefined)
+                col_b = -9999;
+            if (col_b > col_a) {
                 return 1;
             }
-            if (b[column] < a[column]) {
+            if (col_b < col_a) {
                 return -1;
             }
             return 0;

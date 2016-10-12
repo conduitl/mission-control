@@ -61,10 +61,13 @@ export class ListLayoutComponent {
     }
     sortAscending(personnel: Person[], column) {
         return personnel.sort( (a, b) => {
-            if ( a[column] > b[column] ) {
+            let col_a = a[column], col_b = b[column];
+            if (col_a == undefined) col_a = 9999;
+            if (col_b == undefined) col_b = 9999;
+            if ( col_a > col_b ) {
                 return 1;
             }
-            if ( a[column] < b[column] ) {
+            if ( col_a < col_b ) {
                 return -1;
             }
             return 0;
@@ -72,10 +75,13 @@ export class ListLayoutComponent {
     }
     sortDescending(personnel: Person[], column) {
         return personnel.sort( (a, b) => {
-            if ( b[column] > a[column] ) {
+            let col_a = a[column], col_b = b[column];
+            if (col_a == undefined) col_a = -9999;
+            if (col_b == undefined) col_b = -9999;
+            if ( col_b > col_a ) {
                 return 1;
             }
-            if ( b[column] < a[column] ) {
+            if ( col_b < col_a ) {
                 return -1;
             }
             return 0;

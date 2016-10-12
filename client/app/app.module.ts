@@ -10,7 +10,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
+//import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 // features
@@ -34,8 +34,7 @@ import { LoginComponent } from './login.component';
         ProjectsModule,
         AssetsModule,
         AdminModule,
-        routing,
-        InMemoryWebApiModule.forRoot(InMemoryDataService)
+        routing
     ],
     declarations: [ 
         AppComponent,

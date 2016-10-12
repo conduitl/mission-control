@@ -15,12 +15,20 @@ let personnel = [
             { id: 156, name: 'L. Gordon Cooper, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-9'], img: '../../img/300x300/cooper.jpg' },
             { id: 158, name: 'Neil A. Armstrong', job: 'Astronaut', joined: 1962, missions: ['Gemini 8', 'Apollo 11'], img: '../../img/300x300/armstrong.jpg' },
             { id: 159, name: 'Frank Borman', job: 'Astronaut', joined: 1962, missions: ['Gemini 7', 'Apollo 8'], img: '../../img/300x300/borman.jpg' },
-            { id: 160, name: 'Charles "Pete" Conrad', job: 'Astronaut', joined: 1962, missions: ['Gemini 5', 'Gemini 11', 'Apollo 12', 'Skylab 2'], img: '../../img/300x300/conrad.jpg' }];
-            
+            { id: 160, name: 'Charles "Pete" Conrad', job: 'Astronaut', joined: 1962, missions: ['Gemini 5', 'Gemini 11', 'Apollo 12', 'Skylab 2'], img: '../../img/300x300/conrad.jpg' }
+];
+
+function getPersonnel() {
+    return personnel;
+}
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+
+// app.get('/personnel', (req, res) => {
+//     res.send(getPersonnel());
+// });
 
 http.createServer(app).listen(8000);
 

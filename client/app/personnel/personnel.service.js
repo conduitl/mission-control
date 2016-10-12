@@ -15,13 +15,11 @@ var mock_personnel_1 = require('./mock-personnel');
 var PersonnelService = (function () {
     function PersonnelService(http) {
         this.http = http;
-        this.personnelUrl = 'app/personnel'; // URL to web api
+        this.personnelUrl = '/personnel'; // URL to web api
     }
     // Calls to server
     PersonnelService.prototype.getPersonnel = function () {
-        return this.http.get(this.personnelUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
+        return Promise.resolve(mock_personnel_1.PERSONNEL);
     };
     // Utilities for server calls
     PersonnelService.prototype.extractData = function (res) {
@@ -37,7 +35,7 @@ var PersonnelService = (function () {
     };
     // Rely on getPersonnel() method
     PersonnelService.prototype.getPerson = function (id) {
-        return this.getPersonnel().toPromise()
+        return this.getPersonnel()
             .then(function (personnel) { return personnel.find(function (person) { return person.id === id; }); });
     };
     PersonnelService.prototype.getBios = function () {
@@ -57,7 +55,7 @@ var PersonnelService = (function () {
         // TODO: Check for bad queries with invalid chars
         // TODO: Subscribe to Observable rather than rely on Promise conversion
         var rx = new RegExp(query, 'i');
-        return this.getPersonnel().toPromise()
+        return this.getPersonnel()
             .then(function (personnel) {
             if (query === '' || query === 'undefined') {
                 return personnel;

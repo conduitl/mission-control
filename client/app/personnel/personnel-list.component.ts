@@ -83,9 +83,8 @@ export class PersonnelListComponent implements OnInit {
     // Retrieve data via service 
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
-            .subscribe(
-                personnel => this.personnel = personnel,
-                error => this.errorMessage = <any>error
+            .then(
+                personnel => this.personnel = personnel
             );
     }
     // Toggle add, edit or other modes

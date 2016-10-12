@@ -7,6 +7,14 @@
                     <div *ngIf="bio">
                         <h2>{{bio.name}}</h2>
                         <p *ngFor="let paragraph of bio.summary">{{paragraph}}</p>
+                        <div *ngIf="bio.career">
+                            <div *ngFor="let section of bio.career">
+                                <h3>{{section.title}}</h3>
+                                <p *ngFor="let paragraph of section.body">
+                                    {{paragraph}}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

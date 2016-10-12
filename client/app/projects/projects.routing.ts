@@ -15,23 +15,23 @@ import { ProjectDetailComponent } from './project-detail.component';
 const projectRoutes: Routes = [
     { 
         path: 'projects', 
-        component: ProjectCenterComponent,
-        children: [
-            {
-                path: '',
-                component: ProjectListComponent,
-                children: [
-                    {
-                        path: ':id',
-                        component: ProjectDetailComponent
-                    },
-                    {
-                        path: '',
-                        component: SummaryComponent
-                    }
-                ]
-            }
-        ]
+        component: ProjectCenterComponent
+        // children: [
+        //     {
+        //         path: '',
+        //         component: ProjectListComponent,
+        //         children: [
+        //             {
+        //                 path: ':id',
+        //                 component: ProjectDetailComponent
+        //             },
+        //             {
+        //                 path: '',
+        //                 component: SummaryComponent
+        //             }
+        //         ]
+        //     }
+        // ]
     }
 ];
 

@@ -4,7 +4,7 @@ var login_routing_1 = require('./login.routing');
 var appRoutes = login_routing_1.loginRoutes.concat([
     {
         path: '',
-        redirectTo: 'projects',
+        redirectTo: 'personnel',
         pathMatch: 'full'
     }
 ]);

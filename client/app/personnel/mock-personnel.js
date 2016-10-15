@@ -6,7 +6,7 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         joined: 1959,
         programs: ['Mercury', 'Apollo'],
-        missions: ['MR-3', 'Apollo 7'],
+        missions: ['MR-3', 'Apollo 14'],
         img: '../../img/300x300/shepard.jpg'
     },
     {
@@ -36,28 +36,90 @@ exports.PERSONNEL = [
         missions: ['MA-7'],
         img: '../../img/300x300/carpenter.jpg'
     },
-    { id: 155, name: 'Walter M. Schirra, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-8', 'Gemini 6A', 'Apollo 7'], img: '../../img/300x300/schirra.jpg' },
-    { id: 156, name: 'L. Gordon Cooper, Jr.', job: 'Astronaut', joined: 1959, missions: ['MA-9'], img: '../../img/300x300/cooper.jpg' },
-    { id: 158, name: 'Neil A. Armstrong', job: 'Astronaut', joined: 1962, missions: ['Gemini 8', 'Apollo 11'], img: '../../img/300x300/armstrong.jpg' },
-    { id: 159, name: 'Frank Borman', job: 'Astronaut', joined: 1962, missions: ['Gemini 7', 'Apollo 8'], img: '../../img/300x300/borman.jpg' },
-    { id: 160, name: 'Charles "Pete" Conrad', job: 'Astronaut', joined: 1962, missions: ['Gemini 5', 'Gemini 11', 'Apollo 12', 'Skylab 2'], img: '../../img/300x300/conrad.jpg' },
-    { id: 161, name: 'James A. Lovell', job: 'Astronaut', joined: 1962, missions: ['Gemini 7', 'Gemini 12', 'Apollo 8', 'Apollo 13'], img: '../../img/300x300/lovell.jpg' },
-    { id: 162, name: 'James A. McDivitt', job: 'Astronaut', joined: 1962, missions: ['Gemini 4', 'Apollo 9'] },
-    { id: 163, name: 'Thomas P. Stafford', job: 'Astronaut', joined: 1962, missions: ['Gemini 6A', 'Gemini 9A', 'Apollo 10'] },
+    {
+        id: 155,
+        name: 'Walter M. Schirra, Jr.',
+        job: 'Astronaut', joined: 1959,
+        programs: ['Mercury', 'Apollo', 'Gemini'],
+        missions: ['MA-8', 'Gemini 6A', 'Apollo 7'],
+        img: '../../img/300x300/schirra.jpg' },
+    {
+        id: 156,
+        name: 'L. Gordon Cooper, Jr.',
+        job: 'Astronaut',
+        joined: 1959,
+        programs: ['Mercury', 'Apollo'],
+        missions: ['MA-9'],
+        img: '../../img/300x300/cooper.jpg' },
+    {
+        id: 158,
+        name: 'Neil A. Armstrong',
+        job: 'Astronaut',
+        joined: 1962,
+        programs: ['Gemini', 'Apollo'],
+        missions: ['Gemini 8', 'Apollo 11'],
+        img: '../../img/300x300/armstrong.jpg'
+    },
+    {
+        id: 159,
+        name: 'Frank Borman',
+        job: 'Astronaut',
+        joined: 1962,
+        missions: ['Gemini 7', 'Apollo 8'],
+        img: '../../img/300x300/borman.jpg'
+    },
+    {
+        id: 160,
+        name: 'Charles "Pete" Conrad',
+        job: 'Astronaut',
+        joined: 1962,
+        programs: ['Gemini', 'Apollo'],
+        missions: ['Gemini 5', 'Gemini 11', 'Apollo 12', 'Skylab 2'],
+        img: '../../img/300x300/conrad.jpg'
+    },
+    {
+        id: 161,
+        name: 'James A. Lovell',
+        job: 'Astronaut',
+        joined: 1962,
+        programs: ['Gemini', 'Apollo'],
+        missions: ['Gemini 7', 'Gemini 12', 'Apollo 8', 'Apollo 13'],
+        img: '../../img/300x300/lovell.jpg'
+    },
+    {
+        id: 162,
+        name: 'James A. McDivitt',
+        job: 'Astronaut',
+        joined: 1962,
+        programs: ['Gemini', 'Apollo'],
+        missions: ['Gemini 4', 'Apollo 9']
+    },
+    {
+        id: 163,
+        name: 'Thomas P. Stafford',
+        job: 'Astronaut',
+        joined: 1962,
+        programs: ['Gemini', 'Apollo'],
+        missions: ['Gemini 6A', 'Gemini 9A', 'Apollo 10']
+    },
     {
         id: 164, name: 'Edward H. White', job: 'Astronaut', joined: 1962, group: 'Group 2',
+        programs: ['Gemini', 'Apollo'],
         missions: ['Gemini 4', 'Apollo 1']
     },
     {
         id: 165, name: 'John W. Young', job: 'Astronaut', joined: 1962, group: 'Group 2',
+        programs: ['Gemini', 'Apollo'],
         missions: ['Gemini 3', 'Gemini 10', 'Apollo 10', 'Apollo 16', 'STS-1', 'STS-9']
     },
     {
         id: 166, name: 'Edwin "Buzz" Aldrin', job: 'Astronaut', joined: 1963, group: 'Group 3',
+        programs: ['Gemini', 'Apollo'],
         missions: ['Gemini 12', 'Apollo 11']
     },
     {
         id: 167, name: 'Eugene A. Cernan', job: 'Astronaut', joined: 1963, group: 'Group 3',
+        programs: ['Gemini', 'Apollo'],
         missions: ['Gemini 9A', 'Apollo 10', 'Apollo 17']
     },
     {
@@ -107,7 +169,7 @@ exports.PERSONNEL = [
     },
     {
         id: 180,
-        job: 'Mission Control',
+        job: 'Communications',
         title: 'Ground Communication Coordinator',
         name: 'Andy Anderson',
         wiki: ''
@@ -327,6 +389,205 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         name: 'Mary L. Cleave',
         missions: ['STS-61-B', 'STS-30']
+    },
+    {
+        id: 211,
+        job: 'Astronaut',
+        name: 'Dr. Harrison H. "Jack" Schmitt',
+        group: 'Group 4',
+        missions: ['Skylab 3', 'STS-9'],
+        joined: 1965
+    },
+    {
+        id: 212,
+        job: 'Astronaut',
+        name: 'T. Kenneth Mattingly II',
+        group: 'Group 5',
+        joined: 1966,
+        missions: ['Apollo 16', 'STS-4', 'STS-51-C']
+    },
+    {
+        id: 213,
+        job: 'Astronaut',
+        name: 'John L. "Jack" Swigert, Jr',
+        joined: 1966,
+        group: 'Group 5',
+        missions: ['Apollo 13']
+    },
+    {
+        id: 214,
+        job: 'Astronaut',
+        name: 'Fred Haise',
+        joined: 1966,
+        group: 'Group 5',
+        missions: ['Apollo 13']
+    },
+    {
+        id: 215,
+        job: 'Astronaut',
+        name: 'Stuart Roosa',
+        joined: 1966,
+        group: 'Group 5',
+        programs: ['Apollo'],
+        missions: ['Apollo 14'],
+        stats: {
+            time_in_space: '09:00:01'
+        }
+    },
+    {
+        id: 216,
+        job: 'Astronaut',
+        name: 'Edgar Mitchell',
+        joined: 1966,
+        missions: ['Apollo 14'],
+        programs: ['Apollo'],
+        stats: {
+            time_in_space: '09:00:01',
+            eva_num: 2,
+            eva_time: '09:23'
+        }
+    },
+    {
+        id: 217,
+        job: 'Astronaut',
+        name: 'Alfred Worden',
+        joined: 1966,
+        missions: ['Apollo 15'],
+        stats: {
+            time_in_space: '12:07:12',
+            eva_num: 1,
+            eva_time: '00:38'
+        }
+    },
+    {
+        id: 218,
+        job: 'Astronaut',
+        joined: 1966,
+        name: 'James Irwin',
+        missions: ['Apollo 15'],
+        stats: {
+            time_in_space: '12:07:12',
+            eva_num: 4,
+            eva_time: '18:35'
+        }
+    },
+    {
+        id: 219,
+        job: 'Astronaut',
+        joined: 1966,
+        name: 'Charles Duke',
+        missions: ['Apollo 16'],
+        stats: {
+            time_in_space: '11:01:51',
+            eva_num: 3,
+            eva_time: '20:15'
+        }
+    },
+    {
+        id: 220,
+        job: 'Astronaut',
+        name: 'Ronald Evans',
+        joined: 1966,
+        missions: ['Apollo 17'],
+        stats: {
+            time_in_space: '12:13:52',
+            eva_num: 1,
+            eva_time: '01:05'
+        }
+    },
+    {
+        id: 221,
+        job: 'Astronaut',
+        name: 'Clifton Williams',
+        group: 'Group 3',
+        programs: ['Apollo']
+    },
+    {
+        id: 222,
+        job: 'Astronaut',
+        name: 'Edward Givens',
+        group: 'Group 5',
+        joined: 1966,
+        programs: ['Apollo']
+    },
+    {
+        id: 223,
+        job: 'Astronaut',
+        name: 'Joseph Engle',
+        joined: 1966,
+        group: 'Group 5',
+        programs: ['Apollo']
+    },
+    {
+        id: 224,
+        job: 'Engineer',
+        name: 'Wernher von Braun'
+    },
+    {
+        id: 225,
+        job: 'Engineer',
+        name: 'Dr. Robert Goddard'
+    },
+    {
+        id: 226,
+        job: 'Mission Control',
+        name: 'Howard Kyle',
+        programs: ['Mercury']
+    },
+    {
+        id: 227,
+        job: 'Chimpanzee',
+        name: 'Ham',
+        programs: ['Mercury']
+    },
+    {
+        id: 228,
+        job: 'Communications',
+        name: 'Jim McDowell',
+        programs: ['Mercury']
+    },
+    {
+        id: 229,
+        job: 'Management',
+        name: 'Walt Williams',
+        programs: ['Mercury']
+    },
+    {
+        id: 230,
+        job: 'Management',
+        name: 'James Webb',
+        title: 'NASA Administrator',
+        programs: ['Mercury']
+    },
+    {
+        id: 231,
+        job: 'Management',
+        name: 'Harry Goett',
+        programs: ['Mercury']
+    },
+    {
+        id: 232,
+        job: 'Management',
+        name: 'Robert Gilruth',
+        programs: ['Mercury']
+    },
+    {
+        id: 233,
+        job: 'Management',
+        name: 'G. Merritt Preston',
+        programs: ['Mercury']
+    },
+    {
+        id: 234,
+        job: 'Management',
+        name: 'George Low',
+        programs: ['Mercury']
+    },
+    {
+        id: 235,
+        job: 'Public Relations',
+        name: 'Shorty Powers',
+        programs: ['Mercury']
     }
 ];
 exports.BIOS = [

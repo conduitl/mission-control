@@ -11,6 +11,7 @@ export class Person {
     title?: string;
     source?: string;
     company?: string;
+    stats?: any;
 }
 
 export class Bio {

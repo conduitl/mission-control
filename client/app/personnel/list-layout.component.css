@@ -14,5 +14,28 @@ tr.row-selectable td span {
 }
 .glyphicon {
     margin-left: 6px;
-    font-size: 14px;
+    padding-bottom: 3px;
+    font-size: 12px;
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .table {
+        table-layout: fixed;
+        width: 100%;
+        white-space: nowrap;
+    }
+    .table td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .col-name {
+        width: 25%;
+    }
+    col-job {
+        width: 15%;
+    }
+    .col-missions, .col-programs {
+        width: 25%;
+    }
 }

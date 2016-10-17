@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Person } from './person';
+import { Person } from '../personnel/person'; // TODO: Remove this coupling to the personnel folder
 
 @Component({
     selector: 'list-layout',
-    templateUrl: 'app/personnel/list-layout.component.html',
-    styleUrls: ['app/personnel/list-layout.component.css']
+    templateUrl: 'app/shared/list-layout.component.html',
+    styleUrls: ['app/shared/list-layout.component.css']
 })
 export class ListLayoutComponent {
     @Input() personnel: Person[];

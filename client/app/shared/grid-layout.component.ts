@@ -1,12 +1,12 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Person } from './person';
+import { Person } from '../personnel/person'; // TODO: Remove this coupling to the personnel folder
 
 @Component({
     selector: 'grid-layout',
-    templateUrl: 'app/personnel/grid-layout.component.html',
-    styleUrls: ['app/personnel/grid-layout.component.css']
+    templateUrl: 'app/shared/grid-layout.component.html',
+    styleUrls: ['app/shared/grid-layout.component.css']
 })
 export class GridLayoutComponent implements OnChanges {
     @Input() personnel: Person[];

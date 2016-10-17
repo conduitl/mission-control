@@ -11,13 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
+var shared_module_1 = require('../shared/shared.module');
 var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');
 var person_detail_component_1 = require('./person-detail.component');
 var quick_add_component_1 = require('./quick-add.component');
-var list_layout_component_1 = require('./list-layout.component');
-var grid_layout_component_1 = require('./grid-layout.component');
 var personnel_service_1 = require('./personnel.service');
 var personnel_routing_1 = require('./personnel.routing');
 var PersonnelModule = (function () {
@@ -28,6 +27,7 @@ var PersonnelModule = (function () {
             imports: [
                 common_1.CommonModule,
                 forms_1.FormsModule,
+                shared_module_1.SharedModule,
                 personnel_routing_1.personnelRouting
             ],
             declarations: [
@@ -35,9 +35,7 @@ var PersonnelModule = (function () {
                 personnel_list_component_1.PersonnelListComponent,
                 profile_preview_component_1.ProfilePreviewComponent,
                 person_detail_component_1.PersonDetailComponent,
-                quick_add_component_1.QuickAddComponent,
-                list_layout_component_1.ListLayoutComponent,
-                grid_layout_component_1.GridLayoutComponent
+                quick_add_component_1.QuickAddComponent
             ],
             providers: [
                 personnel_service_1.PersonnelService

@@ -94,10 +94,11 @@ var ListLayoutComponent = (function () {
         __metadata('design:type', Object)
     ], ListLayoutComponent.prototype, "listParams", void 0);
     ListLayoutComponent = __decorate([
+        // TODO: Remove this coupling to the personnel folder
         core_1.Component({
             selector: 'list-layout',
-            templateUrl: 'app/personnel/list-layout.component.html',
-            styleUrls: ['app/personnel/list-layout.component.css']
+            templateUrl: 'app/shared/list-layout.component.html',
+            styleUrls: ['app/shared/list-layout.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.Router])
     ], ListLayoutComponent);

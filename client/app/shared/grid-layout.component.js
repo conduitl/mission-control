@@ -63,10 +63,11 @@ var GridLayoutComponent = (function () {
         __metadata('design:type', Object)
     ], GridLayoutComponent.prototype, "listParams", void 0);
     GridLayoutComponent = __decorate([
+        // TODO: Remove this coupling to the personnel folder
         core_1.Component({
             selector: 'grid-layout',
-            templateUrl: 'app/personnel/grid-layout.component.html',
-            styleUrls: ['app/personnel/grid-layout.component.css']
+            templateUrl: 'app/shared/grid-layout.component.html',
+            styleUrls: ['app/shared/grid-layout.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
     ], GridLayoutComponent);

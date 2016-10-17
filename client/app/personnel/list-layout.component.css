@@ -35,7 +35,10 @@ tr.row-selectable td span {
     col-job {
         width: 15%;
     }
-    .col-missions, .col-programs {
-        width: 25%;
+    .col-programs {
+        width: 20%;
+    }
+    .col-missions {
+        width: 30%;
     }
 }

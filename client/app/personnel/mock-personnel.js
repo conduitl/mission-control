@@ -520,74 +520,142 @@ exports.PERSONNEL = [
     },
     {
         id: 224,
-        job: 'Engineer',
+        job: 'Engineering',
         name: 'Wernher von Braun'
     },
     {
         id: 225,
-        job: 'Engineer',
+        job: 'Engineering',
         name: 'Dr. Robert Goddard'
     },
     {
         id: 226,
         job: 'Mission Control',
         name: 'Howard Kyle',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 227,
         job: 'Chimpanzee',
         name: 'Ham',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 228,
         job: 'Communications',
         name: 'Jim McDowell',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 229,
         job: 'Management',
         name: 'Walt Williams',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 230,
         job: 'Management',
         name: 'James Webb',
         title: 'NASA Administrator',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 231,
         job: 'Management',
         name: 'Harry Goett',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 232,
         job: 'Management',
         name: 'Robert Gilruth',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 233,
         job: 'Management',
         name: 'G. Merritt Preston',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 234,
         job: 'Management',
         name: 'George Low',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 235,
         job: 'Public Relations',
         name: 'Shorty Powers',
-        programs: ['Mercury']
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
+    },
+    {
+        id: 236,
+        job: 'Management',
+        name: 'Abe Silverstein',
+        programs: ['Mercury, Gemini, Apollo']
+    },
+    {
+        id: 237,
+        job: 'Management',
+        name: 'Hugh Dryden',
+        programs: ['Mercury, Gemini, Apollo']
+    },
+    {
+        id: 238,
+        job: 'Engineering',
+        name: 'Maxime Faget',
+        programs: ['Apollo']
+    },
+    {
+        id: 239,
+        job: 'Management',
+        name: 'Robert Seamans',
+        programs: ['Mercury, Gemini, Apollo']
+    },
+    {
+        id: 240,
+        job: 'Engineering',
+        name: 'Kurt H. Debus',
+        programs: ['Mercury, Gemini, Apollo']
+    },
+    {
+        id: 241,
+        job: 'Management',
+        name: 'George E. Mueller'
+    },
+    {
+        id: 242,
+        job: 'Management',
+        name: 'Samuel C. Philips',
+        programs: ['Apollo']
+    },
+    {
+        id: 243,
+        job: 'Management',
+        name: 'D. Brainerd Holmes'
+    },
+    {
+        id: 244,
+        job: 'Engineering',
+        name: 'John Houbolt',
+        programs: ['Apollo']
+    },
+    {
+        id: 245,
+        job: 'Management',
+        name: 'Joseph Shea',
+        programs: ['Apollo']
     }
 ];
 exports.BIOS = [

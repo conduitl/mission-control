@@ -152,9 +152,13 @@ export class PersonnelListComponent implements OnInit {
         if (col === 'Job type') {
             col = 'job';
         }
+        if (col === 'Programs') {
+            col = 'programs';
+        }
         if (col === 'Missions') {
             col = 'missions';
         }
+        
         // Refactor - Better, scalable handing of keys referencing Arrays
         let groups: {} = {};
         personnel.forEach((person: Person, idx: number, arr: Person[]) => {

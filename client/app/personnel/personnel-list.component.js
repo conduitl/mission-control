@@ -130,6 +130,9 @@ var PersonnelListComponent = (function () {
         if (col === 'Job type') {
             col = 'job';
         }
+        if (col === 'Programs') {
+            col = 'programs';
+        }
         if (col === 'Missions') {
             col = 'missions';
         }

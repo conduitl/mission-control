@@ -14,6 +14,7 @@ import './rxjs-operators';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 // features
+import { HomeModule } from './home/home.module';
 import { ProjectsModule } from './projects/projects.module';
 import { PersonnelModule } from './personnel/personnel.module';
 import { AdminModule } from './admin/admin.module';
@@ -28,7 +29,8 @@ import { LoginComponent } from './login.component';
     imports: [ 
         BrowserModule,
         HttpModule,
-        JsonpModule, 
+        JsonpModule,
+        HomeModule, 
         NavbarModule,
         PersonnelModule,
         ProjectsModule,

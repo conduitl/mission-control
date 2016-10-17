@@ -17,6 +17,7 @@ var http_1 = require('@angular/http');
 // Add the RxJS Observable operators we need in this app.
 require('./rxjs-operators');
 // features
+var home_module_1 = require('./home/home.module');
 var projects_module_1 = require('./projects/projects.module');
 var personnel_module_1 = require('./personnel/personnel.module');
 var admin_module_1 = require('./admin/admin.module');
@@ -33,6 +34,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
                 http_1.JsonpModule,
+                home_module_1.HomeModule,
                 navbar_module_1.NavbarModule,
                 personnel_module_1.PersonnelModule,
                 projects_module_1.ProjectsModule,

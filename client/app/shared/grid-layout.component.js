@@ -63,6 +63,10 @@ var GridLayoutComponent = (function () {
     ], GridLayoutComponent.prototype, "personnel", void 0);
     __decorate([
         core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], GridLayoutComponent.prototype, "selectable", void 0);
+    __decorate([
+        core_1.Input(), 
         __metadata('design:type', Object)
     ], GridLayoutComponent.prototype, "listParams", void 0);
     GridLayoutComponent = __decorate([

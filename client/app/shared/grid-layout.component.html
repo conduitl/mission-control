@@ -2,7 +2,8 @@
     <div *ngIf="rows" class="grid-container">
         <div *ngFor="let row of rows" class="row">
             <div *ngFor="let person of row" class="col-sm-3 col-xs-6">
-                <span class="thumbnail tile-selectable"
+                <span class="thumbnail selectable"
+                      [class.selectable]="selectable"
                       [class.selected]="isSelected(person)"
                       (click)="onSelect(person)">
                     <img class="img-responsive" [src]="checkImg(person)">

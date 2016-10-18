@@ -10,6 +10,7 @@ import { Person } from '../personnel/person'; // TODO: Remove this coupling to t
 })
 export class GridLayoutComponent implements OnChanges {
     @Input() personnel: Person[];
+    @Input() selectable: boolean;
     @Input() listParams: {
         id: number,
         query: string,

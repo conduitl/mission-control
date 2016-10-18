@@ -140,11 +140,12 @@ export const PERSONNEL: Person[] = [
       missions: ['Gemini 8', 'Apollo 9', 'Apollo 15'] },
     { 
         id: 171, 
-        name: 'Donald Slayton', 
+        name: 'Donald "Deke" Slayton', 
         job: 'Astronaut', 
         joined: 1959,
         group: 'Group 1',
-        missions: ['Apollo-Soyuz Test Project']
+        missions: ['Apollo-Soyuz Test Project'],
+        img: '../../img/300x300/slayton.jpg' 
     },
     {
         id: 172, name: 'Elliot M. See, Jr', job: 'Astronaut', joined: 1962

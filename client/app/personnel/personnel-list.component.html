@@ -1,21 +1,21 @@
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-lg-9">
         <!-- Feature panel -->
         <div class="panel panel-default">
             <div class="panel-body feature-list">
                 <!-- Filtering, grouping and layout selection controls -->
                 <div class="row">
-                    <div class="col-md-6 form-inline">
+                    <div class="col-sm-6 col-md-6 form-inline">
                         <span class="form-group">
                             <label for="filter">Filter by:</label>
-                            <input #search name="filter" type="text" class="form-control" placeholder="Input text to filter the list"
+                            <input #search name="filter" id="filter" type="text" class="form-control" placeholder="Input text to filter the list"
                             [value]="listParams.query" (keyup)="setQuery(search.value)" name="filter">
                         </span>
                     </div>
-                    <div class="col-md-4 form-inline">
+                    <div class="col-sm-6 col-md-4 form-inline">
                         <div class="form-group">
                             <label for="group-by">Group by:</label>
-                            <select #grouping name="group-by" class="form-control"
+                            <select #grouping name="group-by" id="group-by" class="form-control"
                                 [ngModel]="grouping.value"
                                 (ngModelChange)="groupBy(grouping.value, personnel)">
                                 <option>(none)</option>
@@ -26,7 +26,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 hidden-sm hidden-xs">
                         <div class="btn-group pull-right" role="group" aria-label="...">
                             <button type="button" class="btn btn-default"
                                     [class.selected]="isLayoutSelected('list')"
@@ -98,7 +98,10 @@
                 <div *ngIf="!groups">
                     <div *ngIf="personnel">
                         <div [ngSwitch]="listParams.layout">
-                            <grid-layout *ngSwitchCase="'grid'" [personnel]="personnel" [listParams]="listParams"></grid-layout>
+                            <grid-layout *ngSwitchCase="'grid'" 
+                                [personnel]="personnel"
+                                [selectable]="true" 
+                                [listParams]="listParams"></grid-layout>
                             <list-layout *ngSwitchDefault [personnel]="personnel" [listParams]="listParams"></list-layout>
                         </div>
                     </div>
@@ -131,7 +134,7 @@
         </div>
     </div>
     <!-- Selection preview panel -->
-    <div class="col-md-3">
+    <div class="col-lg-3">
         <div *ngIf="selectedPerson">
             <profile-preview [person]="selectedPerson" [listParams]="listParams"></profile-preview>
         </div>

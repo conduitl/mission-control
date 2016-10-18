@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var personnel_service_1 = require('../personnel/personnel.service'); // TODO: Decouple
 var HomeComponent = (function () {
-    function HomeComponent(personnelService) {
+    function HomeComponent(router, personnelService) {
+        this.router = router;
         this.personnelService = personnelService;
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -23,13 +25,22 @@ var HomeComponent = (function () {
         this.personnelService.filterResults('group 1')
             .then(function (personnel) { return _this.personnel = personnel; });
     };
+    // Navigate to collection (via query) in personnel list
+    HomeComponent.prototype.gotoCollection = function (query) {
+        var link = ['/personnel', 151, {
+                query: query,
+                layout: 'list'
+            }];
+        this.router.navigate(link);
+    };
     HomeComponent = __decorate([
         // TODO: Decouple
         core_1.Component({
             selector: 'home-page',
-            templateUrl: 'app/home/home.component.html'
+            templateUrl: 'app/home/home.component.html',
+            styleUrls: ['app/home/home.component.css']
         }), 
-        __metadata('design:paramtypes', [personnel_service_1.PersonnelService])
+        __metadata('design:paramtypes', [router_1.Router, personnel_service_1.PersonnelService])
     ], HomeComponent);
     return HomeComponent;
 }());

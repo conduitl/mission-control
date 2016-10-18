@@ -2,12 +2,16 @@
     background-color: #333;
     color: #eee;
 }
-.tile-selectable {
+.selectable {
     cursor: pointer;
 }
-.tile-selectable:hover {
+.selectable:hover {
     background-color: #dedede;
 }
 .grid-container {
     margin-top: 12px;
+}
+.caption {
+    white-space: nowrap;
+    overflow: hidden;
 }

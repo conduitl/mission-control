@@ -1,15 +1,27 @@
 <div class="page-header">
-    <h1>Home Component</h1>
+    <h1>Mission Control Center</h1>
 </div>
 <div class="panel panel-default">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel-body">
-                <h3>The first astronauts - <i>the Mercury 7</i></h3>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-8"> 
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h3>The first astronauts - <i>the Mercury 7</i></h3>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary pull-right"
+                                (click)="gotoCollection('group 1')">View list</button>
+                    </div>
+                </div>
                 <hr />
                 <div *ngIf="personnel">
-                    <grid-layout [personnel]="personnel"></grid-layout>
+                    <grid-layout [personnel]="personnel" [selectable]="false"></grid-layout>
                 </div>
+            </div>
+            <div class="col-lg-4">
+                <img class="img-responsive center-block" src="img/ma-3.jpg">
+                <h3>Mercury-Atlas 3 Launch</h3>
             </div>
         </div>
     </div>

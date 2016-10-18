@@ -25,6 +25,9 @@ import { NavbarModule } from './navbar/navbar.module';
 // authorization
 import { LoginComponent } from './login.component';
 
+// services
+import { PersonnelService } from './personnel/personnel.service';
+
 @NgModule({
     imports: [ 
         BrowserModule,
@@ -43,7 +46,7 @@ import { LoginComponent } from './login.component';
         LoginComponent
     ],
     providers: [
-        appRoutingProviders
+        appRoutingProviders, PersonnelService
     ],
     bootstrap: [ AppComponent ] 
 })

@@ -94,6 +94,12 @@ var PersonnelService = (function () {
                     }
                 }
             }
+            if (element.group) {
+                var group = element.group;
+                if (rx.test(group)) {
+                    return true;
+                }
+            }
             return false;
         });
     };

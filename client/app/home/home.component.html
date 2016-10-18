@@ -1,3 +1,16 @@
 <div class="page-header">
     <h1>Home Component</h1>
 </div>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel-body">
+                <h3>The first astronauts - <i>the Mercury 7</i></h3>
+                <hr />
+                <div *ngIf="personnel">
+                    <grid-layout [personnel]="personnel"></grid-layout>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

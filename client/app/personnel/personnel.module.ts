@@ -11,7 +11,7 @@ import { PersonDetailComponent } from './person-detail.component';
 
 import { QuickAddComponent } from './quick-add.component';
 
-import { PersonnelService } from './personnel.service';
+
 
 import { personnelRouting } from './personnel.routing';
 
@@ -30,7 +30,7 @@ import { personnelRouting } from './personnel.routing';
         QuickAddComponent
     ],
     providers: [
-        PersonnelService
+
     ]
 })
 export class PersonnelModule { }

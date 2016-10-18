@@ -89,6 +89,12 @@ export class PersonnelService {
                         }
                     }
                 }
+                if (element.group) {
+                    let group = element.group;
+                    if ( rx.test(group) ) {
+                        return true;
+                    }
+                }
                 return false;
             });
     }

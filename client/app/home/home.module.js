@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var shared_module_1 = require('../shared/shared.module');
 var home_component_1 = require('./home.component');
 var home_routing_1 = require('./home.routing');
 var HomeModule = (function () {
@@ -19,6 +20,7 @@ var HomeModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
+                shared_module_1.SharedModule,
                 home_routing_1.homeRouting
             ],
             declarations: [

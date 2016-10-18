@@ -9,15 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var personnel_service_1 = require('../personnel/personnel.service'); // TODO: Decouple
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(personnelService) {
+        this.personnelService = personnelService;
     }
+    HomeComponent.prototype.ngOnInit = function () {
+        this.getPersonnel();
+    };
+    // Retrieve data via service
+    HomeComponent.prototype.getPersonnel = function () {
+        var _this = this;
+        this.personnelService.filterResults('group 1')
+            .then(function (personnel) { return _this.personnel = personnel; });
+    };
     HomeComponent = __decorate([
+        // TODO: Decouple
         core_1.Component({
             selector: 'home-page',
             templateUrl: 'app/home/home.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [personnel_service_1.PersonnelService])
     ], HomeComponent);
     return HomeComponent;
 }());

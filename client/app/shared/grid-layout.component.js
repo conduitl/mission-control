@@ -38,7 +38,10 @@ var GridLayoutComponent = (function () {
             }]);
     };
     GridLayoutComponent.prototype.isSelected = function (person) {
-        return person.id === this.listParams.id;
+        if (this.listParams && this.listParams.id) {
+            return person.id === this.listParams.id;
+        }
+        return false;
     };
     GridLayoutComponent.prototype.makeCSList = function (arr) {
         return arr.reduce(function (pre, cur) {

@@ -48,7 +48,10 @@ export class GridLayoutComponent implements OnChanges {
         }]);
     }
     isSelected(person: Person) {
-        return person.id === this.listParams.id;
+        if (this.listParams && this.listParams.id) {
+            return person.id === this.listParams.id;
+        } 
+        return false;
     }
     makeCSList(arr: [string]) {
         return arr.reduce( (pre, cur) => {

@@ -25,6 +25,8 @@ var assets_module_1 = require('./assets/assets.module');
 var navbar_module_1 = require('./navbar/navbar.module');
 // authorization
 var login_component_1 = require('./login.component');
+// services
+var personnel_service_1 = require('./personnel/personnel.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -47,7 +49,7 @@ var AppModule = (function () {
                 login_component_1.LoginComponent
             ],
             providers: [
-                app_routing_1.appRoutingProviders
+                app_routing_1.appRoutingProviders, personnel_service_1.PersonnelService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

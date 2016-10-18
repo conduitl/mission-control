@@ -5,6 +5,7 @@ exports.PERSONNEL = [
         name: 'Alan B. Shepard, Jr.',
         job: 'Astronaut',
         joined: 1959,
+        group: 'Group 1',
         programs: ['Mercury', 'Apollo'],
         missions: ['MR-3', 'Apollo 14'],
         img: '../../img/300x300/shepard.jpg'
@@ -14,6 +15,7 @@ exports.PERSONNEL = [
         name: 'Virgil I. Grissom',
         job: 'Astronaut',
         joined: 1959,
+        group: 'Group 1',
         programs: ['Mercury', 'Apollo'],
         missions: ['MR-4', 'Apollo 1'],
         img: '../../img/300x300/grissom.jpg'
@@ -23,6 +25,7 @@ exports.PERSONNEL = [
         name: 'John H. Glenn, Jr.',
         job: 'Astronaut',
         joined: 1959,
+        group: 'Group 1',
         programs: ['Mercury'],
         missions: ['MA-6', 'STS-95'],
         img: '../../img/300x300/glenn.jpg'
@@ -32,6 +35,7 @@ exports.PERSONNEL = [
         name: 'M. Scott Carpenter',
         job: 'Astronaut',
         joined: 1959,
+        group: 'Group 1',
         programs: ['Mercury'],
         missions: ['MA-7'],
         img: '../../img/300x300/carpenter.jpg'
@@ -40,6 +44,7 @@ exports.PERSONNEL = [
         id: 155,
         name: 'Walter M. Schirra, Jr.',
         job: 'Astronaut', joined: 1959,
+        group: 'Group 1',
         programs: ['Mercury', 'Apollo', 'Gemini'],
         missions: ['MA-8', 'Gemini 6A', 'Apollo 7'],
         img: '../../img/300x300/schirra.jpg' },
@@ -48,6 +53,7 @@ exports.PERSONNEL = [
         name: 'L. Gordon Cooper, Jr.',
         job: 'Astronaut',
         joined: 1959,
+        group: 'Group 1',
         programs: ['Mercury', 'Apollo'],
         missions: ['MA-9'],
         img: '../../img/300x300/cooper.jpg' },
@@ -132,7 +138,11 @@ exports.PERSONNEL = [
     { id: 170, name: 'David R. Scott', job: 'Astronaut', joined: 1963, group: 'Group 3',
         missions: ['Gemini 8', 'Apollo 9', 'Apollo 15'] },
     {
-        id: 171, name: 'Donald Slayton', job: 'Astronaut', joined: 1959,
+        id: 171,
+        name: 'Donald Slayton',
+        job: 'Astronaut',
+        joined: 1959,
+        group: 'Group 1',
         missions: ['Apollo-Soyuz Test Project']
     },
     {

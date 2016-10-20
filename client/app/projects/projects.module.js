@@ -11,12 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var project_center_component_1 = require('./project-center.component');
-var project_list_component_1 = require('./project-list.component');
-var project_dashboard_component_1 = require('./project-dashboard.component');
-var summary_component_1 = require('./summary.component');
-var project_detail_component_1 = require('./project-detail.component');
-var table_highlight_directive_1 = require('./table-highlight.directive');
-var project_service_1 = require('./project.service');
 var projects_routing_1 = require('./projects.routing');
 var ProjectsModule = (function () {
     function ProjectsModule() {
@@ -28,16 +22,9 @@ var ProjectsModule = (function () {
                 projects_routing_1.projectRouting
             ],
             declarations: [
-                project_center_component_1.ProjectCenterComponent,
-                project_list_component_1.ProjectListComponent,
-                project_dashboard_component_1.ProjectDashboardComponent,
-                summary_component_1.SummaryComponent,
-                project_detail_component_1.ProjectDetailComponent,
-                table_highlight_directive_1.TableHighlightDirective
+                project_center_component_1.ProjectCenterComponent
             ],
-            providers: [
-                project_service_1.ProjectService
-            ]
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectsModule);

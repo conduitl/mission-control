@@ -15,7 +15,7 @@ var ProjectCenterComponent = (function () {
     ProjectCenterComponent = __decorate([
         core_1.Component({
             selector: 'project-center',
-            template: "\n        <h1>Project Center - Coming soon</h1>\n        <!--<router-outlet></router-outlet>-->\n    "
+            template: "\n        <h1>Project Center - Coming soon</h1>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectCenterComponent);

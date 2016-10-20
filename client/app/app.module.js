@@ -20,11 +20,7 @@ require('./rxjs-operators');
 var home_module_1 = require('./home/home.module');
 var projects_module_1 = require('./projects/projects.module');
 var personnel_module_1 = require('./personnel/personnel.module');
-var admin_module_1 = require('./admin/admin.module');
-var assets_module_1 = require('./assets/assets.module');
 var navbar_module_1 = require('./navbar/navbar.module');
-// authorization
-var login_component_1 = require('./login.component');
 // services
 var personnel_service_1 = require('./personnel/personnel.service');
 var AppModule = (function () {
@@ -40,13 +36,10 @@ var AppModule = (function () {
                 navbar_module_1.NavbarModule,
                 personnel_module_1.PersonnelModule,
                 projects_module_1.ProjectsModule,
-                assets_module_1.AssetsModule,
-                admin_module_1.AdminModule,
                 app_routing_1.routing
             ],
             declarations: [
-                app_component_1.AppComponent,
-                login_component_1.LoginComponent
+                app_component_1.AppComponent
             ],
             providers: [
                 app_routing_1.appRoutingProviders, personnel_service_1.PersonnelService

@@ -1,10 +1,39 @@
 <div class="container-fluid">
-    <div class="jumbotron">
+    <div class="page-header">
         <h1>Mission Control Center</h1>
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row row-odd">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well">
+                <h4>About this application</h4>
+                <p>Angular 2 application celebrating the men and women of the NASA space programs. Future dataset additions will include members of international space programs and contemporary members of the aerospace community. Current dataset is somewhat arbitrary based on what I've been reading, such as, <i>Failure is Not An Option</i> by Gene Kranz and <i>The Right Stuff</i> by Tom Wolfe. I did my best to be accurate; however, apologies in advance for any errors or typos I may have made in the data.</p>
+                <p>Purpose is to demonstrate an intuitive and responsive interface for searching and filtering through related collections of data.</p>
+                <p> - 2016 Thomas Rundle</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Summary of data</h4>
+                    <div *ngIf="personnel">
+                        <p><i>Total number of personnel records:</i> <span class="badge">{{personnel.length}}</span></p>
+                        <ul class="summary" *ngIf="stats">
+                            <li>Astronauts: <span class="label label-info">{{stats.Astronaut}}</span></li>
+                            <li>Mission Control: <span class="label label-info">{{stats['Mission Control']}}</span></li>
+                            <li>Engineering: <span class="label label-info">{{stats['Engineering']}}</span></li>
+                            <li>Management: <span class="label label-info">{{stats['Management']}}</span></li>
+                        </ul>
+                        <button class="btn btn-default center-block" (click)="gotoPersonnel()">View full list</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid row-even">
+    <div class="row">
         <div class="col-md-8">
             <h3>The first astronauts - <i>the Mercury 7</i></h3>
             <div *ngIf="mercury">
@@ -20,7 +49,7 @@
        
     </div>
 </div>
-<div class="container-fluid row-even">
+<div class="container-fluid row-odd">
     <div class="row">
         <div class="col-md-4">
             <img class="img-responsive center-block" src="img/sts7.jpg">

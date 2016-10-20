@@ -10,6 +10,13 @@
                     <div class="caption">
                         <h4>{{ person.name }}</h4>
                         <b>{{ person.job }}</b>
+                            <span *ngIf="person.programs">
+                                , <i>{{makeCSList(person.programs)}}</i>
+                            </span>
+                        <p *ngIf="person.wiki">
+                            <a href="{{person.wiki}}">on Wikipedia</a>
+                        </p>
+                        <p *ngIf="!person.wiki"><br/></p>
                     </div>
                 </span>
             </div>

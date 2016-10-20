@@ -9,14 +9,27 @@ h3, button {
     margin-top: 3px;
 }
 .row-odd {
+    padding-top: 24px;
     padding-bottom: 24px;
 }
 .row-even {
     padding-top: 24px;
     padding-bottom: 24px;
-    background-color: #E0E6E8;
+    background-color:#efefef;
 }
 .panel-body {
     padding-left: 24px;
     padding-right: 24px;
+}
+ul.summary {
+    margin-left: 6px;
+    padding-left: 6px;
+}
+ul.summary li {
+    list-style: none;
+}
+.label {
+    margin-top: 2px;
+    margin-left: 10px;
+    width: 24px;
 }

@@ -8,7 +8,8 @@ exports.PERSONNEL = [
         group: 'Group 1',
         programs: ['Mercury', 'Apollo'],
         missions: ['MR-3', 'Apollo 14'],
-        img: '../../img/300x300/shepard.jpg'
+        img: '../../img/300x300/shepard.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Alan_Shepard'
     },
     {
         id: 152,
@@ -18,7 +19,8 @@ exports.PERSONNEL = [
         group: 'Group 1',
         programs: ['Mercury', 'Apollo'],
         missions: ['MR-4', 'Apollo 1'],
-        img: '../../img/300x300/grissom.jpg'
+        img: '../../img/300x300/grissom.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Gus_Grissom'
     },
     {
         id: 153,
@@ -28,6 +30,7 @@ exports.PERSONNEL = [
         group: 'Group 1',
         programs: ['Mercury'],
         missions: ['MA-6', 'STS-95'],
+        wiki: 'https://en.wikipedia.org/wiki/John_Glenn',
         img: '../../img/300x300/glenn.jpg'
     },
     {
@@ -38,6 +41,7 @@ exports.PERSONNEL = [
         group: 'Group 1',
         programs: ['Mercury'],
         missions: ['MA-7'],
+        wiki: 'https://en.wikipedia.org/wiki/Scott_Carpenter',
         img: '../../img/300x300/carpenter.jpg'
     },
     {
@@ -47,7 +51,9 @@ exports.PERSONNEL = [
         group: 'Group 1',
         programs: ['Mercury', 'Apollo', 'Gemini'],
         missions: ['MA-8', 'Gemini 6A', 'Apollo 7'],
-        img: '../../img/300x300/schirra.jpg' },
+        img: '../../img/300x300/schirra.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Wally_Schirra'
+    },
     {
         id: 156,
         name: 'L. Gordon Cooper, Jr.',
@@ -56,6 +62,7 @@ exports.PERSONNEL = [
         group: 'Group 1',
         programs: ['Mercury', 'Apollo'],
         missions: ['MA-9'],
+        wiki: 'https://en.wikipedia.org/wiki/Gordon_Cooper',
         img: '../../img/300x300/cooper.jpg' },
     {
         id: 158,
@@ -143,8 +150,10 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         joined: 1959,
         group: 'Group 1',
+        programs: ['Mercury', 'Gemini', 'Apollo'],
         missions: ['Apollo-Soyuz Test Project'],
-        img: '../../img/300x300/slayton.jpg'
+        img: '../../img/300x300/slayton.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Deke_Slayton'
     },
     {
         id: 172, name: 'Elliot M. See, Jr', job: 'Astronaut', joined: 1962
@@ -358,6 +367,7 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         name: 'Sally Ride',
         wiki: 'https://en.wikipedia.org/wiki/Sally_Ride',
+        programs: ['Space Shuttle'],
         missions: ['STS-7', 'STS-41-G'],
         tags: ['first women', 'female', 'woman'],
         img: '../../img/300x300/sally-ride.jpg'
@@ -367,6 +377,7 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         name: 'Judith Resnik',
         wiki: 'https://en.wikipedia.org/wiki/Judith_Resnik',
+        programs: ['Space Shuttle'],
         missions: ['STS-41-D', 'ST-51-L'],
         tags: ['first women', 'female', 'woman'],
         img: '../../img/300x300/judith-resnik.jpg'
@@ -376,6 +387,7 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         name: 'Kathryn D. Sullivan',
         wiki: 'https://en.wikipedia.org/wiki/Kathryn_D._Sullivan',
+        programs: ['Space Shuttle'],
         missions: ['STS-41-G', 'STS-31', 'STS-45'],
         tags: ['first women', 'female', 'woman'],
         img: '../../img/300x300/kathryn-sullivan.jpg'
@@ -385,6 +397,7 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         name: 'Anna Lee Fisher',
         wiki: 'https://en.wikipedia.org/wiki/Anna_Lee_Fisher',
+        programs: ['Space Shuttle'],
         missions: ['STS-51-A'],
         tags: ['first women', 'female', 'woman'],
         img: '../../img/300x300/anna-fisher.jpg'
@@ -394,6 +407,7 @@ exports.PERSONNEL = [
         job: 'Astronaut',
         name: 'Margaret Rhea Seddon',
         wiki: 'https://en.wikipedia.org/wiki/Margaret_Rhea_Seddon',
+        programs: ['Space Shuttle'],
         missions: ['STS-51-D', 'STS-40', 'STS-58'],
         tags: ['first women', 'female', 'woman'],
         img: '../../img/300x300/margaret-seddon.jpg'
@@ -402,25 +416,31 @@ exports.PERSONNEL = [
         id: 208,
         job: 'Astronaut',
         name: 'Shannon Lucid',
+        programs: ['Space Shuttle'],
         missions: ['STS-51-G', 'STS-34', 'STS-43', 'STS-58', 'STS-76/79'],
         tags: ['first women', 'female', 'woman'],
-        img: '../../img/300x300/shannon-lucid.jpg'
+        img: '../../img/300x300/shannon-lucid.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Shannon_Lucid'
     },
     {
         id: 209,
         job: 'Astronaut',
         name: 'Bonnie J. Dunbar',
+        programs: ['Space Shuttle'],
         missions: ['STS-61-A', 'STS-32', 'STS-50', 'STS-71', 'STS-89'],
         tags: ['first women', 'female', 'woman'],
-        img: '../../img/300x300/bonnie-dunbar.jpg'
+        img: '../../img/300x300/bonnie-dunbar.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Bonnie_J._Dunbar'
     },
     {
         id: 210,
         job: 'Astronaut',
         name: 'Mary L. Cleave',
+        programs: ['Space Shuttle'],
         missions: ['STS-61-B', 'STS-30'],
         tags: ['first women', 'female', 'woman'],
-        img: '../../img/300x300/mary-cleave.jpg'
+        img: '../../img/300x300/mary-cleave.jpg',
+        wiki: 'https://en.wikipedia.org/wiki/Mary_L._Cleave'
     },
     {
         id: 211,

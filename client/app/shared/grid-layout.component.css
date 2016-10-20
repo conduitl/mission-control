@@ -1,4 +1,4 @@
-.selected, .selected.tile-selectable:hover, .selected .caption {
+.selected, .selected.selectable:hover, .selected .caption {
     background-color: #333;
     color: #eee;
 }

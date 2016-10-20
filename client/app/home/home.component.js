@@ -22,22 +22,51 @@ var HomeComponent = (function () {
     // Retrieve data via service
     HomeComponent.prototype.getPersonnel = function () {
         var _this = this;
+        this.personnelService.getPersonnel()
+            .then(function (personnel) {
+            _this.personnel = personnel;
+            _this.prepareDataSummary(personnel);
+        });
         this.personnelService.filterResults('group 1')
             .then(function (personnel) { return _this.mercury = personnel; });
         this.personnelService.filterResults('first women')
             .then(function (personnel) {
             _this.women = personnel;
-            console.log('Women');
-            console.log(_this.women);
         });
     };
+    // Summarize data collection
+    HomeComponent.prototype.prepareDataSummary = function (personnel) {
+        // group by job and return length of each category
+        var cats = personnel.map(function (person) { return person.job; });
+        // .reduce((acc, key) => {
+        //     console.log(acc);
+        //     if (!acc[key]) {
+        //         return acc[key] = 1;
+        //     }
+        //     return acc[key]++;
+        // }, {})
+        var reduced = cats.reduce(function (pre, cur) {
+            var obj = pre;
+            if (obj[cur]) {
+                obj[cur]++;
+            }
+            else {
+                obj[cur] = 1;
+            }
+            return obj;
+        }, {});
+        this.stats = reduced;
+    };
     // Navigate to collection (via query) in personnel list
-    HomeComponent.prototype.gotoCollection = function (query) {
-        var link = ['/personnel', 151, {
+    HomeComponent.prototype.gotoCollection = function (query, id) {
+        var link = ['/personnel', id, {
                 query: query,
                 layout: 'list'
             }];
         this.router.navigate(link);
+    };
+    HomeComponent.prototype.gotoPersonnel = function () {
+        this.router.navigate(['/personnel']);
     };
     HomeComponent = __decorate([
         // TODO: Decouple

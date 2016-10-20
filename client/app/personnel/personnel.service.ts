@@ -95,6 +95,14 @@ export class PersonnelService {
                         return true;
                     }
                 }
+                if (element.tags) {
+                    let tags = element.tags;
+                    for (let i = 0; i < tags.length; i++) {
+                        if ( rx.test(tags) ) {
+                            return true;
+                        }
+                    }
+                }
                 return false;
             });
     }

@@ -11,6 +11,8 @@ import { PersonnelService } from '../personnel/personnel.service'; // TODO: Deco
 })
 export class HomeComponent implements OnInit {
     personnel: Person[];
+    mercury: Person[];
+    women: Person[];
     constructor( private router: Router,
                  private personnelService: PersonnelService ) { }
 
@@ -22,7 +24,15 @@ export class HomeComponent implements OnInit {
     getPersonnel(): void { 
         this.personnelService.filterResults('group 1')
             .then(
-                personnel => this.personnel = personnel
+                personnel => this.mercury = personnel
+            )
+        this.personnelService.filterResults('first women')
+            .then(
+                personnel => {
+                    this.women = personnel
+                    console.log('Women');
+                    console.log(this.women);
+                }
             )
     }
 

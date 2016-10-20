@@ -12,6 +12,7 @@ export class Person {
     source?: string;
     company?: string;
     stats?: any;
+    tags?: any;
 }
 
 export class Bio {

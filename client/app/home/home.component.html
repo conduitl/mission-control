@@ -1,28 +1,39 @@
-<div class="page-header">
-    <h1>Mission Control Center</h1>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>Mission Control Center</h1>
+    </div>
 </div>
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-8"> 
-                <div class="row">
-                    <div class="col-sm-9">
-                        <h3>The first astronauts - <i>the Mercury 7</i></h3>
-                    </div>
-                    <div class="col-sm-3">
-                        <button class="btn btn-primary pull-right"
-                                (click)="gotoCollection('group 1')">View list</button>
-                    </div>
-                </div>
-                <hr />
-                <div *ngIf="personnel">
-                    <grid-layout [personnel]="personnel" [selectable]="false"></grid-layout>
-                </div>
+<div class="container-fluid">
+    <div class="row row-odd">
+        <div class="col-md-8">
+            <h3>The first astronauts - <i>the Mercury 7</i></h3>
+            <div *ngIf="mercury">
+                <grid-layout [personnel]="mercury" [selectable]="false"></grid-layout>
             </div>
-            <div class="col-lg-4">
-                <img class="img-responsive center-block" src="img/ma-3.jpg">
-                <h3>Mercury-Atlas 3 Launch</h3>
+            <button class="btn btn-lg btn-primary center-block" type="button"
+                            (click)="gotoCollection('group 1', 151)">View this list</button>
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive center-block" src="img/mr-3.jpg">
+            <h4>Mercury-Redstone 3 Launch on May 5, 1961</h4>
+        </div>
+       
+    </div>
+</div>
+<div class="container-fluid row-even">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-responsive center-block" src="img/sts7.jpg">
+            <h4><i>Challenger</i> on June 22, 1983</h4>
+        </div>
+        <div class="col-md-8">
+            <h3>First American women in space</h3>
+            <hr />
+            <div *ngIf="women">
+                <grid-layout [personnel]="women" [selectable]="false"></grid-layout>
             </div>
+            <button class="btn btn-lg btn-primary center-block"
+                            (click)="gotoCollection('first women', 203)">View this list</button>
         </div>
     </div>
 </div>

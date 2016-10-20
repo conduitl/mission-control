@@ -1,3 +1,22 @@
-button {
-    margin-top: 12px;
+.jumbotron {
+    background: url("../img/apollo11-aldrin.jpg");
+    background-size: cover;
+    height: 600px;
+    color: #ffffff;
+}
+
+h3, button {
+    margin-top: 3px;
+}
+.row-odd {
+    padding-bottom: 24px;
+}
+.row-even {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #E0E6E8;
+}
+.panel-body {
+    padding-left: 24px;
+    padding-right: 24px;
 }

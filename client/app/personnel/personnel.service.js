@@ -100,6 +100,14 @@ var PersonnelService = (function () {
                     return true;
                 }
             }
+            if (element.tags) {
+                var tags = element.tags;
+                for (var i = 0; i < tags.length; i++) {
+                    if (rx.test(tags)) {
+                        return true;
+                    }
+                }
+            }
             return false;
         });
     };

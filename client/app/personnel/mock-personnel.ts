@@ -358,50 +358,71 @@ export const PERSONNEL: Person[] = [
         id: 203,
         job: 'Astronaut',
         name: 'Sally Ride',
-        missions: ['STS-7', 'STS-41-G']
+        wiki: 'https://en.wikipedia.org/wiki/Sally_Ride',
+        missions: ['STS-7', 'STS-41-G'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/sally-ride.jpg'
     },
     {
         id: 204,
         job: 'Astronaut',
-        name: 'Judith Resnick',
-        missions: ['STS-41-D', 'ST-51-L']
+        name: 'Judith Resnik',
+        wiki: 'https://en.wikipedia.org/wiki/Judith_Resnik',
+        missions: ['STS-41-D', 'ST-51-L'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/judith-resnik.jpg'
     },
     {
         id: 205,
         job: 'Astronaut',
         name: 'Kathryn D. Sullivan',
-        missions: ['STS-41-G', 'STS-31', 'STS-45']
+        wiki: 'https://en.wikipedia.org/wiki/Kathryn_D._Sullivan',
+        missions: ['STS-41-G', 'STS-31', 'STS-45'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/kathryn-sullivan.jpg'
     },
     {
         id: 206,
         job: 'Astronaut',
         name: 'Anna Lee Fisher',
-        missions: ['STS-51-A']
+        wiki: 'https://en.wikipedia.org/wiki/Anna_Lee_Fisher',
+        missions: ['STS-51-A'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/anna-fisher.jpg'
     },
     {
         id: 207,
         job: 'Astronaut',
-        name: 'Margaret Rhea Sheldon',
-        missions: ['STS-51-D', 'STS-40', 'STS-58']
+        name: 'Margaret Rhea Seddon',
+        wiki: 'https://en.wikipedia.org/wiki/Margaret_Rhea_Seddon',
+        missions: ['STS-51-D', 'STS-40', 'STS-58'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/margaret-seddon.jpg'
 
     },
     {
         id: 208,
         job: 'Astronaut',
         name: 'Shannon Lucid',
-        missions: ['STS-51-G', 'STS-34', 'STS-43', 'STS-58', 'STS-76/79']
+        missions: ['STS-51-G', 'STS-34', 'STS-43', 'STS-58', 'STS-76/79'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/shannon-lucid.jpg'
     },
     {
         id: 209,
         job: 'Astronaut',
         name: 'Bonnie J. Dunbar',
-        missions: ['STS-61-A', 'STS-32', 'STS-50', 'STS-71', 'STS-89']
+        missions: ['STS-61-A', 'STS-32', 'STS-50', 'STS-71', 'STS-89'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/bonnie-dunbar.jpg'
     },
     {
         id: 210,
         job: 'Astronaut',
         name: 'Mary L. Cleave',
-        missions: ['STS-61-B', 'STS-30']
+        missions: ['STS-61-B', 'STS-30'],
+        tags: ['first women', 'female', 'woman'],
+        img: '../../img/300x300/mary-cleave.jpg'
     },
     {
         id: 211,

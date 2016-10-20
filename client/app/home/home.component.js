@@ -23,7 +23,13 @@ var HomeComponent = (function () {
     HomeComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.filterResults('group 1')
-            .then(function (personnel) { return _this.personnel = personnel; });
+            .then(function (personnel) { return _this.mercury = personnel; });
+        this.personnelService.filterResults('first women')
+            .then(function (personnel) {
+            _this.women = personnel;
+            console.log('Women');
+            console.log(_this.women);
+        });
     };
     // Navigate to collection (via query) in personnel list
     HomeComponent.prototype.gotoCollection = function (query) {

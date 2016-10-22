@@ -79,6 +79,7 @@ export const PERSONNEL: Person[] = [
         name: 'Frank Borman', 
         job: 'Astronaut', 
         joined: 1962, 
+        programs: ['Gemini', 'Apollo'],
         missions: ['Gemini 7', 'Apollo 8'], 
         img: '../../img/300x300/borman.jpg' 
     },
@@ -137,14 +138,31 @@ export const PERSONNEL: Person[] = [
         missions: ['Gemini 9A', 'Apollo 10', 'Apollo 17'] 
     },
     { 
-        id: 168, name: 'Michael Collins', job: 'Astronaut', joined: 1963, group: 'Group 3',
+        id: 168, name: 'Michael Collins', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        group: 'Group 3',
+        programs: ['Gemini', 'Apollo'],
         missions: ['Gemini 10', 'Apollo 11']
     },
-    { id: 169, name: 'Richard F. Gordon', job: 'Astronaut', joined: 1963, group: 'Group 3',
-      missions: ['Gemini 11', 'Apollo 12']
+    { 
+        id: 169, 
+        name: 'Richard F. Gordon', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        group: 'Group 3',
+        programs: ['Gemini', 'Apollo'],
+        missions: ['Gemini 11', 'Apollo 12']
      },
-    { id: 170, name: 'David R. Scott', job: 'Astronaut', joined: 1963, group: 'Group 3',
-      missions: ['Gemini 8', 'Apollo 9', 'Apollo 15'] },
+    { 
+        id: 170, 
+        name: 'David R. Scott', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        group: 'Group 3',
+        programs: ['Gemini', 'Apolo'],
+        missions: ['Gemini 8', 'Apollo 9', 'Apollo 15'] 
+    },
     { 
         id: 171, 
         name: 'Donald "Deke" Slayton', 
@@ -157,25 +175,61 @@ export const PERSONNEL: Person[] = [
         wiki: 'https://en.wikipedia.org/wiki/Deke_Slayton'
     },
     {
-        id: 172, name: 'Elliot M. See, Jr', job: 'Astronaut', joined: 1962
+        id: 172, 
+        name: 'Elliot M. See, Jr', 
+        job: 'Astronaut', 
+        programs: ['Gemini'],
+        wiki: 'https://en.wikipedia.org/wiki/Elliot_See',
+        joined: 1962
     },
     {
-        id: 173, name: 'Roger B. Chaffee', job: 'Astronaut', joined: 1963, missions: ['Apollo 1'] 
+        id: 173, 
+        name: 'Roger B. Chaffee', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        programs: ['Apollo'],
+        missions: ['Apollo 1'] 
     },
     {
-        id: 174, name: 'Donn F. Eisele', job: 'Astronaut', joined: 1963, missions: ['Apollo 7']
+        id: 174, 
+        name: 'Donn F. Eisele', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        programs: ['Apollo'],
+        missions: ['Apollo 7']
     },
     {
-        id: 175, name: 'R. Walter Cunningham', job: 'Astronaut', joined: 1963, missions: ['Apollo 7']
+        id: 175, 
+        name: 'R. Walter Cunningham', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        programs: ['Apollo'],
+        missions: ['Apollo 7']
     },
     {
-        id: 176, name: 'Russell L. Schweickart', job: 'Astronaut', joined: 1963, missions: ['Apollo 9']
+        
+        id: 176, 
+        name: 'Russell L. Schweickart', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        programs: ['Apollo'],
+        missions: ['Apollo 9']
     },
     {
-        id: 177, name: 'William A. Anders', job: 'Astronaut', joined: 1963, missions: ['Apollo 8']
+        id: 177, 
+        name: 'William A. Anders', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        programs: ['Apollo'],
+        missions: ['Apollo 8']
     },
     {
-        id: 178, name: 'Alan L. Bean', job: 'Astronaut', joined: 1963, missions: ['Apollo 12', 'Skylab 3']
+        id: 178, 
+        name: 'Alan L. Bean', 
+        job: 'Astronaut', 
+        joined: 1963, 
+        programs: ['Apollo'],
+        missions: ['Apollo 12', 'Skylab 3']
     },
     {
         id: 179,
@@ -193,21 +247,24 @@ export const PERSONNEL: Person[] = [
         job: 'Communications',
         title: 'Ground Communication Coordinator',
         name: 'Andy Anderson',
-        wiki: ''
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 181,
         job: 'Engineering',
         title: 'Power and Sequential Engineering',
         name: 'Charlie Mars',
-        wiki: ''
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 182,
         job: 'Engineering',
         title:'Aerospace Technologist',
         name: 'Don Phillips',
-        wiki: ''
+        programs: ['Mercury'],
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 183,
@@ -256,22 +313,26 @@ export const PERSONNEL: Person[] = [
         job: 'Mission Control',
         name: 'John Aaron',
         programs: ['Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option',
         img: '../../img/300x300/aaron.jpg'
     },
     {
         id: 188,
         job: 'Mission Control',
-        name: 'Steve Bales'
+        name: 'Steve Bales',
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 189,
         job: 'Mission Control',
-        name: 'Jay Greene'
+        name: 'Jay Greene',
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 190,
         job: 'Mission Control',
-        name: 'Sy Liebergot'
+        name: 'Sy Liebergot',
+        source: 'Kranz, Gene, Failure is Not an Option'
     },
     {
         id: 191,
@@ -458,6 +519,7 @@ export const PERSONNEL: Person[] = [
         name: 'T. Kenneth Mattingly II',
         group: 'Group 5',
         joined: 1966,
+        programs: ['Apollo'],
         missions: ['Apollo 16', 'STS-4', 'STS-51-C']
     },
     {
@@ -466,6 +528,7 @@ export const PERSONNEL: Person[] = [
         name: 'John L. "Jack" Swigert, Jr',
         joined: 1966,
         group: 'Group 5',
+        programs: ['Apollo'],
         missions: ['Apollo 13']
     },
     {
@@ -474,6 +537,7 @@ export const PERSONNEL: Person[] = [
         name: 'Fred Haise',
         joined: 1966,
         group: 'Group 5',
+        programs: ['Apollo'],
         missions: ['Apollo 13']
     },
     {
@@ -657,59 +721,69 @@ export const PERSONNEL: Person[] = [
         id: 236,
         job: 'Management',
         name: 'Abe Silverstein',
-        programs: ['Mercury, Gemini, Apollo']
+        programs: ['Mercury, Gemini, Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 237,
         job: 'Management',
         name: 'Hugh Dryden',
-        programs: ['Mercury, Gemini, Apollo']
+        programs: ['Mercury, Gemini, Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 238,
         job: 'Engineering',
         name: 'Maxime Faget',
-        programs: ['Apollo']
+        programs: ['Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 239,
         job: 'Management',
         name: 'Robert Seamans',
-        programs: ['Mercury, Gemini, Apollo']
+        programs: ['Mercury, Gemini, Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 240,
         job: 'Engineering',
         name: 'Kurt H. Debus',
-        programs: ['Mercury, Gemini, Apollo']
+        programs: ['Mercury, Gemini, Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 241,
         job: 'Management',
-        name: 'George E. Mueller'
+        name: 'George E. Mueller',
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 242,
         job: 'Management',
         name: 'Samuel C. Philips',
-        programs: ['Apollo']
+        programs: ['Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 243,
         job: 'Management',
-        name: 'D. Brainerd Holmes'
+        name: 'D. Brainerd Holmes',
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 244,
         job: 'Engineering',
         name: 'John Houbolt',
-        programs: ['Apollo']
+        programs: ['Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     },
     {
         id: 245,
         job: 'Management',
         name: 'Joseph Shea',
-        programs: ['Apollo']
+        programs: ['Apollo'],
+        source: 'Kranz, Gene, Failure is Not an Option'  
     }
 ];
 

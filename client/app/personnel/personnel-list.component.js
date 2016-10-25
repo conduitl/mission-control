@@ -76,9 +76,6 @@ var PersonnelListComponent = (function () {
         return true;
     };
     // Determine layout
-    PersonnelListComponent.prototype.isLayoutSelected = function (layout) {
-        return layout === this.listParams.layout;
-    };
     PersonnelListComponent.prototype.selectLayout = function (layout) {
         this.listParams.layout = layout;
         var link = ['/personnel', this.listParams.id, {
@@ -109,36 +106,32 @@ var PersonnelListComponent = (function () {
     PersonnelListComponent.prototype.filterResults = function (query) {
         var _this = this;
         this.personnelService.filterResults(query).then(function (personnel) {
-            if (_this.grouping) {
-                _this.groupBy(_this.grouping, personnel);
-            }
             _this.personnel = personnel;
+            if (_this.grouping) {
+                _this.groupBy(_this.grouping);
+            }
         });
     };
     // Group results
     // TODO: Method is pretty ugly, needs clean up refactoring
     //       especially for handling nested arrays
-    PersonnelListComponent.prototype.groupBy = function (col, personnel) {
+    PersonnelListComponent.prototype.groupBy = function (col) {
         // Refactor - Create object pairing the select option values to keys on Person class
-        if (col === '(none)') {
+        var controlMap = {
+            '(none)': undefined,
+            'Year joined': 'joined',
+            'Job type': 'job',
+            'Programs': 'programs',
+            'Missions': 'missions'
+        };
+        col = controlMap[col];
+        if (col === undefined) {
             this.groups = undefined;
             return;
         }
-        if (col === 'Year joined') {
-            col = 'joined';
-        }
-        if (col === 'Job type') {
-            col = 'job';
-        }
-        if (col === 'Programs') {
-            col = 'programs';
-        }
-        if (col === 'Missions') {
-            col = 'missions';
-        }
         // Refactor - Better, scalable handing of keys referencing Arrays
         var groups = {};
-        personnel.forEach(function (person, idx, arr) {
+        this.personnel.forEach(function (person, idx, arr) {
             if (Array.isArray(person[col])) {
                 person[col].forEach(function (mission, idx, arr) {
                     group(person, groups, col, idx);
@@ -165,9 +158,9 @@ var PersonnelListComponent = (function () {
                 groups[person[column][nested_idx]].push(person);
             }
         }
-        this.grouping = col;
-        this.groups = groups;
-        this.keys = Object.keys(groups);
+        this.grouping = col; // Stores the column value by which list is grouped
+        this.groups = groups; // Personnel list stored in column list groups
+        this.keys = Object.keys(groups); // Keys of all groups
     };
     PersonnelListComponent = __decorate([
         core_1.Component({

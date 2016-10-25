@@ -16,6 +16,9 @@ var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');
 var person_detail_component_1 = require('./person-detail.component');
+/* Filter, Group & Layout toolbar */
+var toggle_layout_component_1 = require('./toggle-layout.component');
+var grouping_control_component_1 = require('./grouping-control.component');
 var quick_add_component_1 = require('./quick-add.component');
 var personnel_routing_1 = require('./personnel.routing');
 var PersonnelModule = (function () {
@@ -34,7 +37,9 @@ var PersonnelModule = (function () {
                 personnel_list_component_1.PersonnelListComponent,
                 profile_preview_component_1.ProfilePreviewComponent,
                 person_detail_component_1.PersonDetailComponent,
-                quick_add_component_1.QuickAddComponent
+                quick_add_component_1.QuickAddComponent,
+                toggle_layout_component_1.ToggleLayoutComponent,
+                grouping_control_component_1.GroupingControlComponent
             ],
             providers: []
         }), 

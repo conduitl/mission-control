@@ -38,13 +38,6 @@ var HomeComponent = (function () {
     HomeComponent.prototype.prepareDataSummary = function (personnel) {
         // group by job and return length of each category
         var cats = personnel.map(function (person) { return person.job; });
-        // .reduce((acc, key) => {
-        //     console.log(acc);
-        //     if (!acc[key]) {
-        //         return acc[key] = 1;
-        //     }
-        //     return acc[key]++;
-        // }, {})
         var reduced = cats.reduce(function (pre, cur) {
             var obj = pre;
             if (obj[cur]) {

@@ -9,6 +9,10 @@ import { PersonnelListComponent } from './personnel-list.component';
 import { ProfilePreviewComponent } from './profile-preview.component';
 import { PersonDetailComponent } from './person-detail.component';
 
+/* Filter, Group & Layout toolbar */
+import { ToggleLayoutComponent } from './toggle-layout.component';
+import { GroupingControlComponent } from './grouping-control.component';
+
 import { QuickAddComponent } from './quick-add.component';
 
 
@@ -27,7 +31,9 @@ import { personnelRouting } from './personnel.routing';
         PersonnelListComponent,
         ProfilePreviewComponent,
         PersonDetailComponent,
-        QuickAddComponent
+        QuickAddComponent,
+        ToggleLayoutComponent,
+        GroupingControlComponent
     ],
     providers: [
 

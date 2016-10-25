@@ -13,35 +13,13 @@
                         </span>
                     </div>
                     <div class="col-sm-6 col-md-4 form-inline">
-                        <div class="form-group">
-                            <label for="group-by">Group by:</label>
-                            <select #grouping name="group-by" id="group-by" class="form-control"
-                                [ngModel]="grouping.value"
-                                (ngModelChange)="groupBy(grouping.value, personnel)">
-                                <option>(none)</option>
-                                <option>Job type</option>
-                                <option>Year joined</option>
-                                <option>Programs</option>
-                                <option>Missions</option>
-                            </select>
-                        </div>
+                        <grouping-control (group)="groupBy($event)"></grouping-control>
                     </div>
                     <div class="col-md-2 hidden-sm hidden-xs">
-                        <div class="btn-group pull-right" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default"
-                                    [class.selected]="isLayoutSelected('list')"
-                                    (click)="selectLayout('list')"
-                                    title="Table view">
-                                <span class="glyphicon glyphicon-list-alt">
-                                </span>
-                            </button>
-                            <button type="button" class="btn btn-default"
-                                    [class.selected]="isLayoutSelected('grid')"
-                                    (click)="selectLayout('grid')"
-                                    title="Thumbnail view">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </button>
-                        </div>
+                        <toggle-layout 
+                            [layout]="listParams.layout"
+                            (toggle)="selectLayout($event)"></toggle-layout>
+                        
                         <!-- Quick add button -->
                         <!--TODO: Implement functionality-->
                         <!--<button *ngIf="!modeMap.add" class="btn btn-primary pull-right" title="Add someone to the list"
@@ -90,7 +68,10 @@
                             </span>
                         </h3>
                         <div [ngSwitch]="listParams.layout">
-                            <grid-layout *ngSwitchCase="'grid'" [personnel]="groups[key]" [listParams]="listParams"></grid-layout>
+                            <grid-layout *ngSwitchCase="'grid'" 
+                                [personnel]="groups[key]"
+                                [selectable]="true" 
+                                [listParams]="listParams"></grid-layout>
                             <list-layout *ngSwitchDefault [personnel]="groups[key]" [listParams]="listParams"></list-layout>
                         </div>
                     </div>

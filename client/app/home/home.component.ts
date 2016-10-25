@@ -47,14 +47,7 @@ export class HomeComponent implements OnInit {
     prepareDataSummary(personnel: Person[]){
         // group by job and return length of each category
         let cats = personnel.map( person => person.job );
-                            // .reduce((acc, key) => {
-                            //     console.log(acc);
-                            //     if (!acc[key]) {
-                            //         return acc[key] = 1;
-                            //     }
-                            //     return acc[key]++;
-                            // }, {})
-       let reduced = cats.reduce( (pre, cur) => {
+        let reduced = cats.reduce( (pre, cur) => {
                 var obj = pre;
                 if (obj[cur]) {
                     obj[cur]++;

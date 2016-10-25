@@ -31,9 +31,9 @@ export class PersonnelListComponent implements OnInit {
     };
 
     // store groupings of personnel
-    groups;
-    keys;
-    grouping;
+    groups; // Personnel list stored in column list groups
+    keys; // Keys of all groups
+    grouping; // Stores the column value by which list is grouped
 
     constructor(
         private route: ActivatedRoute,
@@ -99,9 +99,6 @@ export class PersonnelListComponent implements OnInit {
     }
 
     // Determine layout
-    isLayoutSelected(layout: string) {
-        return layout === this.listParams.layout;
-    }
     selectLayout(layout: string): void {
         this.listParams.layout = layout;
         let link = ['/personnel', this.listParams.id, {
@@ -130,38 +127,35 @@ export class PersonnelListComponent implements OnInit {
     }
     filterResults(query: string) {
         this.personnelService.filterResults(query).then(personnel => {
-            if (this.grouping) {
-                this.groupBy(this.grouping, personnel);
-            }
             this.personnel = personnel;
+            if (this.grouping) {
+                this.groupBy(this.grouping);
+            }
         });
     }
 
     // Group results
     // TODO: Method is pretty ugly, needs clean up refactoring
     //       especially for handling nested arrays
-    groupBy(col: string, personnel: Person[]) {
+    groupBy(col: string) {
         // Refactor - Create object pairing the select option values to keys on Person class
-        if (col === '(none)') {
+        let controlMap = {
+            '(none)': undefined,
+            'Year joined': 'joined',
+            'Job type': 'job',
+            'Programs': 'programs',
+            'Missions': 'missions'
+        };
+
+        col = controlMap[col];
+        if (col === undefined) {
             this.groups = undefined;
             return;
-        }
-        if (col === 'Year joined') {
-            col = 'joined';
-        }
-        if (col === 'Job type') {
-            col = 'job';
-        }
-        if (col === 'Programs') {
-            col = 'programs';
-        }
-        if (col === 'Missions') {
-            col = 'missions';
         }
         
         // Refactor - Better, scalable handing of keys referencing Arrays
         let groups: {} = {};
-        personnel.forEach((person: Person, idx: number, arr: Person[]) => {
+        this.personnel.forEach((person: Person, idx: number, arr: Person[]) => {
             if ( Array.isArray(person[col])) { // If the Person property contains an array e.g. 'missions'
                 person[col].forEach( (mission: string, idx: number, arr: [string]) => {
                     group(person, groups, col, idx);
@@ -186,8 +180,8 @@ export class PersonnelListComponent implements OnInit {
                 groups[ person[column][nested_idx] ].push(person);
             }
         }
-        this.grouping = col;
-        this.groups = groups;
-        this.keys = Object.keys(groups);
+        this.grouping = col;  // Stores the column value by which list is grouped
+        this.groups = groups; // Personnel list stored in column list groups
+        this.keys = Object.keys(groups); // Keys of all groups
     }
  }

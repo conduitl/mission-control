@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+import { Pagination } from './list-manipulation/lists.model';
+
 import { Person } from './person';
 
 import { PersonnelService } from './personnel.service';
@@ -19,7 +21,8 @@ export class PersonnelListComponent implements OnInit {
     listParams: {
         id: number,
         layout: string,
-        query: string
+        query: string,
+        page: number
     };
     // state of view mode
     modeMap: {
@@ -35,6 +38,9 @@ export class PersonnelListComponent implements OnInit {
     keys; // Keys of all groups
     grouping; // Stores the column value by which list is grouped
 
+    // paging
+    pagination: Pagination;
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -43,8 +49,38 @@ export class PersonnelListComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        console.log('Personnel List - Initialized');
         this.extractRouteParams();
+    }
+
+    // Paging functions
+    setupPagination(per_page, list_len) {
+        this.pagination = {
+            firstOnPage: 0,
+            lastOnPage: per_page,
+            resultsPer: per_page,
+            currentPage: 1,
+            pageCount: list_len / per_page
+        };
+    }
+    nextPage() {
+        let per = this.pagination.resultsPer;
+        if (this.pagination.currentPage++ >= this.pagination.pageCount) {
+            console.log('No more page results');
+            return;
+        }
+        this.pagination.currentPage++;
+        this.pagination.firstOnPage += per;
+        this.pagination.lastOnPage += per;
+    }
+    prevPage() {
+        let per = this.pagination.resultsPer;
+        if (this.pagination.firstOnPage - per < 0) {
+            console.log('No previous page results');
+            return;
+        }
+        this.pagination.currentPage --;
+        this.pagination.firstOnPage -= per;
+        this.pagination.lastOnPage -= per;
     }
 
     // Extract and evaluate the route parameters
@@ -53,13 +89,13 @@ export class PersonnelListComponent implements OnInit {
             this.listParams = {
                 id: +params['id'],
                 layout:  params['layout'],
-                query: params['query']
+                query: params['query'],
+                page: params['page']
             };
             this.evalParams();
         });
     }
     evalParams() {
-        console.log('Params evaluated');
         if (this.listParams.id) {
             this.selectPerson(this.listParams.id);
         }
@@ -71,7 +107,9 @@ export class PersonnelListComponent implements OnInit {
         if (this.listParams.layout == undefined) {
             this.listParams.layout = 'list';
         }
-
+        if (this.listParams.page == undefined) {
+            this.listParams.page = 1;
+        }
         // Apply filter if query; otherwise return entire data array
         if (this.listParams.query) {
             this.filterResults(this.listParams.query);
@@ -84,7 +122,10 @@ export class PersonnelListComponent implements OnInit {
     getPersonnel(): void { 
         this.personnelService.getPersonnel()
             .then(
-                personnel => this.personnel = personnel
+                personnel => {
+                    this.personnel = personnel;
+                    this.setupPagination(20, personnel.length);
+                }
             );
     }
     // Toggle add, edit or other modes
@@ -112,7 +153,6 @@ export class PersonnelListComponent implements OnInit {
         this.personnelService.getPerson(id)
             .then( (person) => {
                 this.selectedPerson = person;
-                console.log(this.selectedPerson);
             });
     }
     // Filter results
@@ -135,10 +175,7 @@ export class PersonnelListComponent implements OnInit {
     }
 
     // Group results
-    // TODO: Method is pretty ugly, needs clean up refactoring
-    //       especially for handling nested arrays
     groupBy(col: string) {
-        // Refactor - Create object pairing the select option values to keys on Person class
         let controlMap = {
             '(none)': undefined,
             'Year joined': 'joined',
@@ -173,7 +210,6 @@ export class PersonnelListComponent implements OnInit {
                 // e.g. Job type
                 groups[ person[column] ].push(person);
             } else {
-                console.log('Mission: ' + person[column]);
                 if (!groups[ person[column][nested_idx] ]) {
                     groups[ person[column][nested_idx] ] = [];
                 }

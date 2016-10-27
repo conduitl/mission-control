@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProjectCenterComponent } from './project-center.component';
+import { AddProjectComponent } from './add-project.component';
 
 import { projectRouting } from './projects.routing';
 
@@ -11,7 +12,8 @@ import { projectRouting } from './projects.routing';
         projectRouting 
     ],
     declarations: [
-        ProjectCenterComponent
+        ProjectCenterComponent,
+        AddProjectComponent
     ],
     providers: [
     ]

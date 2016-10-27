@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { ToolbarModule } from './toolbar/toolbar.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { PersonnelManagerComponent } from './personnel-manager.component';
@@ -9,13 +10,10 @@ import { PersonnelListComponent } from './personnel-list.component';
 import { ProfilePreviewComponent } from './profile-preview.component';
 import { PersonDetailComponent } from './person-detail.component';
 
-/* Filter, Group & Layout toolbar */
-import { ToggleLayoutComponent } from './toggle-layout.component';
-import { GroupingControlComponent } from './grouping-control.component';
-
 import { QuickAddComponent } from './quick-add.component';
 
-
+/* Pipes */
+import { PageListPipe } from './list-manipulation/page-list.pipe';
 
 import { personnelRouting } from './personnel.routing';
 
@@ -23,6 +21,7 @@ import { personnelRouting } from './personnel.routing';
     imports: [
         CommonModule,
         FormsModule,
+        ToolbarModule,
         SharedModule,
         personnelRouting
     ],
@@ -32,8 +31,7 @@ import { personnelRouting } from './personnel.routing';
         ProfilePreviewComponent,
         PersonDetailComponent,
         QuickAddComponent,
-        ToggleLayoutComponent,
-        GroupingControlComponent
+        PageListPipe
     ],
     providers: [
 

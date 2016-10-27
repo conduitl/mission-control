@@ -52,6 +52,11 @@ var PersonnelService = (function () {
     // Filtering methods
     PersonnelService.prototype.filterResults = function (query) {
         var _this = this;
+        // Check for invalid input
+        if (/[\/\\|<>!@#$%^&*();~`+_\-]/.test(query)) {
+            console.log('Invalid filter');
+            return this.getPersonnel();
+        }
         // TODO: Check for bad queries with invalid chars
         // TODO: Subscribe to Observable rather than rely on Promise conversion
         var rx = new RegExp(query, 'i');

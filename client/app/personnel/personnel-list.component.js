@@ -24,8 +24,37 @@ var PersonnelListComponent = (function () {
         //constructor
     }
     PersonnelListComponent.prototype.ngOnInit = function () {
-        console.log('Personnel List - Initialized');
         this.extractRouteParams();
+    };
+    // Paging functions
+    PersonnelListComponent.prototype.setupPagination = function (per_page, list_len) {
+        this.pagination = {
+            firstOnPage: 0,
+            lastOnPage: per_page,
+            resultsPer: per_page,
+            currentPage: 1,
+            pageCount: list_len / per_page
+        };
+    };
+    PersonnelListComponent.prototype.nextPage = function () {
+        var per = this.pagination.resultsPer;
+        if (this.pagination.currentPage++ >= this.pagination.pageCount) {
+            console.log('No more page results');
+            return;
+        }
+        this.pagination.currentPage++;
+        this.pagination.firstOnPage += per;
+        this.pagination.lastOnPage += per;
+    };
+    PersonnelListComponent.prototype.prevPage = function () {
+        var per = this.pagination.resultsPer;
+        if (this.pagination.firstOnPage - per < 0) {
+            console.log('No previous page results');
+            return;
+        }
+        this.pagination.currentPage--;
+        this.pagination.firstOnPage -= per;
+        this.pagination.lastOnPage -= per;
     };
     // Extract and evaluate the route parameters
     PersonnelListComponent.prototype.extractRouteParams = function () {
@@ -34,13 +63,13 @@ var PersonnelListComponent = (function () {
             _this.listParams = {
                 id: +params['id'],
                 layout: params['layout'],
-                query: params['query']
+                query: params['query'],
+                page: params['page']
             };
             _this.evalParams();
         });
     };
     PersonnelListComponent.prototype.evalParams = function () {
-        console.log('Params evaluated');
         if (this.listParams.id) {
             this.selectPerson(this.listParams.id);
         }
@@ -50,6 +79,9 @@ var PersonnelListComponent = (function () {
         }
         if (this.listParams.layout == undefined) {
             this.listParams.layout = 'list';
+        }
+        if (this.listParams.page == undefined) {
+            this.listParams.page = 1;
         }
         // Apply filter if query; otherwise return entire data array
         if (this.listParams.query) {
@@ -63,7 +95,10 @@ var PersonnelListComponent = (function () {
     PersonnelListComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.getPersonnel()
-            .then(function (personnel) { return _this.personnel = personnel; });
+            .then(function (personnel) {
+            _this.personnel = personnel;
+            _this.setupPagination(20, personnel.length);
+        });
     };
     // Toggle add, edit or other modes
     PersonnelListComponent.prototype.toggleMode = function (mode) {
@@ -90,7 +125,6 @@ var PersonnelListComponent = (function () {
         this.personnelService.getPerson(id)
             .then(function (person) {
             _this.selectedPerson = person;
-            console.log(_this.selectedPerson);
         });
     };
     // Filter results
@@ -113,10 +147,7 @@ var PersonnelListComponent = (function () {
         });
     };
     // Group results
-    // TODO: Method is pretty ugly, needs clean up refactoring
-    //       especially for handling nested arrays
     PersonnelListComponent.prototype.groupBy = function (col) {
-        // Refactor - Create object pairing the select option values to keys on Person class
         var controlMap = {
             '(none)': undefined,
             'Year joined': 'joined',
@@ -151,7 +182,6 @@ var PersonnelListComponent = (function () {
                 groups[person[column]].push(person);
             }
             else {
-                console.log('Mission: ' + person[column]);
                 if (!groups[person[column][nested_idx]]) {
                     groups[person[column][nested_idx]] = [];
                 }

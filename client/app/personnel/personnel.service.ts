@@ -47,6 +47,11 @@ export class PersonnelService {
 
     // Filtering methods
     filterResults(query: string) {
+        // Check for invalid input
+        if ( /[\/\\|<>!@#$%^&*();~`+_\-]/.test(query) ) {
+             console.log('Invalid filter');
+             return this.getPersonnel();
+        }
         // TODO: Check for bad queries with invalid chars
         // TODO: Subscribe to Observable rather than rely on Promise conversion
         let rx = new RegExp(query, 'i');

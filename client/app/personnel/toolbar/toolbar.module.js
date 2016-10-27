@@ -10,27 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var project_center_component_1 = require('./project-center.component');
-var add_project_component_1 = require('./add-project.component');
-var projects_routing_1 = require('./projects.routing');
-var ProjectsModule = (function () {
-    function ProjectsModule() {
+var forms_1 = require('@angular/forms');
+var toolbar_component_1 = require('./toolbar.component');
+/* Filter, Group & Layout toolbar */
+var toggle_layout_component_1 = require('./toggle-layout.component');
+var grouping_control_component_1 = require('./grouping-control.component');
+var filter_control_component_1 = require('./filter-control.component');
+var ToolbarModule = (function () {
+    function ToolbarModule() {
     }
-    ProjectsModule = __decorate([
+    ToolbarModule = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
-                projects_routing_1.projectRouting
+                forms_1.FormsModule
             ],
             declarations: [
-                project_center_component_1.ProjectCenterComponent,
-                add_project_component_1.AddProjectComponent
+                toolbar_component_1.ToolbarComponent,
+                toggle_layout_component_1.ToggleLayoutComponent,
+                grouping_control_component_1.GroupingControlComponent,
+                filter_control_component_1.FilterControlComponent
             ],
-            providers: []
+            exports: [
+                toolbar_component_1.ToolbarComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectsModule);
-    return ProjectsModule;
+    ], ToolbarModule);
+    return ToolbarModule;
 }());
-exports.ProjectsModule = ProjectsModule;
-//# sourceMappingURL=projects.module.js.map
+exports.ToolbarModule = ToolbarModule;
+//# sourceMappingURL=toolbar.module.js.map

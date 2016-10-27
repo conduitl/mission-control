@@ -9,28 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var project_center_component_1 = require('./project-center.component');
-var add_project_component_1 = require('./add-project.component');
-var projects_routing_1 = require('./projects.routing');
-var ProjectsModule = (function () {
-    function ProjectsModule() {
+var AddProjectComponent = (function () {
+    function AddProjectComponent() {
     }
-    ProjectsModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                projects_routing_1.projectRouting
-            ],
-            declarations: [
-                project_center_component_1.ProjectCenterComponent,
-                add_project_component_1.AddProjectComponent
-            ],
-            providers: []
+    AddProjectComponent = __decorate([
+        core_1.Component({
+            selector: 'add-project',
+            template: "\n    <div class=\"page-header\">\n        <h1>Add a Project</h1>\n    </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], ProjectsModule);
-    return ProjectsModule;
+    ], AddProjectComponent);
+    return AddProjectComponent;
 }());
-exports.ProjectsModule = ProjectsModule;
-//# sourceMappingURL=projects.module.js.map
+exports.AddProjectComponent = AddProjectComponent;
+//# sourceMappingURL=add-project.component.js.map

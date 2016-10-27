@@ -11,15 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
+var toolbar_module_1 = require('./toolbar/toolbar.module');
 var shared_module_1 = require('../shared/shared.module');
 var personnel_manager_component_1 = require('./personnel-manager.component');
 var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');
 var person_detail_component_1 = require('./person-detail.component');
-/* Filter, Group & Layout toolbar */
-var toggle_layout_component_1 = require('./toggle-layout.component');
-var grouping_control_component_1 = require('./grouping-control.component');
 var quick_add_component_1 = require('./quick-add.component');
+/* Pipes */
+var page_list_pipe_1 = require('./list-manipulation/page-list.pipe');
 var personnel_routing_1 = require('./personnel.routing');
 var PersonnelModule = (function () {
     function PersonnelModule() {
@@ -29,6 +29,7 @@ var PersonnelModule = (function () {
             imports: [
                 common_1.CommonModule,
                 forms_1.FormsModule,
+                toolbar_module_1.ToolbarModule,
                 shared_module_1.SharedModule,
                 personnel_routing_1.personnelRouting
             ],
@@ -38,8 +39,7 @@ var PersonnelModule = (function () {
                 profile_preview_component_1.ProfilePreviewComponent,
                 person_detail_component_1.PersonDetailComponent,
                 quick_add_component_1.QuickAddComponent,
-                toggle_layout_component_1.ToggleLayoutComponent,
-                grouping_control_component_1.GroupingControlComponent
+                page_list_pipe_1.PageListPipe
             ],
             providers: []
         }), 

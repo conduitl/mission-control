@@ -23,7 +23,7 @@ var ProjectCenterComponent = (function () {
             name: null,
             launch_date: 'date:MMM y',
             project_manager: null,
-            budget: 'currency:USD:true'
+            budget: 'currency:USD:true:1.0-0'
         };
     }
     ProjectCenterComponent.prototype.displayAlert = function (event) {

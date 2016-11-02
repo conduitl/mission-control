@@ -10,7 +10,6 @@ export class ProjectListComponent implements OnChanges {
     listObjKeys: string[];
 
     ngOnChanges() {
-        // while were at it with config, we should make it so the config identifies the right keys rather than pulling from the first index which may not contain all optional properties
-        this.listObjKeys = Object.keys(this.list[0]);
+        this.listObjKeys = Object.keys(this.config);
     }
 }

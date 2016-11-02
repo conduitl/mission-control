@@ -29,7 +29,7 @@ export class ProjectCenterComponent {
         name: null,
         launch_date: 'date:MMM y',
         project_manager: null,
-        budget: 'currency:USD:true'
+        budget: 'currency:USD:true:1.0-0'
     }
     // Temporary prop to store output values from toolbar
     alert: string;

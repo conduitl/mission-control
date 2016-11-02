@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Project, FilterEvent } from './project.model';
-import { Projects } from './project.mockdata';
+import { Component, OnInit } from '@angular/core';
+import { Project, ProjectFormat, FilterEvent } from './project.model';
+import { ProjectService } from './project.service';
 
 // Project Center will actually call the service rather than allow the list to
 // this is because project center needs to verify that the projects are projects
@@ -20,20 +20,26 @@ import { Projects } from './project.mockdata';
         </div>
     `
 })
-export class ProjectCenterComponent {
+export class ProjectCenterComponent implements OnInit {
     // Add a few mock projects
-    projects: Project[] = Projects;
+    projects: Project[];
     // project column formatting info
-    projectColFormat = {
-        id: null,
-        name: null,
-        launch_date: 'date:MMM y',
-        project_manager: null,
-        budget: 'currency:USD:true:1.0-0'
-    }
+    projectColFormat: ProjectFormat;
     // Temporary prop to store output values from toolbar
     alert: string;
     totalEvents: number;
+
+    constructor(private projectService: ProjectService){}
+
+    ngOnInit() {
+        this.projects = this.projectService.getProjects();
+        this.projectColFormat = this.projectService.defineValueFormats(
+            {
+                launch_date: 'date:MMM y',
+                budget: 'currency:USD:true:1.0-0'
+            }
+        );
+    }
 
     displayAlert(event: FilterEvent) {
         if (event && event.currentEvent !== undefined) {

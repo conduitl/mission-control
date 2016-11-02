@@ -6,7 +6,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let object of list">
-            <td *ngFor="let key of listObjKeys">{{ object[key] | formatByType:config[key] }}</td>
+            <td *ngFor="let key of listObjKeys" [ct7StyleByType]="object[key]">{{ object[key] | formatByType:config[key] }}</td>
             <!--<td>{{ object.id }}</td>
             <td>{{ object.name }}</td>
             <td>{{ object.launch_date | date:"MMM y"}}</td>

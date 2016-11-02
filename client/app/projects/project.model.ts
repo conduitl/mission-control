@@ -11,3 +11,18 @@ export class Project {
         public project_manager: string,
         public budget: number) {}
 }
+
+export interface FormatDefinition {
+    id?: string;
+    name?: string;
+}
+
+export class ProjectFormat {
+    constructor(
+        public id: string = null,
+        public name: string = null,
+        public launch_date: string = null,
+        public project_manager: string = null,
+        public budget: string = null
+    ) {}
+}

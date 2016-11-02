@@ -10,6 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+/* Pipes */
+var page_list_pipe_1 = require('./list-manipulation/page-list.pipe');
+/* Directives */
+var iterator_directive_1 = require('./iterator.directive');
+/* Components */
 var list_layout_component_1 = require('./list-layout.component');
 var grid_layout_component_1 = require('./grid-layout.component');
 var SharedModule = (function () {
@@ -22,7 +27,9 @@ var SharedModule = (function () {
             ],
             declarations: [
                 list_layout_component_1.ListLayoutComponent,
-                grid_layout_component_1.GridLayoutComponent
+                grid_layout_component_1.GridLayoutComponent,
+                page_list_pipe_1.PageListPipe,
+                iterator_directive_1.IteratorDirective
             ],
             exports: [
                 common_1.CommonModule,

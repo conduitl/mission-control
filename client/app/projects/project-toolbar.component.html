@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="well well-sm">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="filter-input">Filter by:</label>
+                    <input #filter
+                           id="filter-input"
+                           type="text"
+                           class="form-control"
+                           (keyup)="addTerm(filter.value)"
+                           placeholder="Input to filter list">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

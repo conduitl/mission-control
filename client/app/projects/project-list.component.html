@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let key of listObjKeys">{{ key | keyHeader }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let object of list">
+            <td *ngFor="let key of listObjKeys">{{ object[key] | formatByType:config[key] }}</td>
+            <!--<td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.launch_date | date:"MMM y"}}</td>
+            <td>{{ object.project_manager }}</td>
+            <td>{{ object.budget | currency:'USD':true:'1.0-0' }}</td>-->
+        </tr>
+    </tbody>
+</table>

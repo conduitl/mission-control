@@ -17,6 +17,10 @@ tr.row-selectable td span {
     padding-bottom: 3px;
     font-size: 12px;
 }
+/* Page Control */
+/*.page-control {
+    width: 68px;
+}*/
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .table {

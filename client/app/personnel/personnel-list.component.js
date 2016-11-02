@@ -26,36 +26,6 @@ var PersonnelListComponent = (function () {
     PersonnelListComponent.prototype.ngOnInit = function () {
         this.extractRouteParams();
     };
-    // Paging functions
-    PersonnelListComponent.prototype.setupPagination = function (per_page, list_len) {
-        this.pagination = {
-            firstOnPage: 0,
-            lastOnPage: per_page,
-            resultsPer: per_page,
-            currentPage: 1,
-            pageCount: list_len / per_page
-        };
-    };
-    PersonnelListComponent.prototype.nextPage = function () {
-        var per = this.pagination.resultsPer;
-        if (this.pagination.currentPage++ >= this.pagination.pageCount) {
-            console.log('No more page results');
-            return;
-        }
-        this.pagination.currentPage++;
-        this.pagination.firstOnPage += per;
-        this.pagination.lastOnPage += per;
-    };
-    PersonnelListComponent.prototype.prevPage = function () {
-        var per = this.pagination.resultsPer;
-        if (this.pagination.firstOnPage - per < 0) {
-            console.log('No previous page results');
-            return;
-        }
-        this.pagination.currentPage--;
-        this.pagination.firstOnPage -= per;
-        this.pagination.lastOnPage -= per;
-    };
     // Extract and evaluate the route parameters
     PersonnelListComponent.prototype.extractRouteParams = function () {
         var _this = this;
@@ -64,7 +34,7 @@ var PersonnelListComponent = (function () {
                 id: +params['id'],
                 layout: params['layout'],
                 query: params['query'],
-                page: params['page']
+                perPage: +params['perPage']
             };
             _this.evalParams();
         });
@@ -80,8 +50,9 @@ var PersonnelListComponent = (function () {
         if (this.listParams.layout == undefined) {
             this.listParams.layout = 'list';
         }
-        if (this.listParams.page == undefined) {
-            this.listParams.page = 1;
+        console.log('Eval params: perPage = ' + this.listParams.perPage);
+        if (isNaN(this.listParams.perPage)) {
+            this.listParams.perPage = 10;
         }
         // Apply filter if query; otherwise return entire data array
         if (this.listParams.query) {
@@ -91,13 +62,21 @@ var PersonnelListComponent = (function () {
             this.getPersonnel();
         }
     };
+    // Page results
+    PersonnelListComponent.prototype.defineResultsPerPage = function (per) {
+        var link = ['/personnel', this.listParams.id, {
+                query: this.listParams.query,
+                layout: this.listParams.layout,
+                perPage: per
+            }];
+        this.router.navigate(link);
+    };
     // Retrieve data via service 
     PersonnelListComponent.prototype.getPersonnel = function () {
         var _this = this;
         this.personnelService.getPersonnel()
             .then(function (personnel) {
             _this.personnel = personnel;
-            _this.setupPagination(20, personnel.length);
         });
     };
     // Toggle add, edit or other modes
@@ -115,7 +94,8 @@ var PersonnelListComponent = (function () {
         this.listParams.layout = layout;
         var link = ['/personnel', this.listParams.id, {
                 query: this.listParams.query,
-                layout: this.listParams.layout
+                layout: this.listParams.layout,
+                perPage: this.listParams.perPage
             }];
         this.router.navigate(link);
     };
@@ -129,11 +109,13 @@ var PersonnelListComponent = (function () {
     };
     // Filter results
     PersonnelListComponent.prototype.setQuery = function (query) {
+        console.log(query);
         var link;
         this.listParams.query = query;
         link = ['/personnel', this.listParams.id, {
                 query: this.listParams.query,
-                layout: this.listParams.layout
+                layout: this.listParams.layout,
+                perPage: this.listParams.perPage
             }];
         this.router.navigate(link);
     };

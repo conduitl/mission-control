@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AddProjectComponent = (function () {
-    function AddProjectComponent() {
+var KeyHeaderPipe = (function () {
+    function KeyHeaderPipe() {
     }
-    AddProjectComponent = __decorate([
-        core_1.Component({
-            selector: 'add-project',
-            template: "\n    <div class=\"page-header\">\n        <h1>Add a Project</h1>\n    </div>\n    "
-        }), 
+    KeyHeaderPipe.prototype.transform = function (value) {
+        return value.toUpperCase().replace('_', ' ');
+    };
+    KeyHeaderPipe = __decorate([
+        core_1.Pipe({ name: 'keyHeader' }), 
         __metadata('design:paramtypes', [])
-    ], AddProjectComponent);
-    return AddProjectComponent;
+    ], KeyHeaderPipe);
+    return KeyHeaderPipe;
 }());
-exports.AddProjectComponent = AddProjectComponent;
-//# sourceMappingURL=add-project.component.js.map
+exports.KeyHeaderPipe = KeyHeaderPipe;
+//# sourceMappingURL=key-header.pipe.js.map

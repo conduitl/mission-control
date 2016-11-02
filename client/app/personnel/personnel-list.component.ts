@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Pagination } from './list-manipulation/lists.model';
-
 import { Person } from './person';
 
 import { PersonnelService } from './personnel.service';
@@ -19,10 +17,10 @@ export class PersonnelListComponent implements OnInit {
 
     // track state of optional router params
     listParams: {
-        id: number,
+        id: number, // not optional
         layout: string,
         query: string,
-        page: number
+        perPage?: number // not a route parameter
     };
     // state of view mode
     modeMap: {
@@ -38,9 +36,6 @@ export class PersonnelListComponent implements OnInit {
     keys; // Keys of all groups
     grouping; // Stores the column value by which list is grouped
 
-    // paging
-    pagination: Pagination;
-
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -52,37 +47,6 @@ export class PersonnelListComponent implements OnInit {
         this.extractRouteParams();
     }
 
-    // Paging functions
-    setupPagination(per_page, list_len) {
-        this.pagination = {
-            firstOnPage: 0,
-            lastOnPage: per_page,
-            resultsPer: per_page,
-            currentPage: 1,
-            pageCount: list_len / per_page
-        };
-    }
-    nextPage() {
-        let per = this.pagination.resultsPer;
-        if (this.pagination.currentPage++ >= this.pagination.pageCount) {
-            console.log('No more page results');
-            return;
-        }
-        this.pagination.currentPage++;
-        this.pagination.firstOnPage += per;
-        this.pagination.lastOnPage += per;
-    }
-    prevPage() {
-        let per = this.pagination.resultsPer;
-        if (this.pagination.firstOnPage - per < 0) {
-            console.log('No previous page results');
-            return;
-        }
-        this.pagination.currentPage --;
-        this.pagination.firstOnPage -= per;
-        this.pagination.lastOnPage -= per;
-    }
-
     // Extract and evaluate the route parameters
     extractRouteParams() {
         this.route.params.forEach( (params: Params) => {
@@ -90,7 +54,7 @@ export class PersonnelListComponent implements OnInit {
                 id: +params['id'],
                 layout:  params['layout'],
                 query: params['query'],
-                page: params['page']
+                perPage: +params['perPage']
             };
             this.evalParams();
         });
@@ -107,8 +71,9 @@ export class PersonnelListComponent implements OnInit {
         if (this.listParams.layout == undefined) {
             this.listParams.layout = 'list';
         }
-        if (this.listParams.page == undefined) {
-            this.listParams.page = 1;
+        console.log('Eval params: perPage = ' + this.listParams.perPage)
+        if (isNaN(this.listParams.perPage)) {
+            this.listParams.perPage = 10;
         }
         // Apply filter if query; otherwise return entire data array
         if (this.listParams.query) {
@@ -116,6 +81,16 @@ export class PersonnelListComponent implements OnInit {
         } else {
             this.getPersonnel();
         }
+        
+    }
+    // Page results
+    defineResultsPerPage(per: number) { 
+        let link = ['/personnel', this.listParams.id, {
+            query: this.listParams.query,
+            layout: this.listParams.layout,
+            perPage: per
+        }];
+        this.router.navigate(link);
     }
 
     // Retrieve data via service 
@@ -124,7 +99,6 @@ export class PersonnelListComponent implements OnInit {
             .then(
                 personnel => {
                     this.personnel = personnel;
-                    this.setupPagination(20, personnel.length);
                 }
             );
     }
@@ -144,7 +118,8 @@ export class PersonnelListComponent implements OnInit {
         this.listParams.layout = layout;
         let link = ['/personnel', this.listParams.id, {
             query: this.listParams.query,
-            layout: this.listParams.layout
+            layout: this.listParams.layout,
+            perPage: this.listParams.perPage
         }];
         this.router.navigate(link);
     }
@@ -157,11 +132,13 @@ export class PersonnelListComponent implements OnInit {
     }
     // Filter results
     setQuery(query: string) {
+        console.log(query);
         let link: [any];
         this.listParams.query = query;
         link = ['/personnel', this.listParams.id, {
             query: this.listParams.query,
-            layout: this.listParams.layout
+            layout: this.listParams.layout,
+            perPage: this.listParams.perPage
         }];
         this.router.navigate(link);
     }

@@ -12,9 +12,6 @@ import { PersonDetailComponent } from './person-detail.component';
 
 import { QuickAddComponent } from './quick-add.component';
 
-/* Pipes */
-import { PageListPipe } from './list-manipulation/page-list.pipe';
-
 import { personnelRouting } from './personnel.routing';
 
 @NgModule({
@@ -30,8 +27,7 @@ import { personnelRouting } from './personnel.routing';
         PersonnelListComponent,
         ProfilePreviewComponent,
         PersonDetailComponent,
-        QuickAddComponent,
-        PageListPipe
+        QuickAddComponent
     ],
     providers: [
 

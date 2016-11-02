@@ -11,7 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var project_center_component_1 = require('./project-center.component');
-var add_project_component_1 = require('./add-project.component');
+var project_list_component_1 = require('./project-list.component');
+var project_toolbar_component_1 = require('./project-toolbar.component');
+var key_header_pipe_1 = require('./pipes/key-header.pipe');
+var format_by_type_pipe_1 = require('./pipes/format-by-type.pipe');
+var common_2 = require('@angular/common');
 var projects_routing_1 = require('./projects.routing');
 var ProjectsModule = (function () {
     function ProjectsModule() {
@@ -24,9 +28,14 @@ var ProjectsModule = (function () {
             ],
             declarations: [
                 project_center_component_1.ProjectCenterComponent,
-                add_project_component_1.AddProjectComponent
+                project_list_component_1.ProjectListComponent,
+                project_toolbar_component_1.ProjectToolbarComponent,
+                key_header_pipe_1.KeyHeaderPipe,
+                format_by_type_pipe_1.FormatByTypePipe
             ],
-            providers: []
+            providers: [
+                common_2.DatePipe, common_2.CurrencyPipe
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectsModule);

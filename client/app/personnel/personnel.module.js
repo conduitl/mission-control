@@ -18,8 +18,6 @@ var personnel_list_component_1 = require('./personnel-list.component');
 var profile_preview_component_1 = require('./profile-preview.component');
 var person_detail_component_1 = require('./person-detail.component');
 var quick_add_component_1 = require('./quick-add.component');
-/* Pipes */
-var page_list_pipe_1 = require('./list-manipulation/page-list.pipe');
 var personnel_routing_1 = require('./personnel.routing');
 var PersonnelModule = (function () {
     function PersonnelModule() {
@@ -38,8 +36,7 @@ var PersonnelModule = (function () {
                 personnel_list_component_1.PersonnelListComponent,
                 profile_preview_component_1.ProfilePreviewComponent,
                 person_detail_component_1.PersonDetailComponent,
-                quick_add_component_1.QuickAddComponent,
-                page_list_pipe_1.PageListPipe
+                quick_add_component_1.QuickAddComponent
             ],
             providers: []
         }), 

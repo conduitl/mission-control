@@ -13,7 +13,7 @@ import { ProjectService } from './project.service';
             <div class="page-header">
                 <h1>Project Center - Coming soon</h1>
                 <hr>
-                <ct7-project-toolbar (onFilter)="displayAlert($event)"></ct7-project-toolbar>
+                <ct7-project-toolbar (onFilter)="applyFilter($event, filterConfig)"></ct7-project-toolbar>
                 <div *ngIf="alert" class="alert alert-info">Filter term is '{{alert}}'. Number of events fired so far: {{totalEvents}}</div>
                 <ct7-project-list [list]="projects" [config]="projectColFormat"></ct7-project-list>
             </div>
@@ -21,10 +21,14 @@ import { ProjectService } from './project.service';
     `
 })
 export class ProjectCenterComponent implements OnInit {
-    // Add a few mock projects
+    // Project data
     projects: Project[];
     // project column formatting info
     projectColFormat: ProjectFormat;
+    // filter settings
+    filterConfig = {
+        exclude_keys: ['launch_date', 'budget']
+    };
     // Temporary prop to store output values from toolbar
     alert: string;
     totalEvents: number;
@@ -39,6 +43,10 @@ export class ProjectCenterComponent implements OnInit {
                 budget: 'currency:USD:true:1.0-0'
             }
         );
+    }
+
+    applyFilter(filter: string, settings?: { exclude_keys: string[] }) {
+        this.projects = this.projectService.filterProjects(filter, settings);
     }
 
     displayAlert(event: FilterEvent) {

@@ -13,7 +13,6 @@ var Subject_1 = require('rxjs/Subject');
 var ProjectToolbarComponent = (function () {
     function ProjectToolbarComponent() {
         this.onFilter = new core_1.EventEmitter();
-        this.eventsFired = 0; // for testing
         this.filterTerms = new Subject_1.Subject();
     }
     ProjectToolbarComponent.prototype.ngOnInit = function () {
@@ -22,7 +21,7 @@ var ProjectToolbarComponent = (function () {
             .debounceTime(300)
             .distinctUntilChanged();
         this.filter = this.passedTerms.subscribe(function (filter) {
-            _this.setFilter(filter);
+            _this.propagateFilter(filter);
         }, function (err) {
             // implement error handling here
             console.log(err);
@@ -32,12 +31,8 @@ var ProjectToolbarComponent = (function () {
     ProjectToolbarComponent.prototype.addTerm = function (term) {
         this.filterTerms.next(term);
     };
-    ProjectToolbarComponent.prototype.setFilter = function (filter) {
-        this.eventsFired++; // for testing
-        this.onFilter.emit({
-            currentEvent: filter,
-            totalEventsFired: this.eventsFired
-        });
+    ProjectToolbarComponent.prototype.propagateFilter = function (filter) {
+        this.onFilter.emit(filter);
     };
     __decorate([
         core_1.Output(), 

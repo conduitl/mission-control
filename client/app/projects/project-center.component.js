@@ -16,6 +16,10 @@ var project_service_1 = require('./project.service');
 var ProjectCenterComponent = (function () {
     function ProjectCenterComponent(projectService) {
         this.projectService = projectService;
+        // filter settings
+        this.filterConfig = {
+            exclude_keys: ['launch_date', 'budget']
+        };
     }
     ProjectCenterComponent.prototype.ngOnInit = function () {
         this.projects = this.projectService.getProjects();
@@ -23,6 +27,9 @@ var ProjectCenterComponent = (function () {
             launch_date: 'date:MMM y',
             budget: 'currency:USD:true:1.0-0'
         });
+    };
+    ProjectCenterComponent.prototype.applyFilter = function (filter, settings) {
+        this.projects = this.projectService.filterProjects(filter, settings);
     };
     ProjectCenterComponent.prototype.displayAlert = function (event) {
         if (event && event.currentEvent !== undefined) {
@@ -33,7 +40,7 @@ var ProjectCenterComponent = (function () {
     ProjectCenterComponent = __decorate([
         core_1.Component({
             selector: 'project-center',
-            template: "\n        <div class=\"container-fluid\">\n            <div class=\"page-header\">\n                <h1>Project Center - Coming soon</h1>\n                <hr>\n                <ct7-project-toolbar (onFilter)=\"displayAlert($event)\"></ct7-project-toolbar>\n                <div *ngIf=\"alert\" class=\"alert alert-info\">Filter term is '{{alert}}'. Number of events fired so far: {{totalEvents}}</div>\n                <ct7-project-list [list]=\"projects\" [config]=\"projectColFormat\"></ct7-project-list>\n            </div>\n        </div>\n    "
+            template: "\n        <div class=\"container-fluid\">\n            <div class=\"page-header\">\n                <h1>Project Center - Coming soon</h1>\n                <hr>\n                <ct7-project-toolbar (onFilter)=\"applyFilter($event, filterConfig)\"></ct7-project-toolbar>\n                <div *ngIf=\"alert\" class=\"alert alert-info\">Filter term is '{{alert}}'. Number of events fired so far: {{totalEvents}}</div>\n                <ct7-project-list [list]=\"projects\" [config]=\"projectColFormat\"></ct7-project-list>\n            </div>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [project_service_1.ProjectService])
     ], ProjectCenterComponent);

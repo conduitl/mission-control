@@ -24,6 +24,30 @@ var ProjectService = (function () {
         }
         return format;
     };
+    ProjectService.prototype.filterProjects = function (term, settings) {
+        var regexp = new RegExp(term, 'i');
+        return project_mockdata_1.Projects.filter(function (project) {
+            var _loop_1 = function(prop) {
+                var excluded = false, match = void 0;
+                if (settings && settings.exclude_keys) {
+                    excluded = settings.exclude_keys.some(function (val) {
+                        return val === prop;
+                    });
+                }
+                if (!excluded) {
+                    match = regexp.test(project[prop]);
+                    if (match) {
+                        return { value: true };
+                    }
+                }
+            };
+            for (var prop in project) {
+                var state_1 = _loop_1(prop);
+                if (typeof state_1 === "object") return state_1.value;
+            }
+            return false;
+        });
+    };
     ProjectService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

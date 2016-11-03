@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FilterEvent } from './project.model';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -17,8 +16,7 @@ import { Subscription } from 'rxjs/Subscription';
     `]
 })
 export class ProjectToolbarComponent implements OnInit {
-    @Output() onFilter = new EventEmitter<FilterEvent>();
-    eventsFired: number = 0; // for testing
+    @Output() onFilter = new EventEmitter<string>();
 
     private filterTerms = new Subject<string>();
     private passedTerms: Observable<string>;
@@ -30,7 +28,7 @@ export class ProjectToolbarComponent implements OnInit {
 
         this.filter = this.passedTerms.subscribe(
             (filter: string) => {
-                this.setFilter(filter);
+                this.propagateFilter(filter);
             },
             (err) => {
                 // implement error handling here
@@ -44,11 +42,7 @@ export class ProjectToolbarComponent implements OnInit {
         this.filterTerms.next(term);
     }
 
-    setFilter(filter: string) {
-        this.eventsFired++;  // for testing
-        this.onFilter.emit({
-            currentEvent: filter,
-            totalEventsFired: this.eventsFired
-        });
+    propagateFilter(filter: string) {
+        this.onFilter.emit(filter);
     }
 }

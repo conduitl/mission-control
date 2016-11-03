@@ -13,8 +13,11 @@ import { ProjectService } from './project.service';
             <div class="page-header">
                 <h1>Project Center - Coming soon</h1>
                 <hr>
-                <ct7-project-toolbar (onFilter)="applyFilter($event, filterConfig)"></ct7-project-toolbar>
-                <div *ngIf="alert" class="alert alert-info">Filter term is '{{alert}}'. Number of events fired so far: {{totalEvents}}</div>
+                <ct7-project-toolbar 
+                    (onFilter)="applyFilter($event, filterConfig)"
+                    (alert)="displayAlert($event)">
+                </ct7-project-toolbar>
+                <div *ngIf="alert" class="alert alert-danger">{{alert}}</div>
                 <ct7-project-list [list]="projects" [config]="projectColFormat"></ct7-project-list>
             </div>
         </div>
@@ -47,12 +50,13 @@ export class ProjectCenterComponent implements OnInit {
 
     applyFilter(filter: string, settings?: { exclude_keys: string[] }) {
         this.projects = this.projectService.filterProjects(filter, settings);
+        this.clearAlert();
     }
 
-    displayAlert(event: FilterEvent) {
-        if (event && event.currentEvent !== undefined) {
-            this.alert = event.currentEvent;
-            this.totalEvents = event.totalEventsFired;
-        } 
+    displayAlert(message: string) {
+        this.alert = message;
+    }
+    clearAlert() {
+        this.alert = null;
     }
  }

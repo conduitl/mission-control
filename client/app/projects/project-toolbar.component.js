@@ -13,6 +13,7 @@ var Subject_1 = require('rxjs/Subject');
 var ProjectToolbarComponent = (function () {
     function ProjectToolbarComponent() {
         this.onFilter = new core_1.EventEmitter();
+        this.alert = new core_1.EventEmitter();
         this.filterTerms = new Subject_1.Subject();
     }
     ProjectToolbarComponent.prototype.ngOnInit = function () {
@@ -21,6 +22,15 @@ var ProjectToolbarComponent = (function () {
             .debounceTime(300)
             .distinctUntilChanged();
         this.filter = this.passedTerms.subscribe(function (filter) {
+            var invalidChars, message;
+            // catch invalid filters here --- allow this far so we can pass message to the user
+            invalidChars = filter.match(/[^\w\s]/g);
+            if (invalidChars) {
+                message = 'Contains invalid characters: ' + invalidChars.join('');
+                _this.propagateAlert(message);
+                return;
+            }
+            // allow the filter to be emitted
             _this.propagateFilter(filter);
         }, function (err) {
             // implement error handling here
@@ -34,10 +44,17 @@ var ProjectToolbarComponent = (function () {
     ProjectToolbarComponent.prototype.propagateFilter = function (filter) {
         this.onFilter.emit(filter);
     };
+    ProjectToolbarComponent.prototype.propagateAlert = function (message) {
+        this.alert.emit(message);
+    };
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
     ], ProjectToolbarComponent.prototype, "onFilter", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ProjectToolbarComponent.prototype, "alert", void 0);
     ProjectToolbarComponent = __decorate([
         core_1.Component({
             selector: 'ct7-project-toolbar',

@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ProjectToolbarComponent implements OnInit {
     @Output() onFilter = new EventEmitter<string>();
+    @Output() alert = new EventEmitter<string>();
 
     private filterTerms = new Subject<string>();
     private passedTerms: Observable<string>;
@@ -28,6 +29,15 @@ export class ProjectToolbarComponent implements OnInit {
 
         this.filter = this.passedTerms.subscribe(
             (filter: string) => {
+                let invalidChars: string[], message: string;
+                // catch invalid filters here --- allow this far so we can pass message to the user
+                invalidChars = filter.match(/[^\w\s]/g);
+                if (invalidChars) {
+                    message = 'Contains invalid characters: ' + invalidChars.join('');
+                    this.propagateAlert(message);
+                    return;
+                }
+                // allow the filter to be emitted
                 this.propagateFilter(filter);
             },
             (err) => {
@@ -44,5 +54,8 @@ export class ProjectToolbarComponent implements OnInit {
 
     propagateFilter(filter: string) {
         this.onFilter.emit(filter);
+    }
+    propagateAlert(message: string) {
+        this.alert.emit(message);
     }
 }

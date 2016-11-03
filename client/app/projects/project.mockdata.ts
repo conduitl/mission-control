@@ -6,3 +6,13 @@ export const Projects: Project[] = [
     new Project(153, 'Orbital Power Plant', new Date(2035, 11), 'Danny Marquez', 100000000000),
     new Project(154, 'Interstellar Gateway', new Date(2090, 0), 'Lana Plotkin', 70000000000000)
 ];
+
+// export const Projects: Project[] = [
+//     {
+//         id: 151,
+//         name: 'Alpha Centauri Probe',
+//         launch_date: new Date(2030, 2),
+//         project_manager: 'Tom Rundle',
+//         budget: 20000000000
+//     }
+// ];

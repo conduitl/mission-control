@@ -13,7 +13,7 @@ var KeyHeaderPipe = (function () {
     function KeyHeaderPipe() {
     }
     KeyHeaderPipe.prototype.transform = function (value) {
-        return value.toUpperCase().replace('_', ' ');
+        return value.toUpperCase().replace(/_/g, ' ');
     };
     KeyHeaderPipe = __decorate([
         core_1.Pipe({ name: 'keyHeader' }), 

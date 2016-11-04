@@ -15,7 +15,8 @@ var ProjectService = (function () {
     function ProjectService() {
     }
     ProjectService.prototype.getProjects = function () {
-        return project_mockdata_1.Projects;
+        console.log(project_mockdata_1.ExampleProjects);
+        return project_mockdata_1.ExampleProjects;
     };
     ProjectService.prototype.defineValueFormats = function (definition) {
         var format = new project_model_1.ProjectFormat();
@@ -26,7 +27,7 @@ var ProjectService = (function () {
     };
     ProjectService.prototype.filterProjects = function (term, settings) {
         var regexp = new RegExp(term, 'i');
-        return project_mockdata_1.Projects.filter(function (project) {
+        return project_mockdata_1.ExampleProjects.filter(function (project) {
             var _loop_1 = function(prop) {
                 var excluded = false, match = void 0;
                 if (settings && settings.exclude_keys) {

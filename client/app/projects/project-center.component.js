@@ -25,7 +25,8 @@ var ProjectCenterComponent = (function () {
         this.projects = this.projectService.getProjects();
         this.projectColFormat = this.projectService.defineValueFormats({
             launch_date: 'date:MMM y',
-            budget: 'currency:USD:true:1.0-0'
+            budget: 'currency:USD:true:1.0-0',
+            spend: 'currency:USD:true:1.0-0'
         });
     };
     ProjectCenterComponent.prototype.applyFilter = function (filter, settings) {

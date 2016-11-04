@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Project, ProjectFormat } from './project.model';
-import { Projects } from './project.mockdata';
+import { ExampleProjects as Projects } from './project.mockdata';
 
 @Injectable()
 export class ProjectService {
     getProjects(): Project[] {
+        console.log(Projects);
         return Projects;
     }
     defineValueFormats(definition?: {}): ProjectFormat {

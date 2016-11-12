@@ -38,7 +38,8 @@ var ProjectCenterComponent = (function () {
             },
             {
                 primaryKey: 'percent_budget_spent',
-                header: 'Spend %'
+                header: 'Spend %',
+                format: 'percent'
             }
         ];
         /* Search filter settings */

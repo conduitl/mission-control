@@ -29,7 +29,7 @@ var TableModule = (function () {
             exports: [
                 table_layout_component_1.TableLayoutComponent
             ],
-            providers: [common_1.CurrencyPipe, common_1.DatePipe]
+            providers: [common_1.CurrencyPipe, common_1.DatePipe, common_1.PercentPipe]
         }), 
         __metadata('design:paramtypes', [])
     ], TableModule);

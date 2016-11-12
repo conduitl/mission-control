@@ -1,10 +1,16 @@
+// TODO - 
+// * make helper functions & import from util file
+// * config for percent pipe args
+// * custom pipe for rounding millions
+
 import { Pipe, PipeTransform } from '@angular/core';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, PercentPipe } from '@angular/common';
 @Pipe({ name: 'formatCell' })
 export class FormatCellPipe implements PipeTransform {
     constructor (
         private currencyPipe: CurrencyPipe,
-        private datePipe: DatePipe
+        private datePipe: DatePipe,
+        private percentPipe: PercentPipe
     ) { }
     transform(value: any, format: string) {
         if ( value === undefined ) {
@@ -27,6 +33,11 @@ export class FormatCellPipe implements PipeTransform {
             }
             // If default & not other cond, return value with no transform
             return value;
+        }
+        /* Percent */
+        if (format === 'percent') {
+            // TODO - allow config of pipe arg
+            return this.percentPipe.transform(value, '2.2-2');
         }
 
         /* Dates */

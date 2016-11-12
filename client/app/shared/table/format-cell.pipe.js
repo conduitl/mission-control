@@ -1,3 +1,7 @@
+// TODO - 
+// * make helper functions & import from util file
+// * config for percent pipe args
+// * custom pipe for rounding millions
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11,9 +15,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var FormatCellPipe = (function () {
-    function FormatCellPipe(currencyPipe, datePipe) {
+    function FormatCellPipe(currencyPipe, datePipe, percentPipe) {
         this.currencyPipe = currencyPipe;
         this.datePipe = datePipe;
+        this.percentPipe = percentPipe;
     }
     FormatCellPipe.prototype.transform = function (value, format) {
         if (value === undefined) {
@@ -37,6 +42,11 @@ var FormatCellPipe = (function () {
             }
             // If default & not other cond, return value with no transform
             return value;
+        }
+        /* Percent */
+        if (format === 'percent') {
+            // TODO - allow config of pipe arg
+            return this.percentPipe.transform(value, '2.2-2');
         }
         /* Dates */
         if (format.slice(0, 4) === 'date') {
@@ -63,7 +73,7 @@ var FormatCellPipe = (function () {
     };
     FormatCellPipe = __decorate([
         core_1.Pipe({ name: 'formatCell' }), 
-        __metadata('design:paramtypes', [common_1.CurrencyPipe, common_1.DatePipe])
+        __metadata('design:paramtypes', [common_1.CurrencyPipe, common_1.DatePipe, common_1.PercentPipe])
     ], FormatCellPipe);
     return FormatCellPipe;
 }());

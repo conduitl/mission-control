@@ -2,11 +2,14 @@
     <div class="page-header">
         <h1>Project Center - Coming soon</h1>
         <hr>
+        <!-- Toolbar --> 
         <ct7-project-toolbar 
             (onFilter)="applyFilter($event, filterConfig)"
             (alert)="displayAlert($event)">
         </ct7-project-toolbar>
+        <!-- Toolbar alerts --> 
         <div *ngIf="alert" class="alert alert-danger">{{alert}}</div>
+        <!-- Table -->
         <ct-table [records]="projects"
                   [caption]="'Project'"
                   [settings]="projectSettings">

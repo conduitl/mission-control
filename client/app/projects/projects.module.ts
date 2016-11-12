@@ -6,8 +6,6 @@ import { ProjectToolbarComponent } from './project-toolbar.component';
 
 import { StyleByTypeDirective } from './directives/style-by-type.directive';
 
-import { FormatByTypePipe } from './pipes/format-by-type.pipe';
-
 import { DatePipe, CurrencyPipe } from '@angular/common';
 
 import { ProjectService } from './project.service';
@@ -22,7 +20,6 @@ import { projectRouting } from './projects.routing';
     declarations: [
         ProjectCenterComponent,
         ProjectToolbarComponent,
-        FormatByTypePipe,
         StyleByTypeDirective
     ],
     providers: [

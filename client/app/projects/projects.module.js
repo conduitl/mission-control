@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var shared_module_1 = require('../shared/shared.module');
 var project_center_component_1 = require('./project-center.component');
-var project_list_component_1 = require('./project-list.component');
 var project_toolbar_component_1 = require('./project-toolbar.component');
 var style_by_type_directive_1 = require('./directives/style-by-type.directive');
 var key_header_pipe_1 = require('./pipes/key-header.pipe');
@@ -30,7 +29,6 @@ var ProjectsModule = (function () {
             ],
             declarations: [
                 project_center_component_1.ProjectCenterComponent,
-                project_list_component_1.ProjectListComponent,
                 project_toolbar_component_1.ProjectToolbarComponent,
                 key_header_pipe_1.KeyHeaderPipe,
                 format_by_type_pipe_1.FormatByTypePipe,

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 import { ProjectCenterComponent } from './project-center.component';
-import { ProjectListComponent } from './project-list.component';
 import { ProjectToolbarComponent } from './project-toolbar.component';
 
 import { StyleByTypeDirective } from './directives/style-by-type.directive';
@@ -23,7 +22,6 @@ import { projectRouting } from './projects.routing';
     ],
     declarations: [
         ProjectCenterComponent,
-        ProjectListComponent,
         ProjectToolbarComponent,
         KeyHeaderPipe,
         FormatByTypePipe,

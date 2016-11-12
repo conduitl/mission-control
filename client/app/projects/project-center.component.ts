@@ -37,39 +37,32 @@ export class ProjectCenterComponent implements OnInit {
           }
       ];
 
-
-
-
     // Project data
     projects: Project[];
     // project column formatting info
     projectColFormat: ProjectFormat;
-    // filter settings
+    /* Search filter settings */
     filterConfig = {
         exclude_keys: ['launch_date', 'budget']
     };
-    // Temporary prop to store output values from toolbar
-    alert: string;
-    totalEvents: number;
 
+    /* Alert for invalid toolbar entries */
+    alert: string;
+
+    /* Service injection */
     constructor(private projectService: ProjectService){}
 
+
+    /* Initialization */
     ngOnInit() {
         this.projects = this.projectService.getProjects();
-        this.projectColFormat = this.projectService.defineValueFormats(
-            {
-                launch_date: 'date:MMM y',
-                budget: 'currency:USD:true:1.0-0',
-                spend: 'currency:USD:true:1.0-0'
-            }
-        );
     }
 
+    /* Component class methods */
     applyFilter(filter: string, settings?: { exclude_keys: string[] }) {
         this.projects = this.projectService.filterProjects(filter, settings);
         this.clearAlert();
     }
-
     displayAlert(message: string) {
         this.alert = message;
     }

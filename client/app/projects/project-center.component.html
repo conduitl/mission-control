@@ -7,7 +7,6 @@
             (alert)="displayAlert($event)">
         </ct7-project-toolbar>
         <div *ngIf="alert" class="alert alert-danger">{{alert}}</div>
-        <!--<ct7-project-list [list]="projects" [config]="projectColFormat"></ct7-project-list>-->
         <ct-table [records]="projects"
                   [caption]="'Project'"
                   [settings]="projectSettings">

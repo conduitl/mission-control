@@ -14,6 +14,7 @@ var project_service_1 = require('./project.service');
 // this is because project center needs to verify that the projects are projects
 // the list needs to be a shared template that will display any kind of list.
 var ProjectCenterComponent = (function () {
+    /* Service injection */
     function ProjectCenterComponent(projectService) {
         this.projectService = projectService;
         /* Settings for table */
@@ -39,19 +40,16 @@ var ProjectCenterComponent = (function () {
                 header: 'Spend %'
             }
         ];
-        // filter settings
+        /* Search filter settings */
         this.filterConfig = {
             exclude_keys: ['launch_date', 'budget']
         };
     }
+    /* Initialization */
     ProjectCenterComponent.prototype.ngOnInit = function () {
         this.projects = this.projectService.getProjects();
-        this.projectColFormat = this.projectService.defineValueFormats({
-            launch_date: 'date:MMM y',
-            budget: 'currency:USD:true:1.0-0',
-            spend: 'currency:USD:true:1.0-0'
-        });
     };
+    /* Component class methods */
     ProjectCenterComponent.prototype.applyFilter = function (filter, settings) {
         this.projects = this.projectService.filterProjects(filter, settings);
         this.clearAlert();

@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>Project Center - Coming soon</h1>
+        <hr>
+        <ct7-project-toolbar 
+            (onFilter)="applyFilter($event, filterConfig)"
+            (alert)="displayAlert($event)">
+        </ct7-project-toolbar>
+        <div *ngIf="alert" class="alert alert-danger">{{alert}}</div>
+        <!--<ct7-project-list [list]="projects" [config]="projectColFormat"></ct7-project-list>-->
+        <ct-table [records]="projects"></ct-table>
+    </div>
+</div>

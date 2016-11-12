@@ -9,14 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var shared_module_1 = require('../shared/shared.module');
 var project_center_component_1 = require('./project-center.component');
 var project_list_component_1 = require('./project-list.component');
 var project_toolbar_component_1 = require('./project-toolbar.component');
 var style_by_type_directive_1 = require('./directives/style-by-type.directive');
 var key_header_pipe_1 = require('./pipes/key-header.pipe');
 var format_by_type_pipe_1 = require('./pipes/format-by-type.pipe');
-var common_2 = require('@angular/common');
+var common_1 = require('@angular/common');
 var project_service_1 = require('./project.service');
 var projects_routing_1 = require('./projects.routing');
 var ProjectsModule = (function () {
@@ -25,7 +25,7 @@ var ProjectsModule = (function () {
     ProjectsModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule,
+                shared_module_1.SharedModule,
                 projects_routing_1.projectRouting
             ],
             declarations: [
@@ -37,7 +37,7 @@ var ProjectsModule = (function () {
                 style_by_type_directive_1.StyleByTypeDirective
             ],
             providers: [
-                common_2.DatePipe, common_2.CurrencyPipe, project_service_1.ProjectService
+                common_1.DatePipe, common_1.CurrencyPipe, project_service_1.ProjectService
             ]
         }), 
         __metadata('design:paramtypes', [])

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project, ProjectFormat, FilterEvent } from './project.model';
+import { Project, ProjectFormat, FilterEvent } from '../fake-data-gen/project.model';
 import { ProjectService } from './project.service';
 
 // Project Center will actually call the service rather than allow the list to
@@ -8,20 +8,7 @@ import { ProjectService } from './project.service';
 
 @Component({
     selector: 'project-center',
-    template:`
-        <div class="container-fluid">
-            <div class="page-header">
-                <h1>Project Center - Coming soon</h1>
-                <hr>
-                <ct7-project-toolbar 
-                    (onFilter)="applyFilter($event, filterConfig)"
-                    (alert)="displayAlert($event)">
-                </ct7-project-toolbar>
-                <div *ngIf="alert" class="alert alert-danger">{{alert}}</div>
-                <ct7-project-list [list]="projects" [config]="projectColFormat"></ct7-project-list>
-            </div>
-        </div>
-    `
+    templateUrl: 'app/projects/project-center.component.html'
 })
 export class ProjectCenterComponent implements OnInit {
     // Project data

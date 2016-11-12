@@ -9,14 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var project_model_1 = require('./project.model');
-var project_mockdata_1 = require('./project.mockdata');
+var project_model_1 = require('../fake-data-gen/project.model');
+var projects_gen_1 = require('../fake-data-gen/projects-gen');
 var ProjectService = (function () {
     function ProjectService() {
     }
     ProjectService.prototype.getProjects = function () {
-        console.log(project_mockdata_1.ExampleProjects);
-        return project_mockdata_1.ExampleProjects;
+        console.log(projects_gen_1.ExampleProjects);
+        return projects_gen_1.ExampleProjects;
     };
     ProjectService.prototype.defineValueFormats = function (definition) {
         var format = new project_model_1.ProjectFormat();
@@ -27,7 +27,7 @@ var ProjectService = (function () {
     };
     ProjectService.prototype.filterProjects = function (term, settings) {
         var regexp = new RegExp(term, 'i');
-        return project_mockdata_1.ExampleProjects.filter(function (project) {
+        return projects_gen_1.ExampleProjects.filter(function (project) {
             var _loop_1 = function(prop) {
                 var excluded = false, match = void 0;
                 if (settings && settings.exclude_keys) {

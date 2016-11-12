@@ -17,13 +17,16 @@ var iterator_directive_1 = require('./iterator.directive');
 /* Components */
 var list_layout_component_1 = require('./list-layout.component');
 var grid_layout_component_1 = require('./grid-layout.component');
+/* Modules */
+var table_module_1 = require('./table/table.module');
 var SharedModule = (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule
+                common_1.CommonModule,
+                table_module_1.TableModule
             ],
             declarations: [
                 list_layout_component_1.ListLayoutComponent,
@@ -34,7 +37,8 @@ var SharedModule = (function () {
             exports: [
                 common_1.CommonModule,
                 list_layout_component_1.ListLayoutComponent,
-                grid_layout_component_1.GridLayoutComponent
+                grid_layout_component_1.GridLayoutComponent,
+                table_module_1.TableModule
             ]
         }), 
         __metadata('design:paramtypes', [])

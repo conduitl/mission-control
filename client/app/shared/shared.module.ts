@@ -11,9 +11,13 @@ import { IteratorDirective } from './iterator.directive';
 import { ListLayoutComponent } from './list-layout.component';
 import { GridLayoutComponent } from './grid-layout.component';
 
+/* Modules */
+import { TableModule } from './table/table.module'
+
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        TableModule
     ],
     declarations: [
         ListLayoutComponent,
@@ -24,7 +28,8 @@ import { GridLayoutComponent } from './grid-layout.component';
     exports: [
         CommonModule,
         ListLayoutComponent,
-        GridLayoutComponent
+        GridLayoutComponent,
+        TableModule
     ]
 })
 export class SharedModule { }

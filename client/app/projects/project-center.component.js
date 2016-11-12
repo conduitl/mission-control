@@ -42,7 +42,7 @@ var ProjectCenterComponent = (function () {
     ProjectCenterComponent = __decorate([
         core_1.Component({
             selector: 'project-center',
-            template: "\n        <div class=\"container-fluid\">\n            <div class=\"page-header\">\n                <h1>Project Center - Coming soon</h1>\n                <hr>\n                <ct7-project-toolbar \n                    (onFilter)=\"applyFilter($event, filterConfig)\"\n                    (alert)=\"displayAlert($event)\">\n                </ct7-project-toolbar>\n                <div *ngIf=\"alert\" class=\"alert alert-danger\">{{alert}}</div>\n                <ct7-project-list [list]=\"projects\" [config]=\"projectColFormat\"></ct7-project-list>\n            </div>\n        </div>\n    "
+            templateUrl: 'app/projects/project-center.component.html'
         }), 
         __metadata('design:paramtypes', [project_service_1.ProjectService])
     ], ProjectCenterComponent);

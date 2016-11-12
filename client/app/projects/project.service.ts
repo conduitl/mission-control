@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Project, ProjectFormat } from './project.model';
-import { ExampleProjects as Projects } from './project.mockdata';
+import { Project, ProjectFormat } from '../fake-data-gen/project.model';
+import { ExampleProjects as Projects } from '../fake-data-gen/projects-gen';
 
 @Injectable()
 export class ProjectService {

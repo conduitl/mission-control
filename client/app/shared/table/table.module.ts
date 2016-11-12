@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { TableLayoutComponent } from './table-layout.component';
 import { FormatCellPipe } from './format-cell.pipe';
 import { StyleCellDirective } from './style-cell.directive';
@@ -15,6 +15,6 @@ import { StyleCellDirective } from './style-cell.directive';
     exports: [
         TableLayoutComponent
     ],
-    providers: [ CurrencyPipe ]
+    providers: [ CurrencyPipe, DatePipe ]
 })
 export class TableModule { }

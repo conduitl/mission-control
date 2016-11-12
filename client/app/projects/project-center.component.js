@@ -25,15 +25,16 @@ var ProjectCenterComponent = (function () {
             {
                 primaryKey: 'first_launch',
                 header: 'First Launch',
+                format: 'date:MMM y',
                 alternativeKeys: ['launch_date', 'first_flight']
             },
             {
                 primaryKey: 'budget',
-                format: 'currency'
+                format: 'currency:USD:true:1.0-0'
             },
             {
                 primaryKey: 'spend',
-                format: 'currency'
+                format: 'currency:USD:true:1.0-0'
             },
             {
                 primaryKey: 'percent_budget_spent',

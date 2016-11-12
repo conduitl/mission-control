@@ -11,14 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var FormatCellPipe = (function () {
-    function FormatCellPipe(currencyPipe) {
+    function FormatCellPipe(currencyPipe, datePipe) {
         this.currencyPipe = currencyPipe;
+        this.datePipe = datePipe;
     }
     FormatCellPipe.prototype.transform = function (value, format) {
         if (value === undefined) {
             return 'not available';
         }
-        if (format === 'default') {
+        if (format === 'default' || format === null) {
             if (Array.isArray(value)) {
                 if (typeof value[0] !== 'object') {
                     return value.join(', ');
@@ -29,18 +30,40 @@ var FormatCellPipe = (function () {
                     }).join(', ');
                 }
             }
+            // TODO: Allow config for handling nested objects
+            // TODO: ID instance of Date
             if (typeof value === "object") {
-                return value.name;
+                return value.name ? value.name : 'Unknown object';
             }
+            // If default & not other cond, return value with no transform
+            return value;
         }
-        if (format === 'currency') {
-            return this.currencyPipe.transform(value, 'USD', true);
+        /* Dates */
+        if (format.slice(0, 4) === 'date') {
+            var arg = format.split(':')[1];
+            if (arg) {
+                return this.datePipe.transform(value, arg);
+            }
+            return this.datePipe.transform(value, 'fullDate');
         }
+        /* Currency */
+        if (format.slice(0, 8) === 'currency') {
+            var args = format.split(':').slice(1);
+            return this.currencyPipe.transform(value, args[0], isTrue(args[1]), args[2]);
+        }
+        // If no cond met, simply return value
         return value;
+        // helper function
+        function isTrue(val) {
+            if (val === 'true') {
+                return true;
+            }
+            return false;
+        }
     };
     FormatCellPipe = __decorate([
         core_1.Pipe({ name: 'formatCell' }), 
-        __metadata('design:paramtypes', [common_1.CurrencyPipe])
+        __metadata('design:paramtypes', [common_1.CurrencyPipe, common_1.DatePipe])
     ], FormatCellPipe);
     return FormatCellPipe;
 }());

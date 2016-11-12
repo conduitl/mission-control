@@ -1,15 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 @Pipe({ name: 'formatCell' })
 export class FormatCellPipe implements PipeTransform {
     constructor (
-        private currencyPipe: CurrencyPipe
+        private currencyPipe: CurrencyPipe,
+        private datePipe: DatePipe
     ) { }
     transform(value: any, format: string) {
         if ( value === undefined ) {
             return 'not available';
         }
-        if ( format === 'default' ) {
+        if ( format === 'default' || format === null) {
             if ( Array.isArray(value) ) {
                 if ( typeof value[0] !== 'object' ) {
                     return value.join(', ');
@@ -19,6 +20,7 @@ export class FormatCellPipe implements PipeTransform {
                     }).join(', ');
                 }
             }
+            // TODO: Allow config for handling nested objects
             if ( typeof value === "object") {
                 return value.name
             }
@@ -29,5 +31,13 @@ export class FormatCellPipe implements PipeTransform {
         }
         
         return value;
+
+        // helper function
+        function isTrue(val: string) {
+            if (val === 'true') {
+                return true;
+            }
+            return false;
+        }
     }
 }

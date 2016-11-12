@@ -16,6 +16,29 @@ var project_service_1 = require('./project.service');
 var ProjectCenterComponent = (function () {
     function ProjectCenterComponent(projectService) {
         this.projectService = projectService;
+        /* Settings for table */
+        this.projectSettings = [
+            {
+                primaryKey: 'name'
+            },
+            {
+                primaryKey: 'first_launch',
+                header: 'First Launch',
+                alternativeKeys: ['launch_date', 'first_flight']
+            },
+            {
+                primaryKey: 'budget',
+                format: 'currency'
+            },
+            {
+                primaryKey: 'spend',
+                format: 'currency'
+            },
+            {
+                primaryKey: 'percent_budget_spent',
+                header: 'Spend %'
+            }
+        ];
         // filter settings
         this.filterConfig = {
             exclude_keys: ['launch_date', 'budget']

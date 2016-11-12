@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project, ProjectFormat, FilterEvent } from '../fake-data-gen/project.model';
 import { ProjectService } from './project.service';
+import { ColumnSetting } from '../shared/table/layout.model';
 
 // Project Center will actually call the service rather than allow the list to
 // this is because project center needs to verify that the projects are projects
@@ -11,6 +12,34 @@ import { ProjectService } from './project.service';
     templateUrl: 'app/projects/project-center.component.html'
 })
 export class ProjectCenterComponent implements OnInit {
+    /* Settings for table */
+    projectSettings: ColumnSetting[] = 
+      [
+          {
+              primaryKey: 'name'
+          },
+          {
+              primaryKey: 'first_launch',
+              header: 'First Launch',
+              alternativeKeys: ['launch_date', 'first_flight']
+          },
+          {
+              primaryKey: 'budget',
+              format: 'currency'
+          },
+          {
+              primaryKey: 'spend',
+              format: 'currency'
+          },
+          {
+              primaryKey: 'percent_budget_spent',
+              header: 'Spend %'
+          }
+      ];
+
+
+
+
     // Project data
     projects: Project[];
     // project column formatting info

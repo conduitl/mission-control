@@ -15,7 +15,6 @@ var ProjectService = (function () {
     function ProjectService() {
     }
     ProjectService.prototype.getProjects = function () {
-        console.log(projects_gen_1.ExampleProjects);
         return projects_gen_1.ExampleProjects;
     };
     ProjectService.prototype.defineValueFormats = function (definition) {

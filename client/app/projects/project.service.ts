@@ -5,7 +5,6 @@ import { ExampleProjects as Projects } from '../fake-data-gen/projects-gen';
 @Injectable()
 export class ProjectService {
     getProjects(): Project[] {
-        console.log(Projects);
         return Projects;
     }
     defineValueFormats(definition?: {}): ProjectFormat {

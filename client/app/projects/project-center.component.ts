@@ -35,7 +35,7 @@ export class ProjectCenterComponent implements OnInit {
           {
               primaryKey: 'percent_budget_spent',
               header: 'Spend %',
-              format: 'percent'
+              format: 'percent:2.2-2'
           }
       ];
 

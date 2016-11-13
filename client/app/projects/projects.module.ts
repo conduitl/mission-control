@@ -4,8 +4,6 @@ import { SharedModule } from '../shared/shared.module';
 import { ProjectCenterComponent } from './project-center.component';
 import { ProjectToolbarComponent } from './project-toolbar.component';
 
-import { StyleByTypeDirective } from './directives/style-by-type.directive';
-
 import { DatePipe, CurrencyPipe } from '@angular/common';
 
 import { ProjectService } from './project.service';
@@ -19,8 +17,7 @@ import { projectRouting } from './projects.routing';
     ],
     declarations: [
         ProjectCenterComponent,
-        ProjectToolbarComponent,
-        StyleByTypeDirective
+        ProjectToolbarComponent
     ],
     providers: [
         DatePipe, CurrencyPipe, ProjectService

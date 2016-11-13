@@ -1,9 +1,4 @@
 import { CurrencyPipe, DatePipe, PercentPipe } from '@angular/common';
-export interface PipeControl {
-    currency: CurrencyPipe,
-    date: DatePipe,
-    percent: PercentPipe
-};
 
 export const util = { 
     isTrue: function (val: string) {

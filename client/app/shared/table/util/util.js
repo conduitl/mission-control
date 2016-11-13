@@ -1,5 +1,4 @@
 "use strict";
-;
 exports.util = {
     isTrue: function (val) {
         if (val === 'true') {

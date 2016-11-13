@@ -10,9 +10,13 @@
         <!-- Toolbar alerts --> 
         <div *ngIf="alert" class="alert alert-danger">{{alert}}</div>
         <!-- Table -->
-        <ct-table [records]="projects"
-                  [caption]="'Project'"
-                  [settings]="projectSettings">
-        </ct-table>
+        <div class="panel panel-default">
+            <div class="panel-body">
+            <ct-table [records]="projects"
+                    [caption]="'Project'"
+                    [settings]="projectSettings">
+            </ct-table>
+            </div>
+        </div>
     </div>
 </div>

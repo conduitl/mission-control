@@ -6,7 +6,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 import { CurrencyPipe, DatePipe, PercentPipe } from '@angular/common';
-import { util as _, PipeControl } from './util/util';
+import { util as _ } from './util/util';
 @Pipe({ name: 'formatCell' })
 export class FormatCellPipe implements PipeTransform {
     constructor (

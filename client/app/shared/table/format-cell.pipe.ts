@@ -6,7 +6,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 import { CurrencyPipe, DatePipe, PercentPipe } from '@angular/common';
-import { util as _ } from './util/util';
+import { util as _, PipeControl } from './util/util';
 @Pipe({ name: 'formatCell' })
 export class FormatCellPipe implements PipeTransform {
     constructor (
@@ -27,14 +27,15 @@ export class FormatCellPipe implements PipeTransform {
             // If default & not other cond, return value with no transform
             return value;
         }
+
         /* Percent */
-        if (format.slice(0, 7) === 'percent') {
+        if ( _.isPipe('percent', format ) ) {
             let arg: any = _.extractPipeParams(format);
             return this.percentPipe.transform(value, arg);
         }
 
         /* Dates */
-        if (format.slice(0, 4) === 'date') {
+        if ( _.isPipe('date', format) ) {
             let arg: any = _.extractPipeParams(format);
             if (arg) {
                 return this.datePipe.transform(value, arg);
@@ -43,7 +44,7 @@ export class FormatCellPipe implements PipeTransform {
         }
         
         /* Currency */
-        if (format.slice(0, 8) === 'currency') {
+        if ( _.isPipe('currency', format) ) {
             let args: any = _.extractPipeParams(format);
             args[1] = _.isTrue(args[1]);
             return this.currencyPipe.transform(value, args[0], args[1], args[2] );

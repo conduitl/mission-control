@@ -1,3 +1,10 @@
+import { CurrencyPipe, DatePipe, PercentPipe } from '@angular/common';
+export interface PipeControl {
+    currency: CurrencyPipe,
+    date: DatePipe,
+    percent: PercentPipe
+};
+
 export const util = { 
     isTrue: function (val: string) {
         if (val === 'true') {
@@ -21,5 +28,9 @@ export const util = {
     extractPipeParams: function (val: string) {
         let params = val.split(':').slice(1);
         return params.length > 1 ? params : params[0];
+    },
+    isPipe(name: string, params: string): boolean {
+        let len = name.length;
+        return params.slice(0, len) === name;
     }
 }

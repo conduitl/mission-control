@@ -36,12 +36,12 @@ var FormatCellPipe = (function () {
             return value;
         }
         /* Percent */
-        if (format.slice(0, 7) === 'percent') {
+        if (util_1.util.isPipe('percent', format)) {
             var arg = util_1.util.extractPipeParams(format);
             return this.percentPipe.transform(value, arg);
         }
         /* Dates */
-        if (format.slice(0, 4) === 'date') {
+        if (util_1.util.isPipe('date', format)) {
             var arg = util_1.util.extractPipeParams(format);
             if (arg) {
                 return this.datePipe.transform(value, arg);
@@ -49,7 +49,7 @@ var FormatCellPipe = (function () {
             return this.datePipe.transform(value, 'fullDate');
         }
         /* Currency */
-        if (format.slice(0, 8) === 'currency') {
+        if (util_1.util.isPipe('currency', format)) {
             var args = util_1.util.extractPipeParams(format);
             args[1] = util_1.util.isTrue(args[1]);
             return this.currencyPipe.transform(value, args[0], args[1], args[2]);
